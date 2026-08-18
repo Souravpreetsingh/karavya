@@ -1,0 +1,603 @@
+<!-- KARAVYA | Order Confirmation & Journey -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KARAVYA - Order Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {"rose-white": "#FFF5F7", "deep-rose": "#8F4A5B", "rose-gold": "#B76E79", 
+                        "on-tertiary-fixed": "#29180e",
+                        "on-primary-fixed": "#3a0915",
+                        "on-surface": "#1f1a1c",
+                        "surface-container-high": "#efe6e8",
+                        "outline-variant": "#d7c1c3",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fff8f8",
+                        "secondary-fixed-dim": "#f6b7b7",
+                        "tertiary-fixed-dim": "#e0c0b0",
+                        "on-tertiary-fixed-variant": "#584236",
+                        "surface-container": "#f5ebed",
+                        "pearl-rose": "#FCECEF",
+                        "primary": "#8a4853",
+                        "primary-fixed": "#ffd9dd",
+                        "on-secondary-fixed": "#331012",
+                        "tertiary-fixed": "#fddccb",
+                        "background": "#fff8f8",
+                        "dark-espresso": "#2B1B1F",
+                        "tertiary": "#6f574a",
+                        "secondary": "#825152",
+                        "primary-fixed-dim": "#ffb2bc",
+                        "on-background": "#1f1a1c",
+                        "blush-rose": "#F8DCE3",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#524345",
+                        "on-primary-fixed-variant": "#70343e",
+                        "surface-tint": "#8c4b55",
+                        "inverse-on-surface": "#f8eef0",
+                        "tertiary-container": "#896f62",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "deep-rose": "#8F4A5B",
+                        "surface-variant": "#eae0e2",
+                        "secondary-container": "#ffbfbf",
+                        "surface-container-low": "#fbf1f3",
+                        "secondary-fixed": "#ffdad9",
+                        "on-secondary-container": "#7b4b4b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#fffbff",
+                        "surface-dim": "#e1d8da",
+                        "soft-rose": "#EFB7C5",
+                        "surface": "#fff8f8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#673a3b",
+                        "primary-container": "#a6606b",
+                        "on-primary-container": "#fffbff",
+                        "surface-container-highest": "#eae0e2",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "outline": "#857374",
+                        "inverse-surface": "#342f31",
+                        "inverse-primary": "#ffb2bc",
+                        "rose-white": "#FFF5F7",
+                        "rose-gold": "#C98F8F"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap-md": "80px",
+                        "container-max": "1440px",
+                        "section-gap-lg": "120px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["DM Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["DM Sans"],
+                        "label-lg": ["DM Sans"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "label-sm": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                        "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "label-sm": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(252, 236, 239, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(215, 193, 195, 0.3);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Custom timeline line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, #8F4A5B 30%, #C98F8F 30%, #C98F8F 100%);
+            z-index: 0;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.8);
+                box-shadow: 0 0 0 0 rgba(201, 143, 143, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(201, 143, 143, 0);
+            }
+            100% {
+                transform: scale(0.8);
+                box-shadow: 0 0 0 0 rgba(201, 143, 143, 0);
+            }
+        }
+        
+        .animated-indicator {
+            animation: pulse-ring 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-rose-gold selection:text-white">
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+<!-- TopNavBar (Nav suppressed as per Transactional rule) -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-margin-desktop py-base max-w-container-max mx-auto h-20">
+<a class="font-display-lg text-headline-lg tracking-tighter text-dark-espresso" href="index.html">
+            KARAVYA
+        </a>
+<div class="flex items-center space-x-6">
+<!-- Simplified actions for transactional page -->
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors uppercase tracking-[0.1em]" href="concierge.html">Help</a>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative w-full h-[70vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLtfRi4XJT_W0eB3r0u0Xlo_Hqbu4Bm52RChzBBFx987GKHulPWo0dyPvq8vXI068KLDktUix6FIq8TSI_IXKnCVPS-_fEbEirXQmgYDRXPDvL_w6xYFH1Z9kwcDAoIv2Hg-oOhNsPC1kcdQAa8FI4H2mY_FMlNgDal-ekSfB-byWKWVvE4s9iScR8FLqIoM2d8neXioUqWuQaWK91Y3Yw4BT_wt6uylNc9NIjeRdEaE2_gDS2xxXlb3yA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="absolute inset-0 bg-black/10"></div> <!-- Subtle darkening for text readability -->
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20">
+<p class="font-label-lg text-label-lg text-rose-gold uppercase tracking-[0.2em] mb-6 drop-shadow-md">Order #KR-847291</p>
+<h1 class="font-display-lg text-display-lg text-white mb-6 text-glow leading-tight">YOUR KARAVYA JOURNEY BEGINS.</h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-2xl mx-auto drop-shadow-md">
+                    Thank you, Muse. Your order is being prepared with care and will soon be on its way to you.
+                </p>
+</div>
+</section>
+<!-- Order Journey Timeline -->
+<section class="max-w-container-max mx-auto px-margin-desktop py-16 -mt-24 relative z-20">
+<div class="glass-panel p-12 w-full">
+<h2 class="font-headline-md text-headline-md text-dark-espresso text-center mb-16">Journey Status</h2>
+<div class="relative w-full mb-8 timeline-line px-10">
+<div class="flex justify-between relative z-10 w-full">
+<!-- Step 1: Placed -->
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-deep-rose border-4 border-white mb-4 shadow-sm"></div>
+<span class="font-label-sm text-label-sm text-deep-rose uppercase tracking-[0.1em] text-center">Order<br/>Placed</span>
+</div>
+<!-- Step 2: Confirmed -->
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-deep-rose border-4 border-white mb-4 shadow-sm"></div>
+<span class="font-label-sm text-label-sm text-deep-rose uppercase tracking-[0.1em] text-center">Order<br/>Confirmed</span>
+</div>
+<!-- Step 3: Being Prepared (Active) -->
+<div class="flex flex-col items-center">
+<div class="relative w-6 h-6 flex items-center justify-center mb-3">
+<div class="absolute w-6 h-6 rounded-full bg-rose-gold animated-indicator"></div>
+<div class="w-3 h-3 rounded-full bg-white relative z-10"></div>
+</div>
+<span class="font-label-sm text-label-sm text-dark-espresso font-bold uppercase tracking-[0.1em] text-center">Being<br/>Prepared</span>
+</div>
+<!-- Step 4: Packed -->
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-surface-variant border-4 border-white mb-4"></div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em] text-center">Packed</span>
+</div>
+<!-- Step 5: Shipped -->
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-surface-variant border-4 border-white mb-4"></div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em] text-center">Shipped</span>
+</div>
+<!-- Step 6: Out for Delivery -->
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-surface-variant border-4 border-white mb-4"></div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em] text-center">Out For<br/>Delivery</span>
+</div>
+<!-- Step 7: Delivered -->
+<div class="flex flex-col items-center">
+<div class="w-4 h-4 rounded-full bg-surface-variant border-4 border-white mb-4"></div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em] text-center">Delivered</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Order Details & Status -->
+<section class="max-w-container-max mx-auto px-margin-desktop py-section-gap-md">
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left Column: Current Status & Details -->
+<div class="col-span-12 md:col-span-7 flex flex-col space-y-12">
+<!-- Current Status Card -->
+<div class="bg-pearl-rose p-12 border border-outline-variant/20 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-9xl">inventory_2</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-dark-espresso mb-4 relative z-10">Being Prepared</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 relative z-10">
+                            Your KARAVYA pieces are being carefully prepared by our artisans. We are ensuring every detail is perfect before it begins its journey to you.
+                        </p>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em] relative z-10">
+                            Estimated Dispatch: October 24, 2023
+                        </p>
+</div>
+<!-- Delivery & Payment Row -->
+<div class="grid grid-cols-2 gap-8">
+<!-- Delivery Info -->
+<div class="border-t border-outline-variant/30 pt-8">
+<h4 class="font-label-sm text-label-sm text-rose-gold uppercase tracking-[0.2em] mb-6">Delivering To</h4>
+<p class="font-body-md text-body-md text-dark-espresso mb-1 font-medium" id="oc-name">Eleanor Vance</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed" id="oc-address">
+                                1240 Rosewood Lane<br/>
+                                Suite 4B<br/>
+                                New York, NY 10021<br/>
+                                United States
+                            </p>
+</div>
+<!-- Payment Info -->
+<div class="border-t border-outline-variant/30 pt-8">
+<h4 class="font-label-sm text-label-sm text-rose-gold uppercase tracking-[0.2em] mb-6">Payment Status</h4>
+<div class="flex items-center space-x-3 mb-4">
+<span class="material-symbols-outlined text-deep-rose" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<p class="font-body-md text-body-md text-dark-espresso font-medium">Paid</p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                                Visa ending in •••• 4242
+                            </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary (Bento-style) -->
+<div class="col-span-12 md:col-span-5 pl-0 md:pl-12">
+<div class="sticky top-32">
+<h3 class="font-headline-md text-headline-md text-dark-espresso mb-8 border-b border-outline-variant/30 pb-4">Order Summary</h3>
+<!-- Item List -->
+<div class="space-y-8 mb-12" id="oc-items">
+</div>
+<!-- Price Breakdown -->
+<div class="space-y-4 border-t border-outline-variant/30 pt-8 mb-8">
+<div class="flex justify-between text-on-surface-variant">
+<span class="font-body-md text-body-md">Subtotal</span>
+<span class="font-body-md text-body-md" id="oc-subtotal">₹0</span>
+</div>
+<div class="flex justify-between text-rose-gold" id="oc-discount-row">
+<span class="font-body-md text-body-md">Discount</span>
+<span class="font-body-md text-body-md" id="oc-discount">-₹0</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="font-body-md text-body-md">Delivery</span>
+<span class="font-body-md text-body-md" id="oc-delivery">₹0</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="font-body-md text-body-md">Estimated Tax</span>
+<span class="font-body-md text-body-md" id="oc-tax">₹0</span>
+</div>
+</div>
+<!-- Total -->
+<div class="flex justify-between items-center border-t border-outline-variant/30 pt-8">
+<span class="font-headline-md text-headline-md text-dark-espresso">Total</span>
+<span class="font-headline-md text-headline-md text-dark-espresso" id="oc-total">₹0</span>
+</div>
+<div class="mt-8 text-center">
+<a id="download-invoice" class="font-label-lg text-label-lg text-dark-espresso uppercase tracking-[0.15em] hover:text-rose-gold transition-colors underline underline-offset-4 decoration-rose-gold/30 hover:decoration-rose-gold inline-block" href="#">Download Invoice</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Section: The Unboxing -->
+<section class="bg-pearl-rose py-section-gap-lg px-margin-desktop my-section-gap-md border-y border-outline-variant/20">
+<div class="max-w-container-max mx-auto grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-5 md:col-start-2 text-center md:text-left mb-12 md:mb-0">
+<h2 class="font-headline-lg text-headline-lg text-dark-espresso mb-6">ON ITS WAY TO YOU.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md mx-auto md:mx-0">
+                        Every KARAVYA order is hand-wrapped in our signature blush tissue, sealed with a wax emblem, and nestled in a structured display box. We consider the unboxing as much a part of the piece as the silk itself.
+                    </p>
+<a class="inline-block border border-rose-gold text-dark-espresso font-label-lg text-label-lg uppercase tracking-[0.15em] px-8 py-4 hover:bg-white/50 transition-colors" href="our-story.html">Discover The Packaging</a>
+</div>
+<div class="col-span-12 md:col-span-5 overflow-hidden">
+<!-- Stylized placeholder block for editorial packaging image to maintain layout without generating new images -->
+<div class="w-full aspect-[4/5] bg-surface-container-high border border-outline-variant/30 flex flex-col items-center justify-center relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-tr from-rose-white to-pearl-rose opacity-50"></div>
+<span class="material-symbols-outlined text-6xl text-rose-gold mb-4 opacity-50 group-hover:scale-110 transition-transform duration-700">redeem</span>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-[0.2em] relative z-10">The Signature Box</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="max-w-3xl mx-auto px-margin-desktop py-section-gap-md text-center border-t border-outline-variant/20 mb-20">
+<h2 class="font-headline-lg text-headline-lg text-dark-espresso mb-12">UNTIL IT ARRIVES, KEEP DREAMING.</h2>
+<div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+<a class="bg-dark-espresso text-on-primary font-label-lg text-label-lg uppercase tracking-[0.15em] px-10 py-4 hover:bg-primary transition-colors min-w-[240px] block text-center" href="index.html">
+                    Continue Shopping
+                </a>
+<a class="border border-rose-gold text-dark-espresso font-label-lg text-label-lg uppercase tracking-[0.15em] px-10 py-4 hover:bg-pearl-rose transition-colors min-w-[240px] block text-center" href="private-wardrobe.html">
+                    My Karavya
+                </a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bg-surface-container-lowest border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center px-margin-desktop py-section-gap-md max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md text-dark-espresso mb-8 md:mb-0" href="index.html">
+            KARAVYA
+        </a>
+<div class="flex flex-wrap justify-center gap-8 mb-8 md:mb-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline underline-offset-4 decoration-primary transition-all uppercase tracking-[0.1em]" href="coming-soon.html">Sustainability</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline underline-offset-4 decoration-primary transition-all uppercase tracking-[0.1em]" href="concierge.html">Concierge</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline underline-offset-4 decoration-primary transition-all uppercase tracking-[0.1em]" href="coming-soon.html">Legal</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline underline-offset-4 decoration-primary transition-all uppercase tracking-[0.1em]" href="concierge.html">Contact</a>
+</div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em]">
+            © 2024 KARAVYA. All Rights Reserved.
+        </div>
+</footer>
+<script>
+(function () {
+    "use strict";
+    var record = null;
+    try { record = JSON.parse(localStorage.getItem("karavya_last_order")); } catch (e) { record = null; }
+    if (!record) {
+        window.location.replace("index.html");
+        return;
+    }
+    var fmt = function (n) { return "₹" + Number(n || 0).toLocaleString("en-IN"); };
+    var orderNum = document.querySelector("main p.font-label-lg");
+    if (orderNum && record.id) { orderNum.textContent = "Order #" + record.id; }
+    var paymentBlock = document.querySelector("main .grid.grid-cols-2 .border-t");
+    if (paymentBlock) {
+        var paidLine = paymentBlock.querySelector(".font-body-md.font-medium");
+        var detailLine = paymentBlock.querySelector(".font-body-md.text-on-surface-variant");
+        if (paidLine) { paidLine.textContent = "Paid"; }
+        if (detailLine && record.methodLabel) { detailLine.textContent = record.methodLabel; }
+        if (record.demo) {
+            var badge = document.createElement("p");
+            badge.className = "font-label-sm text-label-sm text-rose-gold uppercase tracking-[0.1em] mt-3 border-t border-outline-variant/20 pt-3";
+            badge.textContent = "Demo order · simulated payment · no charge made";
+            paymentBlock.appendChild(badge);
+        }
+    }
+    var wrap = document.getElementById("oc-items");
+    if (wrap && record.items && record.items.length) {
+        wrap.innerHTML = "";
+        record.items.forEach(function (i) {
+            var img = i.img || "";
+            var d = document.createElement("div");
+            d.className = "flex space-x-6";
+            d.innerHTML =
+                '<div class="w-24 h-32 flex-shrink-0 bg-surface-container border border-outline-variant/20 overflow-hidden">' +
+                (img ? '<div class="w-full h-full bg-cover bg-center" style="background-image: url(\'' + img + '\')"></div>' : '<div class="w-full h-full bg-cover bg-center"></div>') +
+                '</div>' +
+                '<div class="flex flex-col justify-between py-1 flex-grow">' +
+                '<div>' +
+                '<p class="font-body-lg text-body-lg text-dark-espresso mb-1">' + i.name + '</p>' +
+                (i.color ? '<p class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em] mb-1">Color: ' + i.color + '</p>' : '') +
+                (i.size ? '<p class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em]">Size: ' + i.size + '</p>' : '') +
+                '</div>' +
+                '<div class="flex justify-between items-end mt-4">' +
+                '<p class="font-body-md text-body-md text-on-surface-variant">Qty: ' + i.qty + '</p>' +
+                '<p class="font-body-lg text-body-lg text-dark-espresso">' + fmt(i.price * i.qty) + '</p>' +
+                '</div>' +
+                '</div>';
+            wrap.appendChild(d);
+        });
+    }
+    var s = function (id, v) { var el = document.getElementById(id); if (el) el.textContent = v; };
+    if (record.subtotal !== undefined) s("oc-subtotal", fmt(record.subtotal));
+    var dl = document.getElementById("download-invoice");
+    if (dl) {
+        dl.addEventListener("click", function (e) {
+            e.preventDefault();
+            var lines = (record.items || []).map(function (i) {
+                return (i.name || "Item") + " — " + [i.color, i.size].filter(Boolean).join(" / ") + " — Qty " + i.qty + " — " + fmt(i.price * i.qty);
+            }).join("\n");
+            var txt = [
+                "KARAVYA — INVOICE",
+                "Order: " + (record.id || ""),
+                "Placed: " + (record.placedAt ? new Date(record.placedAt).toLocaleString() : ""),
+                "Status: " + (record.demo ? "DEMO (no charge made)" : (record.payment && record.payment.status) || "PAID"),
+                "",
+                lines,
+                "",
+                "Subtotal: " + fmt(record.subtotal || 0),
+                "Delivery: " + fmt(record.delivery || 0),
+                "Tax: " + fmt(record.tax || 0),
+                "Total: " + fmt(record.total || 0)
+            ].join("\n");
+            var blob = new Blob([txt], { type: "text/plain;charset=utf-8" });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = "karavya-invoice-" + (record.id || "order") + ".txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(function () { URL.revokeObjectURL(url); }, 500);
+        });
+    }
+    if (record.discount !== undefined) { s("oc-discount", "-" + fmt(record.discount)); if (!record.discount) { var dr = document.getElementById("oc-discount-row"); if (dr) dr.style.display = "none"; } }
+    if (record.delivery !== undefined) s("oc-delivery", record.delivery ? fmt(record.delivery) : (record.deliveryLabel === "Express" ? fmt(record.delivery) : "FREE"));
+    if (record.tax !== undefined) s("oc-tax", fmt(record.tax));
+    if (record.total !== undefined) s("oc-total", fmt(record.total));
+    var saved = null;
+    try { saved = JSON.parse(sessionStorage.getItem("karavya_checkout")); } catch (e) { saved = null; }
+    if (saved) {
+        var name = document.getElementById("oc-name");
+        if (name && saved.fullName) name.textContent = saved.fullName;
+        var addr = document.getElementById("oc-address");
+        if (addr && (saved.address || saved.city || saved.pincode)) {
+            var parts = [saved.address, saved.apartment, saved.city, saved.state, saved.pincode].filter(Boolean);
+            addr.innerHTML = parts.join("<br/>");
+        }
+    }
+})();
+</script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+<script>(function(){'use strict';if(window.matchMedia('(max-width: 767px)').matches){window.location.replace('order-confirmation-mobile.html');}})();</script>
+</body></html>

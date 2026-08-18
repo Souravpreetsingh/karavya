@@ -1,0 +1,24 @@
+{
+  "name": "karavya-backend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KARAVYA Maison - backend foundation (auth, products, cart, wishlist, orders, style/fit profiles, editorial, lookbook, returns, KAYA-ready services)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --env-file-if-exists=.env --watch server.js",
+    "test": "node --test --test-concurrency=1 \"test/*.test.js\"",
+    "seed": "node --env-file-if-exists=.env scripts/seed.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "zod": "^3.24.1"
+  }
+}

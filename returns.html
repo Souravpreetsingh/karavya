@@ -1,0 +1,530 @@
+<!-- KARAVYA | Returns & Exchanges Concierge (Desktop) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KARAVYA - Returns &amp; Exchanges</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {"rose-white": "#FFF5F7", "deep-rose": "#8F4A5B", "rose-gold": "#B76E79", 
+                      "secondary-container": "#ffbfbf",
+                      "on-surface-variant": "#524345",
+                      "on-surface": "#1f1a1c",
+                      "pearl-rose": "#FCECEF",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#ffd9dd",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#d7c1c3",
+                      "inverse-on-surface": "#f8eef0",
+                      "secondary": "#825152",
+                      "tertiary": "#6f574a",
+                      "surface": "#fff8f8",
+                      "dark-espresso": "#2B1B1F",
+                      "secondary-fixed": "#ffdad9",
+                      "surface-dim": "#e1d8da",
+                      "tertiary-container": "#896f62",
+                      "primary-fixed-dim": "#ffb2bc",
+                      "error-container": "#ffdad6",
+                      "deep-rose": "#8F4A5B",
+                      "on-tertiary-fixed": "#29180e",
+                      "on-primary-fixed": "#3a0915",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#673a3b",
+                      "on-error": "#ffffff",
+                      "on-background": "#1f1a1c",
+                      "inverse-surface": "#342f31",
+                      "on-tertiary-container": "#fffbff",
+                      "outline": "#857374",
+                      "soft-rose": "#EFB7C5",
+                      "tertiary-fixed": "#fddccb",
+                      "on-error-container": "#93000a",
+                      "primary-container": "#a6606b",
+                      "surface-bright": "#fff8f8",
+                      "on-secondary-fixed": "#331012",
+                      "on-tertiary-fixed-variant": "#584236",
+                      "inverse-primary": "#ffb2bc",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#fbf1f3",
+                      "on-primary": "#ffffff",
+                      "surface-tint": "#8c4b55",
+                      "on-primary-container": "#fffbff",
+                      "on-primary-fixed-variant": "#70343e",
+                      "tertiary-fixed-dim": "#e0c0b0",
+                      "surface-variant": "#eae0e2",
+                      "surface-container": "#f5ebed",
+                      "secondary-fixed-dim": "#f6b7b7",
+                      "primary": "#8a4853",
+                      "background": "#fff8f8",
+                      "surface-container-high": "#efe6e8",
+                      "surface-container-highest": "#eae0e2",
+                      "blush-rose": "#F8DCE3",
+                      "on-secondary-container": "#7b4b4b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max": "1440px",
+                      "section-gap-md": "80px",
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "base": "8px",
+                      "margin-mobile": "20px",
+                      "section-gap-lg": "120px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "DM Sans"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "label-lg": [
+                              "DM Sans"
+                      ],
+                      "body-lg": [
+                              "DM Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "DM Sans"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.15em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.7",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(252, 236, 239, 0.8); /* pearl-rose at 80% opacity */
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .text-glow {
+            text-shadow: 0 0 4px rgba(239, 183, 197, 0.5); /* soft-rose */
+        }
+        .input-editorial {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #d7c1c3; /* outline-variant representing warm champagne */
+            border-radius: 0;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+        .input-editorial:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom-color: #8F4A5B; /* deep-rose */
+        }
+    </style>
+</head>
+<body class="bg-surface text-dark-espresso font-body-md antialiased min-h-screen flex">
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+<!-- SideNavBar (Destination: Returns & Exchanges portal context for logged in / portal navigation) -->
+<nav class="h-screen w-80 fixed left-0 bg-pearl-rose dark:bg-dark-espresso shadow-sm bg-surface-container-low dark:bg-surface-dim hidden md:flex flex-col py-margin-desktop gap-base z-40">
+<div class="px-gutter mb-8">
+<h1 class="font-display-lg text-headline-md text-on-surface mb-2">Welcome back</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Exclusive Member</p>
+</div>
+<ul class="flex-1 space-y-2">
+<li>
+<a class="flex items-center gap-4 py-3 font-label-lg text-label-lg text-on-surface-variant pl-4 hover:text-primary hover:bg-soft-rose/10 transition-all" href="order-confirmation.html">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                    My Orders
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-4 py-3 font-label-lg text-label-lg text-primary font-bold border-l-4 border-primary pl-4 bg-soft-rose/10 translate-x-1 transition-transform" href="returns.html">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+                    Returns &amp; Exchanges
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-4 py-3 font-label-lg text-label-lg text-on-surface-variant pl-4 hover:text-primary hover:bg-soft-rose/10 transition-all" href="account.html">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+                    Address Book
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-4 py-3 font-label-lg text-label-lg text-on-surface-variant pl-4 hover:text-primary hover:bg-soft-rose/10 transition-all" href="checkout.html">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                    Checkout
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-4 py-3 font-label-lg text-label-lg text-on-surface-variant pl-4 hover:text-primary hover:bg-soft-rose/10 transition-all" href="account.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="px-gutter mt-auto">
+<button class="w-full bg-dark-espresso text-surface font-label-lg text-label-lg py-4 px-6 rounded-sm hover:opacity-90 transition-opacity block text-center" data-start-return type="button">Start a New Return</button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-80">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface/90 dark:bg-dark-espresso/90 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-outline-variant/30 flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto md:w-[calc(100%-20rem)] left-0 md:left-80 transition-all">
+<a class="font-display-lg text-headline-md tracking-widest text-on-surface dark:text-pearl-rose" href="index.html">KARAVYA</a>
+<nav class="hidden md:flex gap-8">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">Home</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="collections.html">Collections</a>
+<a class="font-label-lg text-label-lg text-primary border-b-2 border-primary pb-1 scale-95 duration-200" href="returns.html">Returns</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="returns.html">Exchanges</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="order-confirmation.html">Track Order</a>
+</nav>
+<div class="flex gap-4 text-primary dark:text-primary-fixed-dim">
+<a class="hover:opacity-80 transition-opacity" href="cart.html"><span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span></a>
+<a class="hover:opacity-80 transition-opacity" href="account.html"><span class="material-symbols-outlined" data-icon="person">person</span></a>
+</div>
+</header>
+<div class="pt-20"> <!-- Offset for fixed header -->
+<!-- HERO -->
+<section class="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden mb-section-gap-md md:mb-section-gap-lg">
+<div class="absolute inset-0 bg-cover bg-center opacity-40" data-alt="A soft, ethereal lifestyle background featuring draped silk fabrics in pale rose and warm white tones, bathed in gentle natural window light. The scene is calm, luxurious, and minimalistic, creating an editorial fashion magazine aesthetic. Soft shadows and high-key lighting emphasize texture and serenity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDhpPeW-GdnWAfhdM_ChaIFBPvwRdKYEUqrPRbzMejkBUowBhWPu5rLIUvO7crzEBOtIKFXtJrW5bxKXMh8FxfOrF8Xtn5yBNuSW5DOL8nlj4UrGdOUkDY7KFtL13YcuUlZePCJkNuc9QtDnIp3gnNLjEp8NKnV51AoX09brEFuQnBKngREagfYcYHBY6LzF513rhz5giSwFWgU8BDRN1Ms2zZK4qW3Ey_ea1pT1esb4buoEPkVGSba')"></div>
+<div class="relative z-10 text-center px-gutter max-w-3xl glass-panel p-12 border border-outline-variant/30 shadow-[0_20px_40px_rgba(143,74,91,0.08)]">
+<h2 class="font-display-lg text-headline-lg md:text-display-lg text-dark-espresso mb-6 tracking-tight">RETURNS, MADE SIMPLE.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">Changed your mind? We're here to make the next step easy. Our seamless process ensures your luxury experience continues, even on returns.</p>
+<button class="bg-dark-espresso text-surface font-label-lg text-label-lg py-4 px-10 rounded-sm hover:opacity-90 transition-all transform hover:-translate-y-1 inline-block" data-start-return type="button">
+                        START A RETURN
+                    </button>
+</div>
+</section>
+</div>
+<!-- Return Flow -->
+<section class="px-gutter max-w-3xl mx-auto mb-section-gap-lg" id="return-flow" hidden>
+<div class="border border-outline-variant/30 bg-surface-container-low p-8 md:p-12">
+<h2 class="font-display-lg text-headline-lg text-dark-espresso mb-3">START A RETURN</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Select the pieces you'd like to return and tell us why. This runs in dev mode against your last order.</p>
+<div id="return-flow-body"></div>
+</div>
+</section>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-highest dark:bg-dark-espresso w-full mt-section-gap-lg border-t border-outline-variant/20 flex flex-col md:flex-row justify-between items-center py-gutter px-margin-desktop max-w-container-max mx-auto">
+<p class="font-label-sm text-label-sm text-on-surface dark:text-pearl-rose mb-4 md:mb-0">© 2024 KARAVYA LUXURY. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-all" href="coming-soon.html">Sustainability</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-all" href="concierge.html">Concierge</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-all" href="coming-soon.html">Store Locator</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline transition-all" href="coming-soon.html">Privacy Policy</a>
+</div>
+<div class="mt-4 md:mt-0 font-display-lg text-headline-md text-on-surface hidden lg:block"><a href="index.html">KARAVYA</a></div>
+</footer>
+</main>
+<script src="site-config.js"></script>
+<script src="karavya.js"></script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+<script>
+(function () {
+    "use strict";
+    var K = window.KARAVYA || {};
+    var section = document.getElementById('return-flow');
+    var body = document.getElementById('return-flow-body');
+    if (!section || !body) return;
+    function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+    }
+    function openFlow() {
+        section.hidden = false;
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    document.querySelectorAll('[data-start-return]').forEach(function (el) {
+        el.addEventListener('click', function (e) { e.preventDefault(); openFlow(); });
+    });
+    var order = K.getLastOrder ? K.getLastOrder() : null;
+    var items = (order && (order.items || order.lines)) || [];
+    if (!items.length) {
+        body.innerHTML =
+            '<div class="text-center py-10">' +
+            '<span aria-hidden="true" class="material-symbols-outlined text-[2.5rem] text-rose-gold mb-4">inventory_2</span>' +
+            '<h3 class="font-headline-md text-[24px] text-dark-espresso mb-3">No order found yet</h3>' +
+            '<p class="font-body-md text-body-md text-on-surface-variant mb-8">Once you place an order, you can start a return right here.</p>' +
+            '<div class="flex flex-col sm:flex-row gap-4 justify-center">' +
+            '<a class="bg-dark-espresso text-surface font-label-lg text-label-lg py-4 px-10 rounded-sm hover:opacity-90 transition-opacity" href="index.html">Continue Shopping</a>' +
+            '<a class="border border-outline-variant text-dark-espresso font-label-lg text-label-lg py-4 px-10 rounded-sm hover:bg-surface-container-highest transition-colors" href="order-confirmation.html">Track your order</a>' +
+            '</div></div>';
+        return;
+    }
+    var reasons = ['Changed my mind', 'Wrong size', 'Wrong item received', 'Damaged or defective', 'Other'];
+    var rows = items.map(function (it, idx) {
+        var meta = [it.color, it.size].filter(Boolean).join(' / ');
+        return '<label class="flex items-start gap-4 p-4 bg-surface-container-lowest cursor-pointer relative group">' +
+            '<input class="peer mt-1 w-6 h-6 text-dark-espresso bg-surface border-outline-variant rounded-none focus:ring-dark-espresso focus:ring-offset-0" type="checkbox" data-return-item="' + idx + '"/>' +
+            '<div class="flex-1">' +
+            '<h3 class="font-headline-md text-[18px] text-dark-espresso leading-tight">' + esc(it.name || 'Item') + '</h3>' +
+            '<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">' + (meta ? esc(meta) : 'One size') + ' | Qty: ' + (parseInt(it.qty, 10) || 1) + '</p>' +
+            '<p class="font-body-md text-dark-espresso mt-2">' + (K.fmtINR ? K.fmtINR(it.price) : '') + '</p>' +
+            '</div>' +
+            '<div class="absolute inset-0 border-2 border-transparent peer-checked:border-dark-espresso pointer-events-none transition-colors"></div>' +
+            '</label>';
+    }).join('');
+    body.innerHTML =
+        '<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-4">Order ' + esc(order.id || order.no || '') + '</p>' +
+        '<div class="space-y-3 mb-8">' + rows + '</div>' +
+        '<div class="mb-8">' +
+        '<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2 uppercase" for="return-reason">Reason</label>' +
+        '<select id="return-reason" class="w-full bg-transparent border-0 border-b border-outline-variant/60 focus:border-deep-rose focus:ring-0 px-0 py-3 font-body-lg text-dark-espresso">' +
+        '<option value="">Choose a reason</option>' +
+        reasons.map(function (r) { return '<option value="' + r + '">' + r + '</option>'; }).join('') +
+        '</select></div>' +
+        '<button id="return-submit" class="bg-dark-espresso text-surface font-label-lg text-label-lg py-4 px-10 rounded-sm hover:opacity-90 transition-opacity" type="button">SUBMIT RETURN REQUEST</button>' +
+        '<p class="mt-6 text-[0.75rem] text-on-surface-variant">Dev mode: submissions are recorded locally only - no real return is created.</p>';
+    var submit = document.getElementById('return-submit');
+    var reason = document.getElementById('return-reason');
+    submit.addEventListener('click', function () {
+        var chosen = [];
+        items.forEach(function (it, idx) {
+            var cb = body.querySelector('[data-return-item="' + idx + '"]');
+            if (cb && cb.checked) chosen.push(it);
+        });
+        if (!chosen.length) { if (K.toast) K.toast('Please select at least one item.'); return; }
+        if (!reason.value) { if (K.toast) K.toast('Please choose a reason.'); return; }
+        var names = chosen.map(function (it) { return it.name || 'Item'; }).join(', ');
+        body.innerHTML =
+            '<div class="text-center py-10">' +
+            '<span aria-hidden="true" class="material-symbols-outlined text-[2.5rem] text-rose-gold mb-4">check_circle</span>' +
+            '<h3 class="font-headline-md text-[24px] text-dark-espresso mb-3">RETURN REQUEST RECEIVED (DEMO)</h3>' +
+            '<p class="font-body-md text-body-md text-on-surface-variant mb-2">Returning: ' + esc(names) + '</p>' +
+            '<p class="font-body-md text-body-md text-on-surface-variant mb-8">Reason: ' + esc(reason.value) + '</p>' +
+            '<p class="font-body-md text-body-md text-on-surface-variant mb-8">This is a demo/dev-mode return request. Our team will email you within 24-48 hours with a prepaid pickup label. No real return has been processed.</p>' +
+            '<div class="flex flex-col sm:flex-row gap-4 justify-center">' +
+            '<a class="bg-dark-espresso text-surface font-label-lg text-label-lg py-4 px-10 rounded-sm hover:opacity-90 transition-opacity" href="index.html">Continue Shopping</a>' +
+            '<a class="border border-outline-variant text-dark-espresso font-label-lg text-label-lg py-4 px-10 rounded-sm hover:bg-surface-container-highest transition-colors" href="order-confirmation.html">View Order</a>' +
+            '</div></div>';
+        body.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+})();
+</script>
+<script>(function(){'use strict';if(window.matchMedia('(max-width: 767px)').matches){window.location.replace('returns-mobile.html');}})();</script>
+</body></html>

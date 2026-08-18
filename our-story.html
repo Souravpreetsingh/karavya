@@ -1,0 +1,602 @@
+<!-- KARAVYA | Cloudline Modal Set - Product Detail Page -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Our Story - KARAVYA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {"rose-white": "#FFF5F7", "deep-rose": "#8F4A5B", "rose-gold": "#B76E79", 
+                            "inverse-primary": "#ffb2bc",
+                            "on-primary-fixed-variant": "#70343e",
+                            "surface-container-low": "#fbf1f3",
+                            "tertiary-fixed": "#fddccb",
+                            "on-secondary-fixed": "#331012",
+                            "on-surface": "#1f1a1c",
+                            "on-tertiary": "#ffffff",
+                            "on-primary": "#ffffff",
+                            "inverse-on-surface": "#f8eef0",
+                            "error-container": "#ffdad6",
+                            "secondary-container": "#ffbfbf",
+                            "primary-fixed": "#ffd9dd",
+                            "background": "#fff8f8",
+                            "on-surface-variant": "#524345",
+                            "on-primary-container": "#fffbff",
+                            "tertiary": "#6f574a",
+                            "surface-container-high": "#efe6e8",
+                            "secondary": "#825152",
+                            "outline-variant": "#d7c1c3",
+                            "primary": "#8a4853",
+                            "blush-rose": "#F8DCE3",
+                            "on-background": "#1f1a1c",
+                            "surface-container-highest": "#eae0e2",
+                            "on-tertiary-fixed": "#29180e",
+                            "surface-container-lowest": "#ffffff",
+                            "primary-fixed-dim": "#ffb2bc",
+                            "inverse-surface": "#342f31",
+                            "outline": "#857374",
+                            "dark-espresso": "#2B1B1F",
+                            "tertiary-fixed-dim": "#e0c0b0",
+                            "secondary-fixed-dim": "#f6b7b7",
+                            "pearl-rose": "#FCECEF",
+                            "on-error-container": "#93000a",
+                            "on-secondary-container": "#7b4b4b",
+                            "surface-container": "#f5ebed",
+                            "on-tertiary-fixed-variant": "#584236",
+                            "soft-rose": "#EFB7C5",
+                            "error": "#ba1a1a",
+                            "surface-tint": "#8c4b55",
+                            "on-tertiary-container": "#fffbff",
+                            "on-secondary-fixed-variant": "#673a3b",
+                            "primary-container": "#a6606b",
+                            "deep-rose": "#8F4A5B",
+                            "surface-variant": "#eae0e2",
+                            "surface-bright": "#fff8f8",
+                            "secondary-fixed": "#ffdad9",
+                            "on-primary-fixed": "#3a0915",
+                            "tertiary-container": "#896f62",
+                            "surface": "#fff8f8",
+                            "on-secondary": "#ffffff",
+                            "surface-dim": "#e1d8da",
+                            "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                    },
+                    "spacing": {
+                            "gutter": "24px",
+                            "section-gap-md": "80px",
+                            "container-max": "1440px",
+                            "base": "8px",
+                            "section-gap-lg": "120px",
+                            "margin-mobile": "20px",
+                            "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                            "display-lg": ["Playfair Display"],
+                            "headline-lg": ["Playfair Display"],
+                            "display-lg-mobile": ["Playfair Display"],
+                            "body-lg": ["DM Sans"],
+                            "label-sm": ["DM Sans"],
+                            "label-lg": ["DM Sans"],
+                            "headline-lg-mobile": ["Playfair Display"],
+                            "body-md": ["DM Sans"],
+                            "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                            "display-lg": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                            "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                            "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                            "body-lg": ["18px", {"lineHeight": "1.7", "fontWeight": "400"}],
+                            "label-sm": ["11px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                            "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                            "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                            "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slow-pan {
+            animation: panImage 30s linear infinite alternate;
+        }
+        @keyframes panImage {
+            0% { transform: scale(1.05) translate(0, 0); }
+            100% { transform: scale(1.05) translate(-2%, -2%); }
+        }
+        .rose-gold-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .rose-gold-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #e0c0b0; /* tertiary-fixed-dim / Rose Gold */
+            transform: scaleX(1);
+            transform-origin: bottom right;
+            transition: transform 0.4s ease-out;
+        }
+        .rose-gold-underline:hover::after {
+            transform: scaleX(0);
+            transform-origin: bottom left;
+        }
+        .editorial-link {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #2B1B1F; /* dark-espresso */
+            text-transform: uppercase;
+        }
+        .editorial-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #e0c0b0; /* Rose Gold */
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.4s ease-out;
+        }
+        .editorial-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-soft-rose selection:text-dark-espresso">
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+<!-- TopNavBar (Generated from JSON) -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="flex gap-8 items-center hidden md:flex">
+<a class="font-label-lg text-label-lg uppercase tracking-[0.15em] text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer active:opacity-70" href="index.html">Home</a>
+<a class="font-label-lg text-label-lg uppercase tracking-[0.15em] text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer active:opacity-70" href="collections.html">Collections</a>
+<a class="font-label-lg text-label-lg uppercase tracking-[0.15em] text-primary dark:text-primary-fixed-dim border-b border-primary hover:text-primary transition-colors duration-300 cursor-pointer active:opacity-70" href="our-story.html">Our Story</a>
+<a class="font-label-lg text-label-lg uppercase tracking-[0.15em] text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer active:opacity-70" href="our-story.html"></a>
+<a class="font-label-lg text-label-lg uppercase tracking-[0.15em] text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer active:opacity-70" href="our-story.html">Heritage</a>
+</div>
+<a class="font-display-lg text-headline-md tracking-widest text-on-surface dark:text-on-surface uppercase absolute left-1/2 -translate-x-1/2 cursor-pointer" href="index.html">KARAVYA</a>
+<div class="flex gap-6 items-center hidden md:flex text-on-surface dark:text-on-surface">
+<a class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors duration-300" href="cart.html">shopping_bag</a>
+<a class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors duration-300" href="account.html">person</a>
+</div>
+</div>
+</nav>
+<main>
+<!-- 1. CINEMATIC HERO -->
+<section class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 w-full h-full">
+<img alt="KARAVYA Hero Image" class="w-full h-full object-cover slow-pan opacity-90" src="https://lh3.googleusercontent.com/aida/AP1WRLumdyn1n7arqnhFmUR7laeunIILn9AsX1VzQaGZmK9RxRA7tN3pkmwCSVe0NTIBY-uR9Uw-TqI0r_SJlIrHisqX-umb230fVsmzxHxhiiwZjtHYRPsENGj5ebLWziNXzQr3A10KYS7qR9xqlF5fdm2CLXRNGN7sL7QMjOrSK5tGG88GJ9ZVW18FyU6ZB0PZnCSCq1AqLomLp_GaZ8J-968PMpFwpIEmisdpxM23aUzfG8AWmfo3Ke1BS_w"/>
+<div class="absolute inset-0 bg-dark-espresso/20 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 text-center flex flex-col items-center justify-center px-margin-mobile fade-up">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-surface uppercase mb-6 drop-shadow-sm">THIS IS KARAVYA.</h1>
+<p class="font-label-lg text-label-lg text-surface uppercase tracking-[0.2em] mb-12 drop-shadow-sm">THE ART OF FEELING GOOD.</p>
+<a class="font-label-lg text-label-lg text-tertiary-fixed-dim uppercase tracking-[0.15em] hover:text-surface transition-colors duration-300 flex items-center gap-2 rose-gold-underline" href="#manifesto">
+                    DISCOVER OUR WORLD <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- 2. BRAND MANIFESTO -->
+<section class="w-full py-section-gap-lg px-margin-mobile md:px-margin-desktop bg-pearl-rose flex justify-center text-center fade-up" id="manifesto">
+<div class="max-w-4xl mx-auto flex flex-col items-center">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-deep-rose mb-8 leading-tight">WE BELIEVE COMFORT SHOULD FEEL BEAUTIFUL.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    Born from the desire to elevate the everyday, KARAVYA is an ode to slow mornings, quiet nights, and the moments in between. We craft pieces that honor your need for rest without compromising on elegance, using fabrics that drape like water and feel like a second skin.
+                </p>
+</div>
+</section>
+<!-- 3. THE KARAVYA WOMAN -->
+<section class="w-full py-section-gap-lg px-margin-mobile md:px-margin-desktop bg-surface fade-up">
+<div class="max-w-container-max mx-auto relative group">
+<div class="w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-surface-container-high relative">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transform transition-transform duration-1000 group-hover:scale-105" data-alt="Cinematic wide shot of a sophisticated woman lounging gracefully in an expansive, minimalist living space bathed in warm afternoon sunlight. She wears luxurious, flowing silk loungewear in a delicate blush tone. The setting features curved architecture, textured plaster walls, and subtle rose gold accents. High-fashion editorial style, ethereal and serene mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuASVl6KVru77ZQkxTCGGwjHbMDO9r27lekHHXePnJITPA0J8ycbGOW6-qjD9eDq2sG-aAfuflPmXarLzS2jAtD8GqrP3jgS2C5dbd5o4C-c9XkeO5KqwNMQcqrogDPfTN_nm927XsHaZpPiErSlrErawsHuoc2HXGLUcccfGt6g5dl5lo-9phrDDyMLk_wGe6x5V69QY7OpGXJEnR-uW49vjsTf1nXAaWPN-uqzx10xyAf0bKi0rAOc')"></div>
+<div class="absolute inset-0 bg-dark-espresso/30"></div>
+</div>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-surface uppercase mb-4 tracking-widest drop-shadow-sm">THE KARAVYA WOMAN</h2>
+<p class="font-headline-md text-headline-md text-surface max-w-xl italic font-light drop-shadow-sm">"She doesn't dress for attention. She dresses for herself."</p>
+</div>
+</div>
+</section>
+<!-- 4. OUR PHILOSOPHY -->
+<section class="w-full py-section-gap-lg px-margin-mobile md:px-margin-desktop bg-surface fade-up">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-lg text-label-lg text-outline uppercase tracking-[0.2em] block mb-4">Our Philosophy</span>
+<h2 class="font-headline-lg text-headline-lg text-dark-espresso">THE FOUNDATION OF REST</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="flex flex-col items-start p-8 border border-warm-champagne/30 bg-surface-container-lowest">
+<span class="font-display-lg text-display-lg text-tertiary-fixed-dim mb-6 opacity-80">01</span>
+<h3 class="font-headline-md text-headline-md text-dark-espresso mb-4 uppercase tracking-widest">COMFORT</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Uncompromising softness that moves with you, designed to elevate your downtime into a luxurious experience.</p>
+</div>
+<div class="flex flex-col items-start p-8 border border-warm-champagne/30 bg-surface-container-lowest md:mt-12">
+<span class="font-display-lg text-display-lg text-tertiary-fixed-dim mb-6 opacity-80">02</span>
+<h3 class="font-headline-md text-headline-md text-dark-espresso mb-4 uppercase tracking-widest">CRAFT</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Meticulous construction and refined details ensure every piece is as enduring as it is beautiful.</p>
+</div>
+<div class="flex flex-col items-start p-8 border border-warm-champagne/30 bg-surface-container-lowest md:mt-24">
+<span class="font-display-lg text-display-lg text-tertiary-fixed-dim mb-6 opacity-80">03</span>
+<h3 class="font-headline-md text-headline-md text-dark-espresso mb-4 uppercase tracking-widest">CONFIDENCE</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Loungewear that makes you feel put-together, even when you're doing absolutely nothing.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. THE ART OF COMFORT (Split) -->
+<section class="w-full py-section-gap-lg px-margin-mobile md:px-margin-desktop bg-pearl-rose fade-up">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-0">
+<div class="aspect-[3/4] md:aspect-auto w-full h-full relative overflow-hidden">
+<img alt="KARAVYA Fabric Detail" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLu-HqiVACSHQRCQ1TMlKRRXCVC4tZvA9hgjhfdwa6MJgWasDVH5TAWX-n8NfOrw6SqBKMVD7WpXjuMU6SzZtrg5TXGIOsCFUxVO_264W69Urg_TfakvsjDUoWF42xTG4if9vXRBEdMrh7ZuxU4-zKcRjkd6Sb0phE9laQzOFa-T7JfH_nFv8JZOuyu27CRm4sFgeCynBAtIIugIdeiLmYCuPy7whRvJyV_0-BK33xrgUX7clSbPmungpZw"/>
+</div>
+<div class="flex flex-col justify-center p-8 md:p-16 lg:p-24 bg-surface-container-lowest">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-dark-espresso mb-8 uppercase tracking-wider">THE ART OF COMFORT</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                        We source only the finest, most breathable fibers. Our signature blends are designed to regulate temperature and drape effortlessly, creating a silhouette that flatters without restricting. It's a tactile experience that demands to be felt.
+                    </p>
+<div>
+<a class="editorial-link font-label-lg text-label-lg" href="women.html">
+                            EXPLORE THE COLLECTION <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. MATERIAL STORY -->
+<section class="w-full py-section-gap-lg px-margin-mobile md:px-margin-desktop bg-surface fade-up">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-dark-espresso mb-4 uppercase">FEEL THE DIFFERENCE</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">Our materials are the soul of our brand, chosen for their unparalleled softness and sustainable origins.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Modal -->
+<div class="flex flex-col group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-6 relative">
+<img alt="Modal Fabric Detail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLtvvQhFQ7tryPGIP4X92XMTN61jYy3FfnBDaGZdsJvAPnnulRAaFRVEVlAuRJmlClFsDC03qFZvAqxh_xfLE67IJjEmTlUJqtbDXUK5LRo_vOFXj-lyupsekW2FYNLcAZm6jT9T1CaYhMbiOW8IlnB8xKxVywH8kr8UA51tv6vDdpc46i8JSxTXkhD1L2doSQkMYraEf9LgBNV88ZZYpOpSST_07hCRn7uKIxik_dPg8y136wM5ZBRNeuY"/>
+<div class="absolute inset-0 border border-warm-champagne/0 group-hover:border-warm-champagne/50 transition-colors duration-500 m-4 pointer-events-none"></div>
+</div>
+<h4 class="font-label-lg text-label-lg text-dark-espresso uppercase tracking-widest mb-2 border-b border-warm-champagne pb-2 inline-block self-start">MODAL</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-sm">Supremely soft, breathable, and derived from sustainably harvested beech trees.</p>
+</div>
+<!-- Satin -->
+<div class="flex flex-col group cursor-pointer lg:mt-12">
+<div class="aspect-[3/4] overflow-hidden mb-6 bg-surface-container-high relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Macro photography of luxurious, liquid-like pearl-colored satin fabric. The light cascades across the smooth folds, highlighting its glossy, high-end sheen and delicate texture. Soft, warm diffused lighting creates an elegant, tactile aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8UUW1gxgRS29wUc7IOOJqBwEDuFTOo_nTLpTvLooomWazYk9Fv1glqsimuO5cVpABcmKR5QllONghbGmyN72KMkyNG-qmN9EI9VmtohudOxEMVY88EZRqzgLliSRaUUv9eK5IazweRVGNZRHSNoPzeHaO-_DDwv7rK0wo1joJZ16xzQEPKNs4aJuH8QQG5NEJ467E-0fRVa-rb3fjRz8kJV6QRClA-lSw4WSqyl0IRirUK8l-coIe')"></div>
+</div>
+<h4 class="font-label-lg text-label-lg text-dark-espresso uppercase tracking-widest mb-2 border-b border-warm-champagne pb-2 inline-block self-start">SATIN</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-sm">A luminous, frictionless finish that glides over the skin, offering cool comfort.</p>
+</div>
+<!-- Cotton -->
+<div class="flex flex-col group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-6 bg-surface-container-high relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Close-up macro shot of premium, finely woven organic cotton in a soft ivory hue. The texture is crisp yet soft, with a subtle natural grain visible. Warm, natural side lighting emphasizes the breathable, high-quality weave of the fabric." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAkFk9htYdWWCJpqulJWTvO7uojDDSh049Z5Tq9rs21uk2mAa2DEeQIYFfGE9GsYf7ZTrLKGS-Yx0tm8c8YxNYDKUtewDwu3760dKGHzHvWqCsn0O20niBg6HfUfI64nVpZIsMHKlZ_mcBHTuXZu17NDSGk0W-Oyth1mWrhdznBTWU2-rVZb2eJKo8_Sz4IHD8fNgO5weGaO-Ok7Ul_VywRPdVmtYA7cj1f6hpQfZaTyxIJdBVc01GR')"></div>
+</div>
+<h4 class="font-label-lg text-label-lg text-dark-espresso uppercase tracking-widest mb-2 border-b border-warm-champagne pb-2 inline-block self-start">COTTON</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-sm">Crisp, classic organic cotton offering structured comfort and lasting durability.</p>
+</div>
+<!-- Bamboo -->
+<div class="flex flex-col group cursor-pointer lg:mt-12">
+<div class="aspect-[3/4] overflow-hidden mb-6 bg-surface-container-high relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Detail shot of luxurious bamboo jersey fabric softly draped. The fabric has a muted blush tone with a fluid, stretchy appearance. Soft, ethereal lighting highlights its smooth, moisture-wicking properties and eco-friendly origins." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDT2_hfRcl4V-zE3_nIf_kDtL1NE567UyWsld_6pGY__bWs65qbktpMq-0yU3ahbHKEwQb_ayIpnaOCTBsh_N1aOH0MBaEVj49jouZJrxJyGBEELYTPUG3jwAw9FIc5UkKAArYlcWT0dooohDWmQpxRhjdx_qJxG6vEBuUJ0ClQIwmsnAugoUK01-P8xLPEJkaAhuA0WrOPRK8Y-AoMwPJEF4lO5nt74X_Sngxg6I5cKvwvQSK2UmIv')"></div>
+</div>
+<h4 class="font-label-lg text-label-lg text-dark-espresso uppercase tracking-widest mb-2 border-b border-warm-champagne pb-2 inline-block self-start">BAMBOO</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 text-sm">Naturally temperature-regulating and luxuriously heavy, with a gentle stretch.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. VISUAL TIMELINE -->
+<section class="w-full py-section-gap-lg px-margin-mobile md:px-margin-desktop bg-surface-container-lowest fade-up">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-dark-espresso text-center mb-16 uppercase">THE KARAVYA JOURNEY</h2>
+<div class="relative pl-8 md:pl-0">
+<!-- Vertical Line -->
+<div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-warm-champagne/50 transform md:-translate-x-1/2"></div>
+<div class="space-y-16">
+<!-- Step 1 -->
+<div class="relative flex flex-col md:flex-row md:items-center md:justify-between group">
+<div class="absolute left-0 md:left-1/2 w-3 h-3 bg-tertiary-fixed-dim rounded-full transform -translate-x-1.5 md:-translate-x-1.5 mt-2 md:mt-0 shadow-[0_0_8px_rgba(224,192,176,0.6)]"></div>
+<div class="md:w-5/12 text-left md:text-right pl-6 md:pl-0 pr-0 md:pr-12">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2 block">2021</span>
+<h4 class="font-headline-md text-headline-md text-dark-espresso mb-2">THE IDEA</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">A search for loungewear that felt as elegant as it was comfortable revealed a gap in the market. The seed for KARAVYA was planted.</p>
+</div>
+<div class="md:w-5/12 hidden md:block"></div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col md:flex-row md:items-center md:justify-between group">
+<div class="absolute left-0 md:left-1/2 w-3 h-3 bg-tertiary-fixed-dim rounded-full transform -translate-x-1.5 md:-translate-x-1.5 mt-2 md:mt-0 shadow-[0_0_8px_rgba(224,192,176,0.6)]"></div>
+<div class="md:w-5/12 hidden md:block"></div>
+<div class="md:w-5/12 text-left pl-6 md:pl-12">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2 block">2022</span>
+<h4 class="font-headline-md text-headline-md text-dark-espresso mb-2">FIRST COLLECTION</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">After months of sourcing and refining, our foundational collection of modal sets launched, establishing our signature silhouette.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col md:flex-row md:items-center md:justify-between group">
+<div class="absolute left-0 md:left-1/2 w-3 h-3 bg-tertiary-fixed-dim rounded-full transform -translate-x-1.5 md:-translate-x-1.5 mt-2 md:mt-0 shadow-[0_0_8px_rgba(224,192,176,0.6)]"></div>
+<div class="md:w-5/12 text-left md:text-right pl-6 md:pl-0 pr-0 md:pr-12">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2 block">2023</span>
+<h4 class="font-headline-md text-headline-md text-dark-espresso mb-2">COMMUNITY</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">The KARAVYA woman emerged—a community united by an appreciation for slow living and understated luxury.</p>
+</div>
+<div class="md:w-5/12 hidden md:block"></div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex flex-col md:flex-row md:items-center md:justify-between group">
+<div class="absolute left-0 md:left-1/2 w-3 h-3 bg-tertiary-fixed-dim rounded-full transform -translate-x-1.5 md:-translate-x-1.5 mt-2 md:mt-0 shadow-[0_0_8px_rgba(224,192,176,0.6)]"></div>
+<div class="md:w-5/12 hidden md:block"></div>
+<div class="md:w-5/12 text-left pl-6 md:pl-12">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest mb-2 block">2024</span>
+<h4 class="font-headline-md text-headline-md text-dark-espresso mb-2">NEXT CHAPTER</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Expanding our material story and introducing new categories, always anchored in the pursuit of absolute comfort.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. SUSTAINABILITY & PACKAGING -->
+<section class="w-full py-section-gap-lg px-margin-mobile md:px-margin-desktop bg-surface fade-up">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="order-2 lg:order-1 pr-0 lg:pr-16">
+<span class="font-label-lg text-label-lg text-tertiary-fixed-dim uppercase tracking-[0.2em] block mb-4">Sustainability</span>
+<h2 class="font-headline-lg text-headline-lg text-dark-espresso mb-8 uppercase">BETTER BY DESIGN</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        Luxury shouldn't cost the earth. We are committed to mindful production, from the eco-friendly dyes we use to our zero-waste cutting processes. 
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+                        The experience extends to our unboxing: every KARAVYA piece arrives in fully recyclable Rose White packaging, sealed with a subtle Rose Gold emblem—a gift to yourself.
+                    </p>
+</div>
+<div class="order-1 lg:order-2 aspect-square md:aspect-[4/3] bg-pearl-rose relative overflow-hidden flex items-center justify-center p-12">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center opacity-90 transition-transform duration-1000 hover:scale-105" data-alt="A luxurious unboxing experience showcasing premium packaging. A minimalist 'Rose White' matte box with subtle 'Rose Gold' foil embossing sits on a soft surface. Tissue paper delicately parts to reveal soft loungewear. Elegant, soft overhead lighting highlights the high-quality textures and thoughtful design details." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAGJFa0cA5sWex1yFZwvyWaB8AJsGOcyiEqEBnTgDYLW6glRaTvV6yUhZGigOfPdaygqRnl9YKWKbZ0yP1Nj51IOc_1dej39DPAHHNv-4R_ynvw9Nkw7bevFdLQ2N8pfTTT2nx-0LPcjfahaKsSH7YIsa3w3QIsGgoKf8YT0dQz1wqDqd7a2giOeJNPQbztMLKDZXTao5vVSl_hFy9CbkJCcnWq6hSUIbLPbGap0HTnP0__eCT0eTcj')"></div>
+</div>
+</div>
+</section>
+<!-- 9. FOUNDER VISION -->
+<section class="w-full py-section-gap-lg px-margin-mobile md:px-margin-desktop bg-surface-container-high fade-up">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 md:col-start-2 aspect-[3/4] overflow-hidden shadow-[0_20px_40px_rgba(143,74,91,0.08)] relative">
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" data-alt="An elegant, understated portrait of a female founder in a sunlit, modern studio. She wears simple, luxurious silk attire in a dark espresso tone, looking thoughtfully off-camera. The background features soft, blurred architectural lines and a vase of faded roses. Cinematic, warm lighting, conveying quiet authority and creative vision." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsyHElNfkHL0HN6qqJGIfL-QGxnQ4ck3-MAy7UbfIG6NVG5RC6eHXgnRXQwPpFxZ2278MzAdc07fXPmkk-r13ksPlBfUAU5BNeB5X58Pc0CVW4-CXGiFrz4W5myGA6juW9l-Eq6ggFh4lPbs7i9jz-51388E4G9A_AzaMgzscMMGuI3j9PmJcHNRi_a9U8TihsR4c9h_dy9qGYfC7f5mAY-tLYlVo4ixD1VgB5w11hufJHo67r1mVL')"></div>
+</div>
+<div class="md:col-span-5 md:col-start-8 mt-12 md:mt-0 flex flex-col justify-center">
+<h2 class="font-label-lg text-label-lg text-outline uppercase tracking-widest mb-6">THE VISION</h2>
+<p class="font-headline-md text-headline-md text-dark-espresso leading-relaxed italic mb-8 border-l-2 border-tertiary-fixed-dim pl-6">
+                        "KARAVYA began with a simple belief: The things closest to your skin should make you feel your best."
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        We wanted to create a wardrobe for the private moments. The hours before the world wakes up, and the quiet evenings winding down. It's about respecting your rest.
+                    </p>
+</div>
+</div>
+</section>
+<!-- 10. FINAL CTA -->
+<section class="w-full py-section-gap-lg px-margin-mobile md:px-margin-desktop bg-dark-espresso text-center fade-up relative overflow-hidden">
+<!-- Subtle background texture/gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
+<div class="max-w-3xl mx-auto relative z-10 py-16">
+<h2 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-pearl-rose mb-6 uppercase drop-shadow-sm">WELCOME TO KARAVYA.</h2>
+<p class="font-headline-md text-headline-md text-surface-variant font-light italic mb-12">Stay a little longer.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<a class="px-8 py-4 bg-surface text-dark-espresso font-label-lg text-label-lg uppercase tracking-widest hover:bg-pearl-rose transition-colors duration-300" href="women.html">
+                        SHOP KARAVYA
+                    </a>
+<a class="px-8 py-4 border border-tertiary-fixed-dim text-pearl-rose font-label-lg text-label-lg uppercase tracking-widest hover:bg-tertiary-fixed-dim/10 transition-colors duration-300" href="new-arrivals.html">
+                        EXPLORE NEW ARRIVALS
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Generated from JSON) -->
+<footer class="w-full py-section-gap-md bg-dark-espresso dark:bg-black border-t border-outline/20">
+<div class="flex flex-col items-center justify-center space-y-base px-margin-desktop text-center">
+<div class="font-display-lg text-headline-lg text-pearl-rose mb-8">KARAVYA</div>
+<div class="flex flex-wrap justify-center gap-8 mb-8">
+<a class="font-body-md text-body-md text-outline-variant hover:text-pearl-rose transition-all" href="coming-soon.html">Privacy Policy</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-pearl-rose transition-all" href="coming-soon.html">Terms of Service</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-pearl-rose transition-all" href="returns.html">Shipping &amp; Returns</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-pearl-rose transition-all" href="concierge.html">Contact</a>
+</div>
+<div class="font-body-md text-body-md text-outline-variant text-sm tracking-wider">
+                © 2024 KARAVYA. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<!-- Simple Intersection Observer for fade-up animations -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up').forEach((elem) => {
+                observer.observe(elem);
+            });
+        });
+    </script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+</body></html>

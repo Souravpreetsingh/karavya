@@ -1,0 +1,583 @@
+<!-- KARAVYA | The Gift Studio & Luxury Concierge -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>KARAVYA | Gift Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'display': ['"Playfair Display"', 'serif'],
+                        'body': ['"DM Sans"', 'sans-serif']
+                    },
+                    fontSize: {
+                        'display-lg-mobile': ['40px', { 'lineHeight': '1.2', 'fontWeight': '700' }],
+                        'display-lg': ['64px', { 'lineHeight': '1.1', 'letterSpacing': '-0.02em', 'fontWeight': '700' }],
+                        'headline-lg': ['36px', { 'lineHeight': '1.2', 'fontWeight': '600' }],
+                        'headline-md': ['28px', { 'lineHeight': '1.3', 'fontWeight': '600' }],
+                        'body-lg': ['18px', { 'lineHeight': '1.6' }],
+                        'body-md': ['16px', { 'lineHeight': '1.6' }]
+                    },
+                    colors: {
+                        'background': '#FBF7F2',
+                        'surface': '#FFFFFF',
+                        'surface-variant': '#F3ECE2',
+                        'on-surface': '#221B16',
+                        'on-surface-variant': '#5C534A',
+                        'outline-variant': '#D8CFC2',
+                        'primary': '#A5443E',
+                        'on-primary': '#FFFFFF',
+                        'primary-fixed': '#F9DAD2',
+                        'primary-fixed-dim': '#E9AC9E',
+                        'secondary': '#8A4F2D',
+                        'secondary-fixed': '#FBE3D4',
+                        'secondary-fixed-dim': '#E9B899',
+                        'gift-rose': '#C98A7D',
+                        'gift-gold': '#B8860B',
+                        'pearl-cream': '#F6EFE6',
+                        'dark-espresso': '#2B1E18',
+                        'soft-blush': '#F8E8E4',
+                        'deep-plum': '#4A2C3A',
+                        'text-muted': '#6F6357',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/40">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <button class="md:hidden p-2 -ml-2" aria-label="Open menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+            <nav class="hidden md:flex items-center space-x-8 text-sm tracking-widest uppercase text-on-surface-variant">
+                <a href="index.html" class="hover:text-primary transition-colors duration-300">Home</a>
+                <a href="collections.html" class="hover:text-primary transition-colors duration-300">Collections</a>
+                <a href="women.html" class="hover:text-primary transition-colors duration-300">Jewelry</a>
+                <a href="editorial.html" class="hover:text-primary transition-colors duration-300">Editorial</a>
+                <a href="our-story.html" class="hover:text-primary transition-colors duration-300">The Maison</a>
+            </nav>
+            <a href="index.html" class="font-display text-headline-md tracking-widest text-dark-espresso">KARAVYA</a>
+            <div class="flex items-center space-x-1">
+                <a href="search.html" class="p-2 text-dark-espresso hover:text-primary transition-colors" aria-label="Search">
+                    <span class="material-symbols-outlined">search</span>
+                </a>
+                <a href="account.html" class="p-2 text-dark-espresso hover:text-primary transition-colors" aria-label="Account">
+                    <span class="material-symbols-outlined">person</span>
+                </a>
+                <a href="cart.html" class="p-2 text-dark-espresso hover:text-primary transition-colors" aria-label="Cart">
+                    <span class="material-symbols-outlined">shopping_bag</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 pt-20">
+        <!-- Hero -->
+        <section class="px-4 py-16 text-center">
+            <p class="font-body text-xs tracking-[0.3em] uppercase text-primary mb-4">The Gift Studio</p>
+            <h1 class="font-display text-display-lg-mobile md:text-display-lg text-dark-espresso mb-6">GIFTING, <span class="text-gift-rose italic">ELEVATED.</span></h1>
+            <p class="font-body text-body-lg text-text-muted max-w-xl mx-auto mb-8">For the ones who have everything. Curated by KARAVYA, wrapped in silence.</p>
+            <a href="#gift-finder" class="inline-block px-8 py-4 rounded-full bg-dark-espresso text-pearl-cream text-xs tracking-widest uppercase font-medium hover:bg-primary transition-colors duration-300">Find the Perfect Gift</a>
+        </section>
+
+        <!-- Gift Finder -->
+        <section id="gift-finder" class="py-16 px-4">
+            <div class="max-w-screen-xl mx-auto">
+                <div id="gift-step-recipient">
+                    <h2 class="font-display text-headline-lg text-dark-espresso text-center mb-3">Who are you gifting?</h2>
+                    <p class="font-body text-body-md text-text-muted text-center mb-12 max-w-lg mx-auto">Tell us about them and we'll curate something they'll never forget.</p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <button data-gift-recipient="her" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">For Her</h3>
+                            <p class="font-body text-body-md text-text-muted mb-6">Silks, robes, and jewelry that feel like a love letter.</p>
+                            <span class="font-body text-xs tracking-widest uppercase text-primary">Explore Gifts</span>
+                        </button>
+                        <button data-gift-recipient="friend" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">diversity_3</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">Best Friend</h3>
+                            <p class="font-body text-body-md text-text-muted mb-6">Playful prints, cozy co-ords, and pieces made for inside jokes.</p>
+                            <span class="font-body text-xs tracking-widest uppercase text-primary">Explore Gifts</span>
+                        </button>
+                        <button data-gift-recipient="him" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">redeem</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">For Him</h3>
+                            <p class="font-body text-body-md text-text-muted mb-6">Timeless essentials with a quiet, understated confidence.</p>
+                            <span class="font-body text-xs tracking-widest uppercase text-primary">Explore Gifts</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden" id="gift-step-budget">
+                    <h2 class="font-display text-headline-lg text-dark-espresso text-center mb-3">What's the budget?</h2>
+                    <p class="font-body text-body-md text-text-muted text-center mb-12 max-w-lg mx-auto">A number to guide the curation. Discretion guaranteed.</p>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <button data-gift-budget="under" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">spa</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">Under ₹2,000</h3>
+                            <p class="font-body text-body-md text-text-muted">Rituals, slippers, and thoughtful extras.</p>
+                        </button>
+                        <button data-gift-budget="mid" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">redeem</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">₹2,000 – ₹4,000</h3>
+                            <p class="font-body text-body-md text-text-muted">Signature robes and silk loungewear.</p>
+                        </button>
+                        <button data-gift-budget="luxe" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">diamond</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">₹4,000 – ₹7,000</h3>
+                            <p class="font-body text-body-md text-text-muted">Ethereal silks and curated gifting sets.</p>
+                        </button>
+                        <button data-gift-budget="bespoke" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">₹7,000 &amp; above</h3>
+                            <p class="font-body text-body-md text-text-muted">Bespoke robes and show-stopping gowns.</p>
+                        </button>
+                    </div>
+                    <div class="mt-10 text-center">
+                        <button data-gift-back="0" type="button" class="inline-block px-8 py-4 rounded-full border border-dark-espresso/20 text-dark-espresso text-xs tracking-widest uppercase font-medium hover:bg-dark-espresso hover:text-pearl-cream transition-colors duration-300">Back</button>
+                    </div>
+                </div>
+                <div class="hidden" id="gift-step-style">
+                    <h2 class="font-display text-headline-lg text-dark-espresso text-center mb-3">What's their style?</h2>
+                    <p class="font-body text-body-md text-text-muted text-center mb-12 max-w-lg mx-auto">Pick the mood that fits them best.</p>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <button data-gift-style="quiet" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">nights_stay</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">Quiet &amp; Calm</h3>
+                            <p class="font-body text-body-md text-text-muted">Soft, serene, wrapped in light.</p>
+                        </button>
+                        <button data-gift-style="warm" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">Warm &amp; Cozy</h3>
+                            <p class="font-body text-body-md text-text-muted">Plush loungewear and cozy layers.</p>
+                        </button>
+                        <button data-gift-style="glam" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">Glow &amp; Glam</h3>
+                            <p class="font-body text-body-md text-text-muted">Silks and satins with golden-hour shine.</p>
+                        </button>
+                        <button data-gift-style="earth" type="button" class="group bg-surface rounded-3xl p-8 text-center border border-outline-variant/40 hover:border-gift-rose transition-colors duration-300 cursor-pointer">
+                            <span class="material-symbols-outlined text-4xl text-gift-rose mb-4 block" style="font-variation-settings: 'FILL' 1;">eco</span>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2">Linen &amp; Earth</h3>
+                            <p class="font-body text-body-md text-text-muted">Natural textures and quiet confidence.</p>
+                        </button>
+                    </div>
+                    <div class="mt-10 text-center">
+                        <button data-gift-back="1" type="button" class="inline-block px-8 py-4 rounded-full border border-dark-espresso/20 text-dark-espresso text-xs tracking-widest uppercase font-medium hover:bg-dark-espresso hover:text-pearl-cream transition-colors duration-300">Back</button>
+                    </div>
+                </div>
+                <div class="hidden" id="gift-step-recommendations">
+                    <h2 class="font-display text-headline-lg text-dark-espresso text-center mb-3">Curated for them</h2>
+                    <p class="font-body text-body-md text-text-muted text-center mb-12 max-w-lg mx-auto" id="gift-recs-note">Handpicked for them, within your budget.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="gift-recs-grid"></div>
+                    <div class="mt-10 flex items-center justify-center gap-4">
+                        <button data-gift-back="2" type="button" class="inline-block px-8 py-4 rounded-full border border-dark-espresso/20 text-dark-espresso text-xs tracking-widest uppercase font-medium hover:bg-dark-espresso hover:text-pearl-cream transition-colors duration-300">Back</button>
+                        <button data-gift-restart type="button" class="inline-block px-8 py-4 rounded-full bg-dark-espresso text-pearl-cream text-xs tracking-widest uppercase font-medium hover:bg-primary transition-colors duration-300">Start Over</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Curated Boxes -->
+        <section class="py-16 px-4 bg-pearl-cream">
+            <div class="max-w-screen-xl mx-auto">
+                <h2 class="font-display text-headline-lg text-dark-espresso text-center mb-3">The Curated Boxes</h2>
+                <p class="font-body text-body-md text-text-muted text-center mb-12 max-w-lg mx-auto">Signature edits, wrapped and ready. Just add a note.</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="bg-surface rounded-3xl overflow-hidden border border-outline-variant/40" id="gift-box-sunday">
+                        <div class="bg-soft-blush aspect-[4/3] flex items-center justify-center">
+                            <img alt="The Sunday Robe Set" class="w-full h-full object-cover" data-card-img loading="lazy" src="">
+                        </div>
+                        <div class="p-6">
+                            <p class="font-body text-xs tracking-widest uppercase text-text-muted mb-2">Night Ritual</p>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2"><a class="hover:text-primary transition-colors duration-300" data-card-link href="product.html?p=sunday-robe-set">The Sunday Robe Set</a></h3>
+                            <p class="font-body text-body-md text-text-muted mb-4">Robe, silk sleep mask, and a travel candle.</p>
+                            <p class="font-body text-body-md font-medium text-dark-espresso mb-4" data-card-price>₹6,499</p>
+                            <button class="inline-block w-full text-center px-6 py-3 rounded-full bg-dark-espresso text-pearl-cream text-xs tracking-widest uppercase font-medium hover:bg-primary transition-colors duration-300" data-add-to-bag="sunday-robe-set" type="button">Add to Bag</button>
+                        </div>
+                    </article>
+                    <article class="bg-surface rounded-3xl overflow-hidden border border-outline-variant/40" id="gift-box-pearl">
+                        <div class="bg-soft-blush aspect-[4/3] flex items-center justify-center">
+                            <img alt="The Pearl Edit" class="w-full h-full object-cover" data-card-img loading="lazy" src="">
+                        </div>
+                        <div class="p-6">
+                            <p class="font-body text-xs tracking-widest uppercase text-text-muted mb-2">Fine Jewelry</p>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2"><a class="hover:text-primary transition-colors duration-300" data-card-link href="product.html?p=pearl-edit">The Pearl Edit</a></h3>
+                            <p class="font-body text-body-md text-text-muted mb-4">Baroque pearl drop earrings with gold vermeil hooks.</p>
+                            <p class="font-body text-body-md font-medium text-dark-espresso mb-4" data-card-price>₹3,899</p>
+                            <button class="inline-block w-full text-center px-6 py-3 rounded-full bg-dark-espresso text-pearl-cream text-xs tracking-widest uppercase font-medium hover:bg-primary transition-colors duration-300" data-add-to-bag="pearl-edit" type="button">Add to Bag</button>
+                        </div>
+                    </article>
+                    <article class="bg-surface rounded-3xl overflow-hidden border border-outline-variant/40" id="gift-box-modal">
+                        <div class="bg-soft-blush aspect-[4/3] flex items-center justify-center">
+                            <img alt="The Modal Lounge Set" class="w-full h-full object-cover" data-card-img loading="lazy" src="">
+                        </div>
+                        <div class="p-6">
+                            <p class="font-body text-xs tracking-widest uppercase text-text-muted mb-2">Self Care</p>
+                            <h3 class="font-display text-headline-md text-dark-espresso mb-2"><a class="hover:text-primary transition-colors duration-300" data-card-link href="product.html?p=modal-lounge-set-the">The Modal Lounge Set</a></h3>
+                            <p class="font-body text-body-md text-text-muted mb-4">Signature modal wrap with matching trousers.</p>
+                            <p class="font-body text-body-md font-medium text-dark-espresso mb-4" data-card-price>₹5,299</p>
+                            <button class="inline-block w-full text-center px-6 py-3 rounded-full bg-dark-espresso text-pearl-cream text-xs tracking-widest uppercase font-medium hover:bg-primary transition-colors duration-300" data-add-to-bag="modal-lounge-set-the" type="button">Add to Bag</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gift Moods -->
+        <section class="py-16 px-4">
+            <div class="max-w-screen-xl mx-auto">
+                <h2 class="font-display text-headline-lg text-dark-espresso text-center mb-12">Gift by Mood</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <a href="product.html" class="group rounded-3xl bg-primary-fixed p-6 text-center hover:bg-primary-fixed-dim transition-colors duration-300">
+                        <span class="material-symbols-outlined text-3xl text-primary mb-3 block" style="font-variation-settings: 'FILL' 1;">eco</span>
+                        <p class="font-body text-sm tracking-wide text-dark-espresso">Linen &amp; Earth</p>
+                    </a>
+                    <a href="robe.html" class="group rounded-3xl bg-soft-blush p-6 text-center hover:bg-primary-fixed-dim transition-colors duration-300">
+                        <span class="material-symbols-outlined text-3xl text-gift-rose mb-3 block" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        <p class="font-body text-sm tracking-wide text-dark-espresso">Glow &amp; Glam</p>
+                    </a>
+                    <a href="women.html" class="group rounded-3xl bg-secondary-fixed p-6 text-center hover:bg-secondary-fixed-dim transition-colors duration-300">
+                        <span class="material-symbols-outlined text-3xl text-secondary mb-3 block" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                        <p class="font-body text-sm tracking-wide text-dark-espresso">Warm &amp; Cozy</p>
+                    </a>
+                    <a href="robe.html" class="group rounded-3xl bg-surface-variant p-6 text-center hover:bg-outline-variant transition-colors duration-300">
+                        <span class="material-symbols-outlined text-3xl text-on-surface-variant mb-3 block" style="font-variation-settings: 'FILL' 1;">nights_stay</span>
+                        <p class="font-body text-sm tracking-wide text-dark-espresso">Quiet &amp; Calm</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concierge -->
+        <section class="py-16 px-4 bg-dark-espresso text-pearl-cream">
+            <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-10">
+                <div class="flex-1">
+                    <p class="font-body text-xs tracking-[0.3em] uppercase text-gift-gold mb-4">Luxury Concierge</p>
+                    <h2 class="font-display text-headline-lg text-pearl-cream mb-4">Not sure? We'll handle it.</h2>
+                    <p class="font-body text-body-lg text-pearl-cream/70 mb-8">Tell us their taste, their size, and the occasion. Our concierge curates, wraps, and delivers — beautifully.</p>
+                    <a href="concierge.html" class="inline-block px-8 py-4 rounded-full bg-gift-rose text-dark-espresso text-xs tracking-widest uppercase font-medium hover:bg-primary-fixed-dim transition-colors duration-300">Talk to Concierge</a>
+                </div>
+                <div class="flex-1 grid grid-cols-2 gap-4 w-full">
+                    <div class="bg-pearl-cream/10 rounded-2xl p-6 text-center">
+                        <span class="material-symbols-outlined text-3xl text-gift-rose mb-2 block" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                        <p class="font-body text-sm text-pearl-cream/80">Gift Wrapping</p>
+                    </div>
+                    <div class="bg-pearl-cream/10 rounded-2xl p-6 text-center">
+                        <span class="material-symbols-outlined text-3xl text-gift-rose mb-2 block" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+                        <p class="font-body text-sm text-pearl-cream/80">Handwritten Notes</p>
+                    </div>
+                    <div class="bg-pearl-cream/10 rounded-2xl p-6 text-center">
+                        <span class="material-symbols-outlined text-3xl text-gift-rose mb-2 block" style="font-variation-settings: 'FILL' 1;">schedule</span>
+                        <p class="font-body text-sm text-pearl-cream/80">Scheduled Delivery</p>
+                    </div>
+                    <div class="bg-pearl-cream/10 rounded-2xl p-6 text-center">
+                        <span class="material-symbols-outlined text-3xl text-gift-rose mb-2 block" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        <p class="font-body text-sm text-pearl-cream/80">Certificate of Authenticity</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-background border-t border-outline-variant/40">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                <div>
+                    <a href="index.html" class="font-display text-headline-md tracking-widest text-dark-espresso">KARAVYA</a>
+                    <p class="font-body text-body-md text-text-muted mt-2">Gifts that feel like poetry.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-8 md:gap-16">
+                    <div>
+                        <h4 class="font-body text-xs tracking-widest uppercase text-text-muted mb-3">Gifting</h4>
+                        <ul class="space-y-2 font-body text-sm">
+                            <li><a href="coming-soon.html" class="text-on-surface-variant hover:text-primary transition-colors">Gift Cards</a></li>
+                            <li><a href="coming-soon.html" class="text-on-surface-variant hover:text-primary transition-colors">Corporate Gifting</a></li>
+                            <li><a href="coming-soon.html" class="text-on-surface-variant hover:text-primary transition-colors">Wedding Registry</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-body text-xs tracking-widest uppercase text-text-muted mb-3">Care</h4>
+                        <ul class="space-y-2 font-body text-sm">
+                            <li><a href="returns.html" class="text-on-surface-variant hover:text-primary transition-colors">Shipping &amp; Returns</a></li>
+                            <li><a href="coming-soon.html" class="text-on-surface-variant hover:text-primary transition-colors">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-outline-variant/40 text-center">
+                <p class="font-body text-xs text-text-muted">© 2024 KARAVYA. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+<script src="site-config.js"></script>
+<script src="karavya.js"></script>
+<script>
+(function () {
+    "use strict";
+    var K = window.KARAVYA;
+    if (!K) return;
+    var BUDGETS = {
+        under: ['aura-sleep-mist', 'cloud-slippers', 'linen-resort-shirt', 'minimal-crossbody'],
+        mid: ['rose-cloud-robe', 'cloudline-modal-set', 'rose-cloud-set', 'silk-slip-dress'],
+        luxe: ['ethereal-silk-robe', 'sunday-robe-set', 'elysian-robe', 'aura-lounge-set'],
+        bespoke: ['bespoke-robe', 'fluid-gown']
+    };
+    var PERSONAS = {
+        quiet: ['ethereal-silk-robe', 'elysian-robe', 'bespoke-robe', 'sunday-robe', 'rose-cloud-robe', 'satin-haze-set', 'aura-sleep-mist'],
+        warm: ['cloudline-modal-set', 'modal-lounge-set', 'rose-cloud-set', 'aura-lounge-set', 'boyfriend-sleep-shirt', 'modal-slip-gown', 'signature-modal-wrap', 'cloud-slippers'],
+        glam: ['fluid-gown', 'silk-slip-dress', 'silk-crepe-blouse', 'serene-satin-coord', 'ethereal-cami-set', 'pearl-edit'],
+        earth: ['linen-resort-shirt', 'breeze-linen-cami', 'minimal-crossbody', 'restoration-mask', 'sunday-robe-set', 'bespoke-robe']
+    };
+    var RECIPIENT_LABEL = { her: 'her', friend: 'your best friend', him: 'him' };
+    var state = { recipient: null, budget: null, style: null };
+    var steps = ['gift-step-recipient', 'gift-step-budget', 'gift-step-style', 'gift-step-recommendations'];
+
+    function showStep(i) {
+        steps.forEach(function (id, idx) {
+            var el = document.getElementById(id);
+            if (el) el.classList.toggle('hidden', idx !== i);
+        });
+        var section = document.getElementById('gift-finder');
+        if (section) window.scrollTo({ top: section.getBoundingClientRect().top + window.scrollY - 110, behavior: 'smooth' });
+    }
+
+    function recommend() {
+        var pool = BUDGETS[state.budget] || [];
+        var persona = PERSONAS[state.style] || [];
+        var out = [];
+        pool.forEach(function (s) { if (persona.indexOf(s) !== -1 && out.indexOf(s) === -1) out.push(s); });
+        pool.forEach(function (s) { if (out.indexOf(s) === -1) out.push(s); });
+        persona.forEach(function (s) { if (out.indexOf(s) === -1) out.push(s); });
+        return out.filter(function (s) {
+            var p = K.find(s);
+            return p && p.availability !== 'out_of_stock';
+        }).slice(0, 4);
+    }
+
+    function cardHTML(slug) {
+        var p = K.find(slug);
+        if (!p) return '';
+        var url = K.productUrl(slug);
+        return '<article class="bg-surface rounded-3xl overflow-hidden border border-outline-variant/40">' +
+            '<a class="block aspect-[3/4] overflow-hidden" href="' + url + '">' +
+            '<img alt="' + p.name + '" class="w-full h-full object-cover object-top transition-transform duration-[1.2s] hover:scale-105" decoding="async" loading="lazy" src="' + p.images[0] + '"/>' +
+            '</a>' +
+            '<div class="p-6">' +
+            '<p class="font-body text-xs tracking-widest uppercase text-text-muted mb-2">' + p.category + '</p>' +
+            '<h3 class="font-display text-headline-md text-dark-espresso mb-2"><a class="hover:text-primary transition-colors duration-300" href="' + url + '">' + p.name + '</a></h3>' +
+            '<p class="font-body text-body-md font-medium text-dark-espresso mb-4">' + K.fmtINR(p.price) + '</p>' +
+            '<div class="flex gap-3">' +
+            '<button class="flex-1 px-6 py-3 rounded-full bg-dark-espresso text-pearl-cream text-xs tracking-widest uppercase font-medium hover:bg-primary transition-colors duration-300" data-add-to-bag="' + slug + '" type="button">Add to Bag</button>' +
+            '<button class="flex-1 px-6 py-3 rounded-full border border-dark-espresso/20 text-dark-espresso text-xs tracking-widest uppercase font-medium hover:bg-dark-espresso hover:text-pearl-cream transition-colors duration-300" data-buy-now="' + slug + '" type="button">Buy Now</button>' +
+            '</div>' +
+            '<button aria-label="Save ' + p.name + ' to wishlist" aria-pressed="false" class="mt-4 w-full text-center font-body text-xs tracking-widest uppercase text-text-muted hover:text-deep-rose transition-colors duration-300" data-wishlist="' + slug + '" type="button">Save to Wishlist</button>' +
+            '</div></article>';
+    }
+
+    function renderRecs() {
+        var grid = document.getElementById('gift-recs-grid');
+        var note = document.getElementById('gift-recs-note');
+        if (!grid) return;
+        grid.innerHTML = recommend().map(cardHTML).join('');
+        if (note) note.textContent = 'Handpicked for ' + (RECIPIENT_LABEL[state.recipient] || 'them') + ', within your budget.';
+        if (K.paintWishlist) K.paintWishlist();
+    }
+
+    document.querySelectorAll('[data-gift-recipient]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            state.recipient = btn.getAttribute('data-gift-recipient');
+            showStep(1);
+        });
+    });
+    document.querySelectorAll('[data-gift-budget]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            state.budget = btn.getAttribute('data-gift-budget');
+            showStep(2);
+        });
+    });
+    document.querySelectorAll('[data-gift-style]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            state.style = btn.getAttribute('data-gift-style');
+            renderRecs();
+            showStep(3);
+        });
+    });
+    document.querySelectorAll('[data-gift-back]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            showStep(parseInt(btn.getAttribute('data-gift-back'), 10));
+        });
+    });
+    var restart = document.querySelector('[data-gift-restart]');
+    if (restart) restart.addEventListener('click', function () {
+        state = { recipient: null, budget: null, style: null };
+        showStep(0);
+    });
+    [['gift-box-sunday', 'sunday-robe-set'], ['gift-box-pearl', 'pearl-edit'], ['gift-box-modal', 'modal-lounge-set-the']].forEach(function (pair) {
+        var el = document.getElementById(pair[0]);
+        if (el && K.attachCard) K.attachCard(el, pair[1]);
+    });
+})();
+</script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+<script>(function(){'use strict';if(window.matchMedia('(max-width: 767px)').matches){window.location.replace('gift-studio-mobile.html');}})();</script>
+</body>
+</html>

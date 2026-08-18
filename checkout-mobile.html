@@ -1,0 +1,598 @@
+<!-- KARAVYA | Secure Checkout (Mobile View) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KARAVYA - Checkout</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Playfair+Display:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {"rose-white": "#FFF5F7", "deep-rose": "#8F4A5B", "rose-gold": "#B76E79", 
+                      "surface-container-high": "#efe6e8",
+                      "dark-espresso": "#2B1B1F",
+                      "primary": "#8a4853",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-primary": "#ffb2bc",
+                      "on-secondary-container": "#7b4b4b",
+                      "on-tertiary-fixed-variant": "#584236",
+                      "outline-variant": "#d7c1c3",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#8c4b55",
+                      "on-primary-container": "#fffbff",
+                      "on-primary-fixed": "#3a0915",
+                      "tertiary": "#6f574a",
+                      "surface-dim": "#e1d8da",
+                      "blush-rose": "#F8DCE3",
+                      "primary-container": "#a6606b",
+                      "deep-rose": "#8F4A5B",
+                      "surface": "#fff8f8",
+                      "surface-variant": "#eae0e2",
+                      "on-surface-variant": "#524345",
+                      "background": "#fff8f8",
+                      "inverse-surface": "#342f31",
+                      "tertiary-fixed": "#fddccb",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f8eef0",
+                      "surface-container-low": "#fbf1f3",
+                      "on-secondary-fixed-variant": "#673a3b",
+                      "secondary": "#825152",
+                      "surface-container-highest": "#eae0e2",
+                      "on-primary-fixed-variant": "#70343e",
+                      "pearl-rose": "#FCECEF",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#ffdad9",
+                      "soft-rose": "#EFB7C5",
+                      "on-tertiary-container": "#fffbff",
+                      "primary-fixed-dim": "#ffb2bc",
+                      "surface-container": "#f5ebed",
+                      "on-surface": "#1f1a1c",
+                      "on-tertiary-fixed": "#29180e",
+                      "on-tertiary": "#ffffff",
+                      "on-background": "#1f1a1c",
+                      "error": "#ba1a1a",
+                      "primary-fixed": "#ffd9dd",
+                      "secondary-container": "#ffbfbf",
+                      "secondary-fixed-dim": "#f6b7b7",
+                      "surface-bright": "#fff8f8",
+                      "outline": "#857374",
+                      "tertiary-container": "#896f62",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#331012",
+                      "tertiary-fixed-dim": "#e0c0b0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "section-gap-md": "80px",
+                      "margin-desktop": "64px",
+                      "base": "8px",
+                      "section-gap-lg": "120px",
+                      "margin-mobile": "20px",
+                      "container-max": "1440px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "DM Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "label-lg": [
+                              "DM Sans"
+                      ],
+                      "body-lg": [
+                              "DM Sans"
+                      ],
+                      "body-md": [
+                              "DM Sans"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "11px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.15em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.7",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "80px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.03em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .floating-input:focus ~ .floating-label,
+        .floating-input:not(:placeholder-shown) ~ .floating-label {
+            transform: translateY(-1.5rem) scale(0.75);
+            color: theme('colors.primary');
+        }
+        
+        .floating-input:focus {
+            border-bottom-color: theme('colors.primary');
+            box-shadow: 0 4px 6px -1px rgba(138, 72, 83, 0.1);
+        }
+        
+        .smooth-accordion {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-surface text-dark-espresso font-body-md min-h-screen flex flex-col antialiased selection:bg-pearl-rose selection:text-primary pb-[100px]">
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+<!-- TopAppBar -->
+<header class="bg-surface/90 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-margin-mobile h-20 w-full z-50 sticky top-0 transition-all duration-200">
+<a class="text-on-surface-variant hover:opacity-70 transition-opacity duration-300 flex items-center group" href="cart.html">
+<span class="material-symbols-outlined mr-2 text-dark-espresso">arrow_back</span>
+<span class="font-label-lg text-label-lg text-dark-espresso hidden sm:inline">Back to Bag</span>
+</a>
+<div class="flex-1 flex justify-center">
+<a href="index.html">
+<img alt="KARAVYA Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLvbbpqJ_bcm3KLIDCAkb1ouHpEq64wtQ5xEw7kJ9ZVmoB_x8Kr5jRfuegiy09UGYilJ1Dp5m1BNSSW0jqylqVhyKZ9RKX2jZoqlwkZV8zzDQmVJbr2R_0vDn2eNVMVQeHi9oEjaqL95PuN3BXPx5nkSVWtqoWLBSdr0Oo6fhmGD2AIZJVuT-jVL4Vsnk_InQPmkE5ucbX8KzPbSSnEYbM9Njm_q7R-faV2TEfV4DPEp5wLmJXSEb98-Dms"/>
+</a>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-dark-espresso">lock</span>
+</div>
+</header>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-high h-1">
+<div class="bg-primary h-full" style="width: 50%;"></div>
+</div>
+<div class="w-full px-margin-mobile py-2 flex justify-between items-center bg-surface-container-low">
+<span class="font-label-sm text-label-sm text-on-surface-variant">STEP 2 OF 4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">DELIVERY</span>
+</div>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-container-max mx-auto md:px-margin-desktop flex flex-col md:flex-row gap-gutter mt-8">
+<!-- Order Summary Accordion (Mobile Top) -->
+<div class="w-full md:hidden bg-pearl-rose mb-8">
+<button class="w-full flex justify-between items-center px-margin-mobile py-4 focus:outline-none" id="order-summary-toggle">
+<span class="font-headline-md text-headline-md text-dark-espresso">YOUR ORDER</span>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-primary" id="m-summary-total">₹0</span>
+<span class="material-symbols-outlined text-dark-espresso transition-transform duration-300" id="order-summary-icon">expand_more</span>
+</div>
+</button>
+<div class="max-h-0 opacity-0 overflow-hidden smooth-accordion px-margin-mobile bg-surface" id="order-summary-content">
+<p class="font-label-sm text-label-sm text-on-surface-variant pt-4 pb-1 border-b border-outline-variant/30" id="m-item-count">0 Items</p>
+<div class="py-4 border-b border-outline-variant" id="m-summary-items">
+</div>
+</div>
+</div>
+<!-- Forms Container -->
+<div class="w-full md:w-2/3 px-margin-mobile md:px-0">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-dark-espresso mb-8">Delivery Information</h1>
+<!-- Contact Form -->
+<section class="mb-12">
+<h2 class="font-label-lg text-label-lg text-dark-espresso mb-6 tracking-widest uppercase border-b border-outline-variant pb-2">Contact Details</h2>
+<div class="space-y-6">
+<div class="relative pt-4">
+<input class="floating-input peer w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-dark-espresso font-body-md transition-colors placeholder-transparent" id="email" placeholder="Email Address" type="email"/>
+<label class="floating-label absolute left-0 top-6 text-on-surface-variant font-label-lg text-label-lg transition-all origin-left cursor-text" for="email">Email Address</label>
+</div>
+</div>
+</section>
+<!-- Delivery Form -->
+<section class="mb-12">
+<h2 class="font-label-lg text-label-lg text-dark-espresso mb-6 tracking-widest uppercase border-b border-outline-variant pb-2">Shipping Address</h2>
+<div class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="relative pt-4">
+<input class="floating-input peer w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-dark-espresso font-body-md transition-colors placeholder-transparent" id="fname" placeholder="First Name" type="text"/>
+<label class="floating-label absolute left-0 top-6 text-on-surface-variant font-label-lg text-label-lg transition-all origin-left cursor-text" for="fname">First Name</label>
+</div>
+<div class="relative pt-4">
+<input class="floating-input peer w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-dark-espresso font-body-md transition-colors placeholder-transparent" id="lname" placeholder="Last Name" type="text"/>
+<label class="floating-label absolute left-0 top-6 text-on-surface-variant font-label-lg text-label-lg transition-all origin-left cursor-text" for="lname">Last Name</label>
+</div>
+</div>
+<div class="relative pt-4">
+<input class="floating-input peer w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-dark-espresso font-body-md transition-colors placeholder-transparent" id="address" placeholder="Street Address" type="text"/>
+<label class="floating-label absolute left-0 top-6 text-on-surface-variant font-label-lg text-label-lg transition-all origin-left cursor-text" for="address">Street Address</label>
+</div>
+<div class="relative pt-4">
+<input class="floating-input peer w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-dark-espresso font-body-md transition-colors placeholder-transparent" id="apartment" placeholder="Apartment, suite, etc. (optional)" type="text"/>
+<label class="floating-label absolute left-0 top-6 text-on-surface-variant font-label-lg text-label-lg transition-all origin-left cursor-text" for="apartment">Apartment, suite, etc. (optional)</label>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="relative pt-4">
+<input class="floating-input peer w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-dark-espresso font-body-md transition-colors placeholder-transparent" id="city" placeholder="City" type="text"/>
+<label class="floating-label absolute left-0 top-6 text-on-surface-variant font-label-lg text-label-lg transition-all origin-left cursor-text" for="city">City</label>
+</div>
+<div class="relative pt-4">
+<input class="floating-input peer w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-dark-espresso font-body-md transition-colors placeholder-transparent" id="pin" placeholder="PIN Code" type="text"/>
+<label class="floating-label absolute left-0 top-6 text-on-surface-variant font-label-lg text-label-lg transition-all origin-left cursor-text" for="pin">PIN Code</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Delivery Method -->
+<section class="mb-12">
+<h2 class="font-label-lg text-label-lg text-dark-espresso mb-6 tracking-widest uppercase border-b border-outline-variant pb-2">Delivery Method</h2>
+<div class="space-y-4">
+<label class="block relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="delivery" type="radio" value="standard"/>
+<div class="w-full border border-primary bg-pearl-rose p-4 rounded-sm flex items-center justify-between transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-dark-espresso">Standard Delivery</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">3-5 Business Days</p>
+</div>
+</div>
+<span class="font-label-lg text-label-lg text-primary" id="m-std-label">Free</span>
+</div>
+<div class="absolute inset-0 border border-primary rounded-sm opacity-100 peer-checked:border-2 pointer-events-none"></div>
+</label>
+<label class="block relative cursor-pointer group">
+<input class="peer sr-only" name="delivery" type="radio" value="express"/>
+<div class="w-full border border-outline-variant bg-surface p-4 rounded-sm flex items-center justify-between hover:bg-surface-container transition-colors peer-checked:bg-pearl-rose peer-checked:border-primary">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-dark-espresso peer-checked:text-primary">bolt</span>
+<div>
+<h3 class="font-label-lg text-label-lg text-dark-espresso">Express Delivery</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">1-2 Business Days</p>
+</div>
+</div>
+<span class="font-label-lg text-label-lg text-dark-espresso peer-checked:text-primary">₹500</span>
+</div>
+<div class="absolute inset-0 border border-primary rounded-sm opacity-0 peer-checked:opacity-100 peer-checked:border-2 pointer-events-none transition-opacity"></div>
+</label>
+</div>
+</section>
+</div>
+<!-- Desktop Order Summary -->
+<div class="hidden md:block w-1/3 pl-gutter border-l border-outline-variant">
+<div class="sticky top-32">
+<h3 class="font-headline-md text-headline-md text-dark-espresso mb-6">Order Summary</h3>
+<div class="py-4 border-b border-outline-variant" id="m-desk-items">
+</div>
+<div class="py-4 flex justify-between">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Total</span>
+<span class="font-headline-md text-headline-md text-dark-espresso" id="m-desk-total">₹0</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Footer Mobile -->
+<div class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-md border-t border-outline-variant p-margin-mobile z-40 md:hidden shadow-[0_-4px_20px_rgba(143,74,91,0.05)]">
+<div class="flex justify-between items-center mb-4">
+<span class="font-label-lg text-label-lg text-on-surface-variant">Total</span>
+<span class="font-headline-md text-headline-md text-dark-espresso" id="m-sticky-total">₹0</span>
+</div>
+<a class="w-full bg-dark-espresso text-surface font-label-lg text-label-lg py-4 rounded-sm tracking-widest uppercase hover:bg-primary transition-colors duration-300 block text-center" href="payment.html" id="continue-to-payment-m">
+            Continue to Payment
+        </a>
+</div>
+<!-- Footer Desktop -->
+<footer class="w-full py-base flex flex-col md:flex-row justify-between items-center px-margin-desktop mt-section-gap-md bg-surface border-t border-outline-variant hidden md:flex">
+<div class="font-headline-md text-headline-md text-dark-espresso">KARAVYA</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant my-4 md:my-0">© 2024 KARAVYA. All rights reserved. Secure encrypted checkout.</p>
+<div class="flex gap-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="coming-soon.html">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="coming-soon.html">Terms of Service</a>
+</div>
+</footer>
+<script src="karavya.js"></script>
+<script>
+(function () {
+    "use strict";
+    var K = window.KARAVYA;
+    if (!K) return;
+    var $ = function (id) { return document.getElementById(id); };
+    var itemRow = function (i) {
+        var img = i.img || (i.product && (i.product.image || (i.product.images && i.product.images[0]))) || "";
+        var d = document.createElement("div");
+        d.className = "py-4 border-b border-outline-variant flex gap-4";
+        d.innerHTML =
+            '<div class="w-20 h-24 bg-surface-container-high relative">' +
+            '<img class="w-full h-full object-cover" src="' + img + '" alt="' + i.name + '">' +
+            '</div>' +
+            '<div class="flex-1 flex flex-col justify-between">' +
+            '<div>' +
+            '<h4 class="font-label-lg text-label-lg text-dark-espresso mb-1">' + i.name + '</h4>' +
+            '<p class="font-label-sm text-label-sm text-on-surface-variant">' + [i.color, i.size].filter(Boolean).join(" / ") + ' | Qty: ' + i.qty + '</p>' +
+            '</div>' +
+            '<p class="font-label-lg text-label-lg text-primary">' + K.fmtINR(i.price * i.qty) + '</p>' +
+            '</div>';
+        return d;
+    };
+    var render = function () {
+        var checked = document.querySelector('input[name="delivery"]:checked');
+        var summary = K.checkoutSummary(checked && checked.value === 'express');
+        var fmtTotal = K.fmtINR(summary.total);
+        var t1 = $('m-summary-total'), t2 = $('m-sticky-total'), t3 = $('m-desk-total');
+        if (t1) t1.textContent = fmtTotal;
+        if (t2) t2.textContent = fmtTotal;
+        if (t3) t3.textContent = fmtTotal;
+        var count = $('m-item-count');
+        if (count) count.textContent = summary.count + (summary.count === 1 ? " Item" : " Items");
+        var w1 = $('m-summary-items'), w2 = $('m-desk-items');
+        if (w1) { w1.innerHTML = ""; summary.lines.forEach(function (i) { w1.appendChild(itemRow(i)); }); }
+        if (w2) { w2.innerHTML = ""; summary.lines.forEach(function (i) { w2.appendChild(itemRow(i)); }); }
+        var std = $('m-std-label');
+        if (std) std.textContent = (summary.subtotal >= 5000 || summary.subtotal === 0) ? "Free" : "₹500";
+    };
+    var cta = $('continue-to-payment-m');
+    if (cta) {
+        cta.addEventListener('click', function (ev) {
+            if (!K.hasOrderSource()) {
+                if (K.toast) K.toast("Your bag is empty. Add a piece first.");
+                ev.preventDefault();
+                return;
+            }
+            var checked = document.querySelector('input[name="delivery"]:checked');
+            K.writePendingOrder({ express: checked && checked.value === 'express' });
+            var data = {
+                email: $('email') ? $('email').value : '',
+                fullName: [$('fname') ? $('fname').value : '', $('lname') ? $('lname').value : ''].filter(Boolean).join(' '),
+                address: $('address') ? $('address').value : '',
+                apartment: $('apartment') ? $('apartment').value : '',
+                city: $('city') ? $('city').value : '',
+                pincode: $('pin') ? $('pin').value : '',
+                delivery_method: checked && checked.value === 'express' ? 'express' : 'standard'
+            };
+            try { sessionStorage.setItem("karavya_checkout", JSON.stringify(data)); } catch (e) {}
+        });
+    }
+    document.querySelectorAll('input[name="delivery"]').forEach(function (r) {
+        r.addEventListener('change', render);
+    });
+    render();
+})();
+</script>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleBtn = document.getElementById('order-summary-toggle');
+            const content = document.getElementById('order-summary-content');
+            const icon = document.getElementById('order-summary-icon');
+            
+            if(toggleBtn && content && icon) {
+                toggleBtn.addEventListener('click', () => {
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        content.style.opacity = '0';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        content.style.opacity = '1';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+        });
+    </script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+<script>(function(){'use strict';if(window.matchMedia('(min-width: 768px)').matches){window.location.replace('checkout.html');}})();</script>
+</body></html>

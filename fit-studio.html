@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KARAVYA Fit Studio — your digital fitting room. Create your body profile, take precision measurements, and perfect every fit, guaranteed.">
+  <meta property="og:title" content="The Fit Studio & Digital Fitting Room — KARAVYA">
+  <meta property="og:description" content="KARAVYA Fit Studio — your digital fitting room. Create your body profile, take precision measurements, and perfect every fit, guaranteed.">
+  <link rel="canonical" href="https://karavya.example/fit-studio.html">
+  <title>The Fit Studio & Digital Fitting Room — KARAVYA</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#A4356F',
+            'primary-container': '#FFD9E4',
+            'on-primary-container': '#31101F',
+            'secondary': '#74565F',
+            'secondary-container': '#FFD9E4',
+            'on-secondary-container': '#2C151C',
+            'tertiary': '#7C5635',
+            'tertiary-container': '#FFDBC2',
+            'on-tertiary-container': '#2E1500',
+            'surface': '#FFF8F7',
+            'surface-dim': '#E4D6D5',
+            'surface-container': '#FCEBE9',
+            'surface-container-high': '#F6E0DF',
+            'on-surface': '#22191B',
+            'on-surface-variant': '#524345',
+            'outline': '#847476',
+            'outline-variant': '#D5C2C3',
+            'error': '#BA1A1A',
+            'dark-espresso': '#241513',
+            'pearl-rose': '#FDF1F0',
+            'gold': '#B08D57',
+            'gold-light': '#DCC8A3',
+            'text-primary': '#9C4A6E',
+            'text-secondary': '#7A5C6B',
+            'bg-cream': '#FAF4F0',
+            'text-brown': '#3D2B2B',
+            'text-rose': '#A13564',
+            'text-mauve': '#5B4154',
+            'text-taupe': '#8C7268',
+            'rose-quartz': '#D9A5B3',
+            'on-primary-fixed-variant': '#982457',
+            'tertiary-fixed': '#8C5A35',
+            'tertiary-fixed-dim': '#B58A63',
+            'rosewood': '#8C4A5E'
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"DM Sans"', 'sans-serif']
+          },
+          fontSize: {
+            'label-lg': ['0.875rem', { lineHeight: '1.25rem' }],
+            'label-sm': ['0.75rem', { lineHeight: '1rem' }]
+          },
+          borderRadius: {
+            '4xl': '2rem',
+            '5xl': '2.5rem'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background-color: #FFF8F7; color: #22191B; overflow-x: hidden; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+    .delay-6 { transition-delay: 0.6s; }
+    .delay-7 { transition-delay: 0.7s; }
+    .delay-8 { transition-delay: 0.8s; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    @keyframes floatSlow { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+    .animate-fade-in-up { animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .animate-fade-in { animation: fadeIn 1.2s ease both; }
+    .animate-scale-in { animation: scaleIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .animate-float-slow { animation: floatSlow 6s ease-in-out infinite; }
+    .img-fade { opacity: 0; transition: opacity 0.8s ease; }
+    .img-fade.loaded { opacity: 1; }
+    .nav-link { position: relative; transition: color 0.3s ease; }
+    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0%; height: 1px; background: #A4356F; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .btn-primary { background: linear-gradient(135deg, #A4356F 0%, #7C1E4E 100%); color: #FFF8F7; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(164, 53, 111, 0.25); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(164, 53, 111, 0.35); }
+    .btn-outline { border: 1.5px solid #A4356F; color: #A4356F; transition: all 0.3s ease; }
+    .btn-outline:hover { background: #A4356F; color: #FFF8F7; }
+    .card-hover { transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(36, 21, 19, 0.1); }
+    .input-field { width: 100%; padding: 0.75rem 1rem; border-radius: 0.75rem; border: 1px solid #D5C2C3; background: #FFF8F7; transition: all 0.3s ease; }
+    .input-field:focus { outline: none; border-color: #A4356F; box-shadow: 0 0 0 3px rgba(164, 53, 111, 0.15); }
+    .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background: #A4356F; color: #FFF8F7; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(164, 53, 111, 0.3); z-index: 90; }
+    .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { transform: translateY(-4px); }
+    .faq-item { transition: all 0.3s ease; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease; opacity: 0; }
+    .faq-item.active .faq-answer { max-height: 300px; opacity: 1; }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+    .faq-icon { transition: transform 0.3s ease; }
+    .measurement-input { transition: all 0.3s ease; }
+    .measurement-input:focus { transform: scale(1.05); box-shadow: 0 8px 30px rgba(164, 53, 111, 0.15); }
+    .measurement-card { transition: all 0.3s ease; }
+    .measurement-card:hover { border-color: #A4356F; transform: translateY(-4px); }
+    @media (max-width: 768px) { .back-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; } }
+  </style>
+</head>
+<body>
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+  <!-- Navigation -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav class="mx-auto max-w-[90rem] px-6 lg:px-12">
+      <div class="flex items-center justify-between h-20 lg:h-24">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <span class="text-2xl">✨</span>
+          <span class="font-serif text-xl lg:text-2xl tracking-[0.35em] text-dark-espresso group-hover:text-primary transition-colors">KARAVYA</span>
+        </a>
+        <div class="hidden lg:flex items-center gap-10">
+          <a href="index.html" class="nav-link font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary">Home</a>
+          <a href="collections.html" class="nav-link font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary">Collections</a>
+          <a href="editorial.html" class="nav-link font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary">Editorial</a>
+          <a href="concierge.html" class="nav-link font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary">Concierge</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="concierge.html" class="hidden md:inline-flex btn-primary font-label-lg text-label-lg tracking-widest uppercase px-6 py-3 rounded-full">Book Appointment</a>
+          <button id="mobile-menu-btn" class="lg:hidden text-dark-espresso p-2" aria-label="Open menu">
+            <span class="material-symbols-outlined text-2xl">menu</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="old-mobile-menu" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('old-mobile-menu').classList.add('hidden')"></div>
+    <div class="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-surface p-8 shadow-2xl">
+      <div class="flex items-center justify-between mb-10">
+        <span class="font-serif text-xl tracking-[0.3em] text-dark-espresso">KARAVYA</span>
+        <button onclick="document.getElementById('old-mobile-menu').classList.add('hidden')" class="text-dark-espresso p-2" aria-label="Close menu">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-6">
+        <a href="index.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Home</a>
+        <a href="collections.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Collections</a>
+        <a href="editorial.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Editorial</a>
+        <a href="concierge.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Concierge</a>
+        <a href="wishlist.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Wishlist</a>
+        <a href="account.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">My Account</a>
+      </div>
+      <a href="concierge.html" class="btn-primary font-label-lg text-label-lg tracking-widest uppercase px-6 py-4 rounded-full text-center mt-8 w-full block">Book Appointment</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 lg:pt-28">
+    <div class="absolute inset-0">
+      <img src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg" alt="Fit Studio hero" class="w-full h-full object-cover opacity-20">
+      <div class="absolute inset-0 bg-gradient-to-b from-surface/70 via-surface/85 to-surface"></div>
+    </div>
+    <div class="relative z-10 mx-auto max-w-[90rem] px-6 lg:px-12 text-center py-20 lg:py-32">
+      <div class="animate-fade-in-up">
+        <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary mb-6">Digital Fitting Room</p>
+        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-dark-espresso leading-tight mb-8">The Fit Studio</h1>
+        <p class="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed mb-12">Measure once. Fit forever. Our digital fitting room maps your body profile, precision-measures every silhouette, and guarantees a perfect fit on every single piece.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="account.html" class="btn-primary font-label-lg text-label-lg tracking-widest uppercase px-8 py-4 rounded-full">Create Your Profile</a>
+          <a href="concierge.html" class="btn-outline font-label-lg text-label-lg tracking-widest uppercase px-8 py-4 rounded-full">Book a Virtual Appointment</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 lg:mt-28 animate-fade-in-up delay-2">
+        <div class="text-center p-6">
+          <p class="font-serif text-4xl lg:text-5xl text-primary mb-2">96%</p>
+          <p class="font-label-lg text-label-lg tracking-widest uppercase text-on-surface-variant">Fit Accuracy</p>
+        </div>
+        <div class="text-center p-6">
+          <p class="font-serif text-4xl lg:text-5xl text-primary mb-2">12,000+</p>
+          <p class="font-label-lg text-label-lg tracking-widest uppercase text-on-surface-variant">Body Profiles Mapped</p>
+        </div>
+        <div class="text-center p-6">
+          <p class="font-serif text-4xl lg:text-5xl text-primary mb-2">48,000+</p>
+          <p class="font-label-lg text-label-lg tracking-widest uppercase text-on-surface-variant">Style Fits Perfected</p>
+        </div>
+      </div>
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float-slow">
+        <span class="material-symbols-outlined text-primary text-3xl">expand_more</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-20 lg:py-28 bg-pearl-rose">
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12">
+      <div class="text-center mb-16 reveal">
+        <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary mb-4">Simple, Precise, Personal</p>
+        <h2 class="font-serif text-4xl lg:text-5xl text-dark-espresso mb-6">How the Fit Studio Works</h2>
+        <p class="text-on-surface-variant max-w-2xl mx-auto">Three effortless steps between you and a wardrobe that fits like it was made for you. Because it was.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="reveal delay-1 text-center p-8 rounded-3xl bg-surface card-hover">
+          <div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-3xl text-primary">person</span>
+          </div>
+          <p class="font-label-lg text-label-lg tracking-widest uppercase text-primary mb-3">Step 01</p>
+          <h3 class="font-serif text-2xl text-dark-espresso mb-4">Create Your Profile</h3>
+          <p class="text-on-surface-variant leading-relaxed">Tell us your height, build and preferences. Your profile becomes your personal style blueprint across every KARAVYA piece.</p>
+          <a href="account.html" class="inline-flex items-center gap-2 mt-6 font-label-lg text-label-lg tracking-widest uppercase text-primary hover:text-rosewood transition-colors">Get Started <span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+        <div class="reveal delay-2 text-center p-8 rounded-3xl bg-surface card-hover">
+          <div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-3xl text-primary">straighten</span>
+          </div>
+          <p class="font-label-lg text-label-lg tracking-widest uppercase text-primary mb-3">Step 02</p>
+          <h3 class="font-serif text-2xl text-dark-espresso mb-4">Take Measurements</h3>
+          <p class="text-on-surface-variant leading-relaxed">Enter your chest, waist and hip measurements below, or book a virtual appointment with our fit concierge for guided measuring.</p>
+          <a href="#measurements" class="inline-flex items-center gap-2 mt-6 font-label-lg text-label-lg tracking-widest uppercase text-primary hover:text-rosewood transition-colors">Measure Now <span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+        <div class="reveal delay-3 text-center p-8 rounded-3xl bg-surface card-hover">
+          <div class="w-16 h-16 rounded-full bg-primary-container flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-3xl text-primary">check_circle</span>
+          </div>
+          <p class="font-label-lg text-label-lg tracking-widest uppercase text-primary mb-3">Step 03</p>
+          <h3 class="font-serif text-2xl text-dark-espresso mb-4">Perfect Every Fit</h3>
+          <p class="text-on-surface-variant leading-relaxed">Every size recommendation is tailored to your profile. If anything is ever less than perfect, our fit concierge makes it right.</p>
+          <a href="concierge.html" class="inline-flex items-center gap-2 mt-6 font-label-lg text-label-lg tracking-widest uppercase text-primary hover:text-rosewood transition-colors">Meet Our Concierge <span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Find My Fit -->
+  <section id="find-my-fit" class="py-20 lg:py-28">
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12">
+      <div class="text-center mb-14 reveal">
+        <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary mb-4">Find My Fit</p>
+        <h2 class="font-serif text-4xl lg:text-5xl text-dark-espresso mb-6">Your KARAVYA Size in Minutes</h2>
+        <p class="text-on-surface-variant max-w-2xl mx-auto">Answer four quick questions and our fit engine will recommend the right size across the entire KARAVYA wardrobe.</p>
+      </div>
+
+      <div class="mx-auto max-w-3xl reveal delay-1" id="fit-quiz-wrap">
+        <div class="bg-surface rounded-[2rem] border border-outline-variant shadow-xl p-8 lg:p-12">
+          <div class="flex items-center justify-between mb-8">
+            <p class="font-label-lg text-label-lg tracking-widest uppercase text-primary" id="fit-step-label">Step 1 of 4</p>
+            <button class="invisible font-label-lg text-label-lg tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors" id="fit-back" type="button">Back</button>
+          </div>
+
+          <div class="text-center" id="fit-height-step">
+            <h3 class="font-serif text-2xl lg:text-3xl text-dark-espresso mb-3">How tall are you?</h3>
+            <p class="text-on-surface-variant mb-8">Enter your height in centimetres.</p>
+            <div class="relative max-w-xs mx-auto">
+              <input class="input-field measurement-input text-center text-lg" id="fit-height" type="number" inputmode="numeric" placeholder="165" min="120" max="220" aria-label="Height in centimetres">
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">cm</span>
+            </div>
+          </div>
+
+          <div class="hidden text-center" id="fit-weight-step">
+            <h3 class="font-serif text-2xl lg:text-3xl text-dark-espresso mb-3">How much do you weigh?</h3>
+            <p class="text-on-surface-variant mb-8">Enter your weight in kilograms.</p>
+            <div class="relative max-w-xs mx-auto">
+              <input class="input-field measurement-input text-center text-lg" id="fit-weight" type="number" inputmode="numeric" placeholder="58" min="35" max="150" aria-label="Weight in kilograms">
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">kg</span>
+            </div>
+          </div>
+
+          <div class="hidden text-center" id="fit-body-step">
+            <h3 class="font-serif text-2xl lg:text-3xl text-dark-espresso mb-3">How would you describe your body type?</h3>
+            <p class="text-on-surface-variant mb-8">Choose the silhouette that feels most like you.</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+              <button class="fit-option font-label-lg text-label-lg tracking-widest uppercase px-4 py-3.5 rounded-2xl border border-outline-variant bg-surface text-on-surface-variant transition-all" data-answer="body" data-value="hourglass" type="button">Hourglass</button>
+              <button class="fit-option font-label-lg text-label-lg tracking-widest uppercase px-4 py-3.5 rounded-2xl border border-outline-variant bg-surface text-on-surface-variant transition-all" data-answer="body" data-value="pear" type="button">Pear</button>
+              <button class="fit-option font-label-lg text-label-lg tracking-widest uppercase px-4 py-3.5 rounded-2xl border border-outline-variant bg-surface text-on-surface-variant transition-all" data-answer="body" data-value="rectangle" type="button">Rectangle</button>
+              <button class="fit-option font-label-lg text-label-lg tracking-widest uppercase px-4 py-3.5 rounded-2xl border border-outline-variant bg-surface text-on-surface-variant transition-all" data-answer="body" data-value="apple" type="button">Apple</button>
+              <button class="fit-option font-label-lg text-label-lg tracking-widest uppercase px-4 py-3.5 rounded-2xl border border-outline-variant bg-surface text-on-surface-variant transition-all" data-answer="body" data-value="athletic" type="button">Athletic</button>
+            </div>
+          </div>
+
+          <div class="hidden text-center" id="fit-fit-step">
+            <h3 class="font-serif text-2xl lg:text-3xl text-dark-espresso mb-3">How do you like your fit?</h3>
+            <p class="text-on-surface-variant mb-8">KARAVYA loungewear drapes differently — choose your preference.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
+              <button class="fit-option font-label-lg text-label-lg tracking-widest uppercase px-4 py-3.5 rounded-2xl border border-outline-variant bg-surface text-on-surface-variant transition-all" data-answer="fit" data-value="relaxed" type="button">Relaxed</button>
+              <button class="fit-option font-label-lg text-label-lg tracking-widest uppercase px-4 py-3.5 rounded-2xl border border-outline-variant bg-surface text-on-surface-variant transition-all" data-answer="fit" data-value="regular" type="button">Regular</button>
+              <button class="fit-option font-label-lg text-label-lg tracking-widest uppercase px-4 py-3.5 rounded-2xl border border-outline-variant bg-surface text-on-surface-variant transition-all" data-answer="fit" data-value="tailored" type="button">Tailored</button>
+            </div>
+          </div>
+
+          <div class="flex justify-end mt-10">
+            <button class="btn-primary font-label-lg text-label-lg tracking-widest uppercase px-10 py-4 rounded-full" id="fit-next" type="button">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden scroll-mt-28" id="fit-result">
+        <div class="text-center mb-10">
+          <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary mb-4">Your Fit Profile</p>
+          <h3 class="font-serif text-3xl lg:text-5xl text-dark-espresso mb-4">We recommend size <span class="text-primary" id="fit-size">M</span></h3>
+          <p class="text-on-surface-variant max-w-2xl mx-auto mb-6">Based on your height, weight, body type and preferred fit, our fit engine mapped you across the KARAVYA wardrobe.</p>
+          <a href="#size-guide" class="inline-flex items-center gap-2 font-label-lg text-label-lg tracking-widest uppercase text-primary hover:text-rosewood transition-colors">Consult the Size Guide <span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+          <button class="block mx-auto mt-4 font-label-lg text-label-lg tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors" id="fit-retake" type="button">Retake Quiz</button>
+        </div>
+        <div class="text-center mb-8">
+          <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary">Recommended For You</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="fit-products"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Precision Measurements -->
+  <section id="measurements" class="py-20 lg:py-28">
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary mb-4">Precision Measurements</p>
+          <h2 class="font-serif text-4xl lg:text-5xl text-dark-espresso mb-6">Your Numbers. Your Fit.</h2>
+          <p class="text-on-surface-variant leading-relaxed mb-8">Add your measurements once, and we'll tailor every size recommendation across the entire KARAVYA wardrobe. Sign in to save your measurement profile and never measure twice.</p>
+          <a href="account.html" class="inline-flex items-center gap-2 font-label-lg text-label-lg tracking-widest uppercase text-primary hover:text-rosewood transition-colors">Sign In to Save <span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+        <div class="reveal delay-2 grid grid-cols-2 gap-6">
+          <div class="measurement-card p-6 rounded-3xl bg-surface-container border border-outline-variant text-center">
+            <span class="material-symbols-outlined text-3xl text-primary mb-3">accessibility_new</span>
+            <label class="font-label-lg text-label-lg tracking-widest uppercase text-on-surface-variant block mb-3">Height</label>
+            <div class="relative">
+              <input type="number" placeholder="165" class="input-field measurement-input text-center text-lg" aria-label="Height in centimeters">
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">cm</span>
+            </div>
+          </div>
+          <div class="measurement-card p-6 rounded-3xl bg-surface-container border border-outline-variant text-center">
+            <span class="material-symbols-outlined text-3xl text-primary mb-3">monitor_heart</span>
+            <label class="font-label-lg text-label-lg tracking-widest uppercase text-on-surface-variant block mb-3">Chest</label>
+            <div class="relative">
+              <input type="number" placeholder="88" class="input-field measurement-input text-center text-lg" aria-label="Chest in centimeters">
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">cm</span>
+            </div>
+          </div>
+          <div class="measurement-card p-6 rounded-3xl bg-surface-container border border-outline-variant text-center">
+            <span class="material-symbols-outlined text-3xl text-primary mb-3">straighten</span>
+            <label class="font-label-lg text-label-lg tracking-widest uppercase text-on-surface-variant block mb-3">Waist</label>
+            <div class="relative">
+              <input type="number" placeholder="72" class="input-field measurement-input text-center text-lg" aria-label="Waist in centimeters">
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">cm</span>
+            </div>
+          </div>
+          <div class="measurement-card p-6 rounded-3xl bg-surface-container border border-outline-variant text-center">
+            <span class="material-symbols-outlined text-3xl text-primary mb-3">straighten</span>
+            <label class="font-label-lg text-label-lg tracking-widest uppercase text-on-surface-variant block mb-3">Hips</label>
+            <div class="relative">
+              <input type="number" placeholder="94" class="input-field measurement-input text-center text-lg" aria-label="Hips in centimeters">
+              <span class="absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">cm</span>
+            </div>
+          </div>
+          <div class="col-span-2 text-center mt-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="#size-guide" class="btn-outline font-label-lg text-label-lg tracking-widest uppercase px-8 py-4 rounded-full inline-block">Consult the Size Guide</a>
+              <a href="account.html" class="btn-primary font-label-lg text-label-lg tracking-widest uppercase px-8 py-4 rounded-full inline-block">Lock In My Measurements</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Size Guide -->
+  <section id="size-guide" class="py-20 lg:py-28 bg-pearl-rose scroll-mt-28">
+    <div class="mx-auto max-w-4xl px-6 lg:px-12">
+      <div class="text-center mb-12 reveal">
+        <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary mb-4">Size Guide</p>
+        <h2 class="font-serif text-4xl lg:text-5xl text-dark-espresso mb-6">KARAVYA Measurement Chart</h2>
+        <p class="text-on-surface-variant max-w-2xl mx-auto">Measure around the fullest part of your bust, your natural waist and the widest part of your hips. All measurements are in centimetres.</p>
+      </div>
+      <div class="reveal delay-1 bg-surface rounded-3xl border border-outline-variant overflow-hidden overflow-x-auto">
+        <table class="w-full text-center text-sm">
+          <thead>
+            <tr class="bg-primary text-surface font-label-lg text-label-lg tracking-widest uppercase">
+              <th class="py-4 px-4">Size</th>
+              <th class="py-4 px-4">Bust</th>
+              <th class="py-4 px-4">Waist</th>
+              <th class="py-4 px-4">Hips</th>
+            </tr>
+          </thead>
+          <tbody class="text-on-surface-variant">
+            <tr class="border-t border-outline-variant"><td class="py-3.5 px-4 font-semibold text-dark-espresso">XS</td><td>78–82</td><td>62–66</td><td>86–90</td></tr>
+            <tr class="border-t border-outline-variant"><td class="py-3.5 px-4 font-semibold text-dark-espresso">S</td><td>83–87</td><td>67–71</td><td>91–95</td></tr>
+            <tr class="border-t border-outline-variant"><td class="py-3.5 px-4 font-semibold text-dark-espresso">M</td><td>88–92</td><td>72–76</td><td>96–100</td></tr>
+            <tr class="border-t border-outline-variant"><td class="py-3.5 px-4 font-semibold text-dark-espresso">L</td><td>93–97</td><td>77–81</td><td>101–105</td></tr>
+            <tr class="border-t border-outline-variant"><td class="py-3.5 px-4 font-semibold text-dark-espresso">XL</td><td>98–102</td><td>82–86</td><td>106–110</td></tr>
+            <tr class="border-t border-outline-variant"><td class="py-3.5 px-4 font-semibold text-dark-espresso">XXL</td><td>103–107</td><td>87–91</td><td>111–115</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-center text-sm text-on-surface-variant mt-6 reveal delay-2">Between sizes? We recommend sizing up for a relaxed fit. Unsure? Book a free fitting with our <a href="concierge.html" class="text-primary hover:text-rosewood transition-colors underline">fit concierge</a>.</p>
+    </div>
+  </section>
+
+  <!-- Perfect Fit Guarantee -->
+  <section id="guarantee" class="py-20 lg:py-28 bg-dark-espresso text-surface">
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12">
+      <div class="text-center mb-16 reveal">
+        <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-gold-light mb-4">Our Promise</p>
+        <h2 class="font-serif text-4xl lg:text-5xl mb-6">Your Perfect Fit, Guaranteed</h2>
+        <p class="text-surface/70 max-w-2xl mx-auto">Three commitments that make every KARAVYA purchase feel bespoke.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="reveal delay-1 p-8 rounded-3xl bg-white/5 border border-white/10 card-hover text-center">
+          <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-3xl text-gold-light">support_agent</span>
+          </div>
+          <h3 class="font-serif text-2xl mb-4">Fit Concierge</h3>
+          <p class="text-surface/70 leading-relaxed">A dedicated fit specialist on call for virtual fittings, size swaps and styling guidance — always a message away.</p>
+          <a href="concierge.html" class="inline-flex items-center gap-2 mt-6 font-label-lg text-label-lg tracking-widest uppercase text-gold-light hover:text-surface transition-colors">Talk to Concierge <span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+        <div class="reveal delay-2 p-8 rounded-3xl bg-white/5 border border-white/10 card-hover text-center">
+          <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-3xl text-gold-light">content_cut</span>
+          </div>
+          <h3 class="font-serif text-2xl mb-4">Precision Cuts</h3>
+          <p class="text-surface/70 leading-relaxed">Every silhouette is drafted and graded with your measurement profile in mind — never an off-the-rack compromise.</p>
+        </div>
+        <div class="reveal delay-3 p-8 rounded-3xl bg-white/5 border border-white/10 card-hover text-center">
+          <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
+            <span class="material-symbols-outlined text-3xl text-gold-light">verified</span>
+          </div>
+          <h3 class="font-serif text-2xl mb-4">Lifetime Adjustments</h3>
+          <p class="text-surface/70 leading-relaxed">Free alterations for life on every KARAVYA piece, delivered through your nearest concierge atelier.</p>
+          <a href="returns.html" class="inline-flex items-center gap-2 mt-6 font-label-lg text-label-lg tracking-widest uppercase text-gold-light hover:text-surface transition-colors">See Our Policy <span class="material-symbols-outlined text-lg">arrow_forward</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section id="membership" class="py-20 lg:py-28">
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+          <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary mb-4">Fit Studio Membership</p>
+          <h2 class="font-serif text-4xl lg:text-5xl text-dark-espresso mb-6">Fit Studio Membership</h2>
+          <p class="text-on-surface-variant leading-relaxed mb-8">One profile. Every fit. For the whole year.</p>
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+              <span class="text-on-surface-variant">Personal body profile & measurement vault</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+              <span class="text-on-surface-variant">Priority virtual fittings with the fit concierge</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+              <span class="text-on-surface-variant">Free lifetime alterations on all pieces</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+              <span class="text-on-surface-variant">Early access to made-to-measure drops</span>
+            </li>
+          </ul>
+          <a href="concierge.html" class="btn-primary font-label-lg text-label-lg tracking-widest uppercase px-8 py-4 rounded-full inline-block">Become a Member</a>
+        </div>
+        <div class="reveal delay-2 relative">
+          <div class="absolute -inset-4 bg-primary-container/40 blur-3xl rounded-full"></div>
+          <div class="relative p-10 lg:p-14 rounded-[2.5rem] bg-surface-container-high border border-outline-variant text-center shadow-xl">
+            <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary mb-6">Annual Membership</p>
+            <p class="font-serif text-6xl lg:text-7xl text-dark-espresso mb-2">₹3,499</p>
+            <p class="text-on-surface-variant mb-10">per year · less than ₹292/month</p>
+            <a href="account.html" class="btn-primary font-label-lg text-label-lg tracking-widest uppercase px-8 py-4 rounded-full w-full block">Join the Fit Studio</a>
+            <p class="text-sm text-on-surface-variant mt-4">Sign in with your KARAVYA account to get started.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 lg:py-28 bg-pearl-rose">
+    <div class="mx-auto max-w-4xl px-6 lg:px-12">
+      <div class="text-center mb-16 reveal">
+        <p class="font-label-lg text-label-lg tracking-[0.4em] uppercase text-primary mb-4">Questions, Answered</p>
+        <h2 class="font-serif text-4xl lg:text-5xl text-dark-espresso mb-6">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-4 reveal delay-2">
+        <div class="faq-item bg-surface rounded-2xl border border-outline-variant overflow-hidden">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+            <span class="font-serif text-xl text-dark-espresso">How accurate is the digital fitting room?</span>
+            <span class="faq-icon material-symbols-outlined text-primary">add</span>
+          </button>
+          <div class="faq-answer px-6 pb-6">
+            <p class="text-on-surface-variant leading-relaxed">Our fit engine maps over 12,000 body profiles to achieve 96% first-try accuracy, backed by free lifetime adjustments on every piece.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-surface rounded-2xl border border-outline-variant overflow-hidden">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+            <span class="font-serif text-xl text-dark-espresso">Do I need to take measurements myself?</span>
+            <span class="faq-icon material-symbols-outlined text-primary">add</span>
+          </button>
+          <div class="faq-answer px-6 pb-6">
+            <p class="text-on-surface-variant leading-relaxed">Not at all. Book a free virtual appointment and our fit concierge will guide you through measuring in under ten minutes.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-surface rounded-2xl border border-outline-variant overflow-hidden">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+            <span class="font-serif text-xl text-dark-espresso">What if a piece doesn't fit perfectly?</span>
+            <span class="faq-icon material-symbols-outlined text-primary">add</span>
+          </button>
+          <div class="faq-answer px-6 pb-6">
+            <p class="text-on-surface-variant leading-relaxed">We make it right — free exchanges, or free alterations at your nearest KARAVYA atelier. That's the Fit Studio guarantee.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-surface rounded-2xl border border-outline-variant overflow-hidden">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+            <span class="font-serif text-xl text-dark-espresso">Is the membership really worth it?</span>
+            <span class="faq-icon material-symbols-outlined text-primary">add</span>
+          </button>
+          <div class="faq-answer px-6 pb-6">
+            <p class="text-on-surface-variant leading-relaxed">One perfect-fit wardrobe pays for itself. Members save an average of ₹8,000 a year on alterations, returns and re-buys.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark-espresso text-surface pt-20 pb-8">
+    <div class="mx-auto max-w-[90rem] px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-6">
+            <span class="text-2xl">✨</span>
+            <span class="font-serif text-2xl tracking-[0.35em]">KARAVYA</span>
+          </div>
+          <p class="text-surface/60 max-w-sm leading-relaxed mb-8">Silhouettes with soul, crafted for the woman who wears her story. Boutique couture, delivered to your door.</p>
+          <div class="flex gap-3">
+            <a href="#" aria-label="Instagram" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <span class="material-symbols-outlined text-lg">photo_camera</span>
+            </a>
+            <a href="#" aria-label="Pinterest" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <span class="material-symbols-outlined text-lg">pin_drop</span>
+            </a>
+            <a href="#" aria-label="YouTube" class="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <span class="material-symbols-outlined text-lg">play_circle</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-label-lg text-label-lg tracking-widest uppercase text-gold-light mb-6">Explore</h4>
+          <ul class="space-y-3">
+            <li><a href="collections.html" class="text-surface/60 hover:text-surface transition-colors">Collections</a></li>
+            <li><a href="new-arrivals.html" class="text-surface/60 hover:text-surface transition-colors">New Arrivals</a></li>
+            <li><a href="women.html" class="text-surface/60 hover:text-surface transition-colors">Women</a></li>
+            <li><a href="gift-studio.html" class="text-surface/60 hover:text-surface transition-colors">Gift Studio</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-label-lg text-label-lg tracking-widest uppercase text-gold-light mb-6">Care</h4>
+          <ul class="space-y-3">
+            <li><a href="concierge.html" class="text-surface/60 hover:text-surface transition-colors">Concierge</a></li>
+            <li><a href="returns.html" class="text-surface/60 hover:text-surface transition-colors">Returns & Exchanges</a></li>
+            <li><a href="fit-studio.html" class="text-surface/60 hover:text-surface transition-colors">Fit Studio</a></li>
+            <li><a href="our-story.html" class="text-surface/60 hover:text-surface transition-colors">Our Story</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-surface/40 text-sm">© 2026 KARAVYA. All rights reserved.</p>
+        <p class="text-surface/40 text-sm">Crafted with care in India 🇮🇳</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <script src="site-config.js"></script>
+  <script src="karavya.js"></script>
+  <script>
+  (function () {
+      "use strict";
+      var K = window.KARAVYA;
+      var ANSWERS = {};
+      var STEPS = ["fit-height-step", "fit-weight-step", "fit-body-step", "fit-fit-step"];
+      var SIZE_ORDER = ["XS", "S", "M", "L", "XL", "XXL"];
+      var current = 0;
+
+      var quizWrap = document.getElementById("fit-quiz-wrap");
+      var resultBox = document.getElementById("fit-result");
+      var stepLabel = document.getElementById("fit-step-label");
+      var backBtn = document.getElementById("fit-back");
+      var nextBtn = document.getElementById("fit-next");
+      var retakeBtn = document.getElementById("fit-retake");
+      var heightInput = document.getElementById("fit-height");
+      var weightInput = document.getElementById("fit-weight");
+
+      function toast(msg) {
+          if (K && K.toast) { K.toast(msg); }
+      }
+
+      function showStep(i) {
+          STEPS.forEach(function (id) {
+              document.getElementById(id).classList.toggle("hidden", id !== STEPS[i]);
+          });
+          stepLabel.textContent = "Step " + (i + 1) + " of " + STEPS.length;
+          backBtn.classList.toggle("invisible", i === 0);
+          nextBtn.textContent = i === STEPS.length - 1 ? "See My Fit" : "Next";
+      }
+
+      function readHeight() {
+          var v = parseFloat(heightInput.value);
+          if (!v || v < 120 || v > 220) { toast("Please enter your height in cm (120–220)."); return false; }
+          ANSWERS.height = v;
+          return true;
+      }
+
+      function readWeight() {
+          var v = parseFloat(weightInput.value);
+          if (!v || v < 35 || v > 150) { toast("Please enter your weight in kg (35–150)."); return false; }
+          ANSWERS.weight = v;
+          return true;
+      }
+
+      function selectOption(btn) {
+          var group = btn.parentElement;
+          Array.prototype.forEach.call(group.querySelectorAll(".fit-option"), function (b) {
+              if (b === btn) {
+                  b.classList.add("border-primary", "bg-primary-container", "text-on-primary-container");
+                  b.classList.remove("border-outline-variant", "bg-surface", "text-on-surface-variant");
+              } else {
+                  b.classList.add("border-outline-variant", "bg-surface", "text-on-surface-variant");
+                  b.classList.remove("border-primary", "bg-primary-container", "text-on-primary-container");
+              }
+          });
+      }
+
+      function computeSize() {
+          var bmi = ANSWERS.weight / Math.pow(ANSWERS.height / 100, 2);
+          var size = "M";
+          if (bmi < 18.5) size = "XS";
+          else if (bmi < 22) size = "S";
+          else if (bmi < 26) size = "M";
+          else if (bmi < 30) size = "L";
+          else if (bmi < 34) size = "XL";
+          else size = "XXL";
+          var delta = 0;
+          if (ANSWERS.body === "apple") delta += 1;
+          if (ANSWERS.body === "athletic") delta -= 1;
+          if (ANSWERS.fit === "relaxed") delta += 1;
+          if (ANSWERS.fit === "tailored") delta -= 1;
+          var i = SIZE_ORDER.indexOf(size) + delta;
+          if (i < 0) i = 0;
+          if (i > SIZE_ORDER.length - 1) i = SIZE_ORDER.length - 1;
+          return SIZE_ORDER[i];
+      }
+
+      function cardHTML(slug) {
+          var p = K ? K.find(slug) : null;
+          if (!p) return "";
+          var url = K.productUrl(slug);
+          return (
+              '<article class="bg-surface rounded-3xl overflow-hidden border border-outline-variant/30 card-hover">' +
+              '<div class="relative aspect-[3/4] overflow-hidden bg-surface-container">' +
+              '<a class="block w-full h-full" href="' + url + '"><img alt="' + p.name + '" class="w-full h-full object-cover object-top" loading="lazy" src="' + p.images[0] + '"></a>' +
+              '<button aria-label="Add ' + p.name + ' to wishlist" aria-pressed="false" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-rose-white/85 backdrop-blur flex items-center justify-center shadow-sm hover:scale-110 transition-transform" data-wishlist="' + slug + '" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.25rem] text-dark-espresso">favorite</span></button>' +
+              '</div>' +
+              '<div class="p-6">' +
+              '<p class="font-label-lg text-label-lg tracking-widest uppercase text-primary mb-1">' + p.category + '</p>' +
+              '<h3 class="font-serif text-xl text-dark-espresso mb-2">' + p.name + '</h3>' +
+              '<p class="text-[0.95rem] font-semibold text-dark-espresso mb-4">' + K.fmtINR(p.price) + '</p>' +
+              '<div class="flex gap-2 mb-2">' +
+              '<a class="btn-outline font-label-lg text-label-lg tracking-widest uppercase px-4 py-3 rounded-full text-center flex-1" href="' + url + '">View</a>' +
+              '<button class="btn-primary font-label-lg text-label-lg tracking-widest uppercase px-4 py-3 rounded-full flex-1" data-add-to-bag="' + slug + '" type="button">Add to Bag</button>' +
+              '</div>' +
+              '<button class="w-full font-label-lg text-label-lg tracking-widest uppercase px-4 py-3 rounded-full bg-dark-espresso text-surface hover:bg-rosewood transition-colors" data-buy-now="' + slug + '" type="button">Buy Now</button>' +
+              '</div></article>'
+          );
+      }
+
+      function finish() {
+          var size = computeSize();
+          document.getElementById("fit-size").textContent = size;
+          var recs = {
+              relaxed: ["rose-cloud-robe", "sunday-robe", "cloudline-modal-set", "ethereal-silk-robe"],
+              tailored: ["ethereal-silk-robe", "silk-slip-dress", "bespoke-robe", "silk-crepe-blouse"],
+              regular: ["rose-cloud-robe", "cloudline-modal-set", "ethereal-silk-robe", "silk-slip-dress"]
+          }[ANSWERS.fit] || ["rose-cloud-robe", "cloudline-modal-set", "ethereal-silk-robe", "silk-slip-dress"];
+          document.getElementById("fit-products").innerHTML = recs.map(cardHTML).join("");
+          quizWrap.classList.add("hidden");
+          resultBox.classList.remove("hidden");
+          resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      nextBtn.addEventListener("click", function () {
+          if (current === 0 && !readHeight()) return;
+          if (current === 1 && !readWeight()) return;
+          if (current === 2 && !ANSWERS.body) { toast("Please select your body type."); return; }
+          if (current === 3) {
+              if (!ANSWERS.fit) { toast("Please select your preferred fit."); return; }
+              finish();
+              return;
+          }
+          current += 1;
+          showStep(current);
+      });
+
+      backBtn.addEventListener("click", function () {
+          if (current === 0) return;
+          current -= 1;
+          showStep(current);
+      });
+
+      retakeBtn.addEventListener("click", function () {
+          ANSWERS = {};
+          current = 0;
+          heightInput.value = "";
+          weightInput.value = "";
+          document.querySelectorAll(".fit-option").forEach(function (b) {
+              b.classList.add("border-outline-variant", "bg-surface", "text-on-surface-variant");
+              b.classList.remove("border-primary", "bg-primary-container", "text-on-primary-container");
+          });
+          resultBox.classList.add("hidden");
+          quizWrap.classList.remove("hidden");
+          showStep(0);
+          quizWrap.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      document.querySelectorAll(".fit-option").forEach(function (b) {
+          b.addEventListener("click", function () {
+              ANSWERS[b.getAttribute("data-answer")] = b.getAttribute("data-value");
+              selectOption(b);
+          });
+      });
+
+      showStep(0);
+  })();
+  </script>
+  <script>
+    const navbar = document.getElementById('navbar');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('old-mobile-menu');
+    const backToTop = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', function () {
+      const scrolled = window.scrollY > 50;
+      navbar.classList.toggle('bg-surface/90', scrolled);
+      navbar.classList.toggle('backdrop-blur-md', scrolled);
+      navbar.classList.toggle('shadow-lg', scrolled);
+      backToTop.classList.toggle('visible', window.scrollY > 500);
+    });
+
+    mobileMenuBtn.addEventListener('click', function () {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.querySelector('div:nth-child(2)').style.animation = 'fadeInUp 0.4s ease both';
+    });
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      revealObserver.observe(el);
+    });
+
+    function toggleFaq(button) {
+      const item = button.closest('.faq-item');
+      item.classList.toggle('active');
+    }
+
+    document.querySelectorAll('img').forEach(function (img) {
+      img.classList.add('img-fade');
+      if (img.complete) {
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function () { img.classList.add('loaded'); });
+      }
+    });
+  </script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('old-mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+<script>(function(){'use strict';if(window.matchMedia('(max-width: 767px)').matches){window.location.replace('fit-studio-mobile.html');}})();</script>
+</body>
+</html>

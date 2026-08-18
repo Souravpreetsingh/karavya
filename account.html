@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KARAVYA - Authentication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 300;
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+        .font-serif-brand {
+            font-family: 'Playfair Display', serif;
+        }
+        .px-margin-desktop {
+            padding-left: clamp(1rem, 4vw, 4.5rem);
+            padding-right: clamp(1rem, 4vw, 4.5rem);
+        }
+        .px-margin-mobile {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+        }
+        .input-dark {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: #fff;
+            border-radius: 0.75rem;
+            padding: 0.8rem 1rem;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .input-dark::placeholder {
+            color: rgba(255, 255, 255, 0.55);
+        }
+        .input-dark:focus {
+            border-color: #EFB7C5;
+            box-shadow: 0 0 0 3px rgba(239, 183, 197, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-[#FDF6F6] text-[#2B1B1F] antialiased">
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span><span class="absolute -top-1.5 -right-2 min-w-[1.05rem] h-[1.05rem] px-0.5 rounded-full bg-deep-rose text-rose-white text-[0.6rem] font-semibold flex items-center justify-center hidden" id="wishlist-count">0</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span><span class="absolute -top-1.5 -right-2 min-w-[1.05rem] h-[1.05rem] px-0.5 rounded-full bg-rose-gold text-white text-[0.6rem] font-semibold flex items-center justify-center hidden" id="bag-count">0</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+
+<!-- Desktop split-screen: left brand panel, right sign-in -->
+<div class="min-h-screen flex">
+
+    <!-- LEFT PANEL (desktop only) -->
+    <div class="hidden lg:flex w-[45%] relative overflow-hidden bg-[#2B1B1F] text-white flex-col justify-between px-margin-desktop py-10">
+        <a href="index.html" class="font-serif-brand text-[1.6rem] tracking-[0.28em] font-semibold relative z-10 w-fit">KARAVYA</a>
+
+        <div class="relative z-10">
+            <p class="font-serif-brand text-[2.7rem] leading-[1.15] max-w-[26rem]">The private entry to your personal wardrobe.</p>
+            <p class="mt-5 text-[0.95rem] text-white/70 max-w-[24rem] leading-relaxed">Sign in to access your collections, order history, private consultations and the quiet rituals of Karavya.</p>
+        </div>
+
+        <div class="relative z-10">
+            <img alt="Karavya atelier dressing corner with soft rose light" class="w-full h-44 object-cover rounded-2xl" src="https://lh3.googleusercontent.com/d/1MD91NIYJqUoEGd-j29m1VKABxizpbxlP"/>
+            <p class="mt-3 text-[0.8rem] text-white/55">The Karavya Atelier · Blush Room</p>
+        </div>
+
+        <div class="absolute inset-0 opacity-30" style="background: radial-gradient(80% 60% at 20% 10%, #8F4A5B 0%, transparent 60%), radial-gradient(70% 50% at 90% 90%, #4d2f38 0%, transparent 55%);"></div>
+    </div>
+
+    <!-- RIGHT PANEL (sign-in) -->
+    <div class="flex-1 flex flex-col justify-between bg-[#FDF6F6]">
+
+        <!-- Mobile-only brand header -->
+        <div class="lg:hidden flex items-center justify-between px-margin-mobile pt-6">
+            <a href="index.html" class="font-serif-brand text-[1.4rem] tracking-[0.28em] font-semibold text-[#2B1B1F]">KARAVYA</a>
+            <a href="cart.html" class="material-symbols-outlined text-[1.4rem] text-[#2B1B1F]">shopping_bag</a>
+        </div>
+
+        <!-- Desktop top-right icon row -->
+        <div class="hidden lg:flex items-center justify-end gap-6 px-margin-desktop py-7">
+            <a href="search.html" class="material-symbols-outlined text-[1.35rem] text-[#2B1B1F]">search</a>
+            <a href="cart.html" class="material-symbols-outlined text-[1.35rem] text-[#2B1B1F]">shopping_bag</a>
+        </div>
+
+        <!-- Sign-in form -->
+        <div class="flex-1 flex items-center justify-center px-margin-mobile lg:px-margin-desktop py-8">
+            <div class="w-full max-w-[26rem]">
+                <h1 class="font-serif-brand text-[1.9rem] font-semibold text-[#2B1B1F]">Welcome back</h1>
+                <p class="mt-2 text-[0.95rem] text-[#2B1B1F]/60">Sign in to your private Karavya account.</p>
+
+                <form class="mt-8 space-y-5" id="login-form">
+                    <div>
+                        <label class="block text-[0.8rem] font-medium tracking-wide text-[#2B1B1F]/70 mb-2" for="login-email">EMAIL</label>
+                        <input class="w-full border border-[#2B1B1F]/15 rounded-xl px-4 py-3 text-[0.95rem] bg-white outline-none focus:border-[#8F4A5B]" id="login-email" placeholder="you@example.com" type="email"/>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="text-[0.8rem] font-medium tracking-wide text-[#2B1B1F]/70" for="login-password">PASSWORD</label>
+                            <a class="text-[0.8rem] text-[#8F4A5B] font-medium" href="verify-email.html">?</a>
+                        </div>
+                        <input class="w-full border border-[#2B1B1F]/15 rounded-xl px-4 py-3 text-[0.95rem] bg-white outline-none focus:border-[#8F4A5B]" id="login-password" placeholder="••••••••" type="password"/>
+                    </div>
+
+                    <p class="hidden text-[0.85rem] font-medium text-red-700" id="login-error"></p>
+
+                    <a class="w-full block text-center bg-[#8F4A5B] text-white font-semibold tracking-[0.12em] text-[0.85rem] rounded-xl py-4 hover:bg-[#7a3e4e] transition-colors" href="private-wardrobe.html" id="login-submit">SIGN IN</a>
+
+                    <div class="flex items-center gap-4">
+                        <span class="flex-1 h-px bg-[#2B1B1F]/10"></span>
+                        <span class="text-[0.75rem] text-[#2B1B1F]/45 uppercase tracking-widest">or continue with</span>
+                        <span class="flex-1 h-px bg-[#2B1B1F]/10"></span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="flex items-center justify-center gap-2 border border-[#2B1B1F]/15 rounded-xl py-3.5 bg-white text-[0.9rem] font-medium hover:bg-[#FCECEF] transition-colors" type="button">
+                            <span aria-hidden="true" class="text-[1.05rem] font-bold text-[#4285F4]">G</span>
+                            Google
+                        </button>
+                        <button class="flex items-center justify-center gap-2 border border-[#2B1B1F]/15 rounded-xl py-3.5 bg-white text-[0.9rem] font-medium hover:bg-[#FCECEF] transition-colors" type="button">
+                            <span class="material-symbols-outlined text-[1.1rem] text-[#2B1B1F]">apple</span>
+                            Apple
+                        </button>
+                    </div>
+                </form>
+
+                <p class="mt-8 text-center text-[0.9rem] text-[#2B1B1F]/60">New to KARAVYA?
+                    <a class="text-[#8F4A5B] font-semibold" href="create-account.html">Create Account</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer strip -->
+        <div class="px-margin-desktop px-margin-mobile py-5 text-center text-[0.8rem] text-[#2B1B1F]/45 border-t border-[#2B1B1F]/8">
+            By continuing, you agree to Karavya's
+            <a class="text-[#2B1B1F]/60 underline" href="coming-soon.html">Terms</a>
+            &amp;
+            <a class="text-[#2B1B1F]/60 underline" href="coming-soon.html">Privacy Policy</a>.
+        </div>
+    </div>
+</div>
+
+<script src="site-config.js"></script>
+<script src="karavya.js"></script>
+<script>
+(function () {
+    var K = window.KARAVYA || {};
+    var form = document.getElementById('login-form');
+    var email = document.getElementById('login-email');
+    var pass = document.getElementById('login-password');
+    var err = document.getElementById('login-error');
+    var btn = document.getElementById('login-submit');
+    function show(m) {
+        err.textContent = m;
+        err.classList.remove('hidden');
+    }
+    function clearErr() { err.classList.add('hidden'); }
+    function go(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        clearErr();
+        if (K.isLoggedIn && K.isLoggedIn()) {
+            K.toast('You are already signed in');
+            setTimeout(function () { window.location.href = 'private-wardrobe.html'; }, 400);
+            return;
+        }
+        var em = (email.value || '').trim();
+        var pw = pass.value || '';
+        if (btn) btn.style.pointerEvents = 'none';
+        K.api('POST', '/auth/login', { email: em, password: pw }).then(function (res) {
+            if (btn) btn.style.pointerEvents = '';
+            if (res.ok && res.data && res.data.token) {
+                K.setUser(res.data.user || { email: em }, res.data.token);
+                K.toast('Welcome back');
+                setTimeout(function () { window.location.href = 'private-wardrobe.html'; }, 400);
+                return;
+            }
+            if (res.network) {
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { show('Please enter a valid email address.'); return; }
+                if (pw.length < 6) { show('Password must be at least 6 characters.'); return; }
+                K.setUser({ email: em, name: em.split('@')[0] }, 'demo-token-' + Date.now());
+                K.toast('DEV MODE: demo sign-in saved locally. Run the backend (localhost:3000) for the real account.');
+                setTimeout(function () { window.location.href = 'private-wardrobe.html'; }, 900);
+                return;
+            }
+            show((res.data && res.data.message) || 'Sign-in failed. Please check your email and password.');
+        });
+    }
+    if (btn) btn.addEventListener('click', go);
+    if (form) form.addEventListener('submit', go);
+})();
+</script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+<script>(function(){'use strict';if(window.matchMedia('(max-width: 767px)').matches){window.location.replace('account-mobile.html');}})();</script>
+</body>
+</html>

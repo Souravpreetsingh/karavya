@@ -1,0 +1,550 @@
+<!-- KARAVYA | Rose Luxury Fashion Experience -->
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KARAVYA | Women's Collection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {"rose-white": "#FFF5F7", "deep-rose": "#8F4A5B", "rose-gold": "#B76E79", 
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#673a3b",
+                        "surface-bright": "#fff8f8",
+                        "on-tertiary-container": "#7f3d4e",
+                        "outline-variant": "#d4c2c5",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#efb7c5",
+                        "surface-container-high": "#fee1e6",
+                        "on-secondary-fixed": "#331012",
+                        "on-tertiary-fixed": "#3b0618",
+                        "surface-container": "#ffe8ec",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#704652",
+                        "tertiary": "#8e495a",
+                        "inverse-on-surface": "#ffecef",
+                        "primary-fixed-dim": "#f0b8c6",
+                        "on-surface-variant": "#504446",
+                        "on-primary-fixed-variant": "#633b47",
+                        "primary-fixed": "#ffd9e1",
+                        "surface": "#fff8f8",
+                        "tertiary-container": "#ffb0c1",
+                        "surface-dim": "#efd3d8",
+                        "surface-tint": "#7e525e",
+                        "tertiary-fixed-dim": "#ffb1c1",
+                        "secondary-container": "#ffbfbf",
+                        "inverse-surface": "#3d2c30",
+                        "tertiary-fixed": "#ffd9df",
+                        "on-surface": "#27171b",
+                        "secondary-fixed": "#ffdad9",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#f6b7b7",
+                        "primary": "#7e525e",
+                        "on-primary-fixed": "#31111c",
+                        "surface-container-highest": "#f8dbe1",
+                        "secondary": "#825152",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#713243",
+                        "inverse-primary": "#f0b8c6",
+                        "outline": "#827376",
+                        "on-primary": "#ffffff",
+                        "on-background": "#27171b",
+                        "surface-container-low": "#fff0f2",
+                        "on-secondary-container": "#7b4b4b",
+                        "on-error-container": "#93000a",
+                        "background": "#fff8f8",
+                        "surface-variant": "#f8dbe1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-sm": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 248, 248, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 30px rgba(143, 74, 91, 0.05);
+        }
+        
+        /* Product Card Interactions */
+        .product-card {
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .product-card:hover .quick-add {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .quick-add {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        .product-image-container {
+            overflow: hidden;
+        }
+        .primary-img, .secondary-img {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .secondary-img {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-card:hover .primary-img {
+            opacity: 0;
+        }
+        .product-card:hover .secondary-img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-lowest');
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant');
+            border-radius: theme('borderRadius.full');
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.primary-fixed-dim');
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span><span class="absolute -top-1.5 -right-2 min-w-[1.05rem] h-[1.05rem] px-0.5 rounded-full bg-deep-rose text-rose-white text-[0.6rem] font-semibold flex items-center justify-center hidden" id="wishlist-count">0</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span><span class="absolute -top-1.5 -right-2 min-w-[1.05rem] h-[1.05rem] px-0.5 rounded-full bg-rose-gold text-white text-[0.6rem] font-semibold flex items-center justify-center hidden" id="bag-count">0</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/85 dark:bg-surface-dim/85 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto">
+<!-- Mobile Menu Trigger -->
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors duration-300">
+<span class="material-symbols-outlined font-light">menu</span>
+</button>
+<!-- Brand -->
+<a class="font-headline-lg text-headline-lg tracking-tighter text-primary dark:text-primary-fixed-dim text-center md:text-left flex-grow md:flex-grow-0" href="index.html">KARAVYA</a>
+<!-- Desktop Nav Links -->
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="index.html">Home</a>
+<a class="font-label-sm text-label-sm text-tertiary border-b border-tertiary pb-1 hover:opacity-70 transition-opacity duration-300" href="collections.html">Collections</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="women.html">Jewelry</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="editorial.html">Editorial</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="our-story.html">The Maison</a>
+</div>
+<!-- Trailing Icons -->
+<div class="flex items-center space-x-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70 active:scale-95 transition-transform duration-200" href="cart.html">
+<span class="material-symbols-outlined font-light">shopping_bag</span>
+</a>
+<a class="hidden md:block text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70 active:scale-95 transition-transform duration-200" href="wishlist.html">
+<span class="material-symbols-outlined font-light">favorite</span>
+</a>
+<a class="hidden md:block text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70 active:scale-95 transition-transform duration-200" href="account.html">
+<span class="material-symbols-outlined font-light">person</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-[80px] md:pt-[100px] min-h-screen">
+<!-- Header & Breadcrumbs -->
+<header class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-8">
+<nav class="mb-4">
+<ol class="flex items-center space-x-2 font-label-sm text-label-sm text-on-surface-variant/70">
+<li><a class="hover:text-primary transition-colors" href="index.html">HOME</a></li>
+<li><span class="text-outline-variant">/</span></li>
+<li aria-current="page" class="text-primary-fixed-dim">WOMEN</li>
+</ol>
+</nav>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary text-center md:text-left">WOMEN</h1>
+</header>
+<!-- Hero Banner -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-16">
+<div class="relative h-[614px] md:h-[716px] w-full rounded-xl overflow-hidden group">
+<img alt="Editorial Fashion Banner" class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105" data-alt="A high-fashion editorial photograph of a model in soft silk loungewear, bathed in warm, diffused natural light in a minimalist, luxurious room. The color palette features pearlescent whites, soft blush pinks, and warm beige, evoking effortless elegance and tranquility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3Fm1LJI05Z40ZXRpUiui41gbelnABKjeu4PEA-BA5rePbzBCtKE-3b9xKiVushoSLdZM6_AfZYLp3tE5YkPQoY_7e7_Knb4UychTGno6g_1qV0yDEqnFdXAdbGpVpvuNujyLuWXWGZ612bShx-8A8BL1U79-80ux4sDlatYrV3dVZDnnKL8ZSLXFe2Vu3_yyjKxbmjfyShU3bzDwmqP4gqY05aKXHMQZw9lv5T0t3KTfX6N3qpBKN"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 md:p-16 flex flex-col md:flex-row justify-between items-end">
+<div class="mb-6 md:mb-0 max-w-xl text-center md:text-left">
+<h2 class="font-headline-lg text-headline-lg text-surface-container-lowest mb-2 drop-shadow-md">THE KARAVYA WOMAN</h2>
+<p class="font-body-lg text-body-lg text-surface-container-lowest/90 drop-shadow-sm">Soft silhouettes. Elevated fabrics. Effortless confidence.</p>
+</div>
+<a class="inline-flex items-center space-x-2 font-label-sm text-label-sm text-surface-container-lowest border-b border-surface-container-lowest pb-1 hover:text-primary-fixed hover:border-primary-fixed transition-colors duration-300" href="new-arrivals.html">
+<span>EXPLORE THE EDIT</span>
+<span class="material-symbols-outlined text-sm font-light">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Toolbar & Filters -->
+<div class="sticky top-[60px] md:top-[80px] z-40 glass-panel border-y border-outline-variant/30 py-4 mb-12">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<!-- Category Nav (Scrollable on mobile) -->
+<nav class="w-full md:w-auto overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+<ul class="flex space-x-6 md:space-x-8 min-w-max px-2">
+<li><a class="font-label-sm text-label-sm bg-primary text-on-primary px-4 py-2 rounded-full transition-colors" href="#" data-women-cat="all">ALL</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-2" href="new-arrivals.html">NEW IN</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-2" href="#" data-women-cat="Loungewear">LOUNGEWEAR</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-2" href="#" data-women-cat="Sleepwear">NIGHTWEAR</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-2" href="#" data-women-cat="coords">CO-ORDS</a></li>
+<li><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors py-2 hidden lg:block" href="#" data-women-cat="Robes">ROBES</a></li>
+</ul>
+</nav>
+<!-- Filter Actions -->
+<div class="flex items-center space-x-6 w-full md:w-auto justify-between md:justify-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:block" id="women-count">0 PRODUCTS</span>
+<div class="flex space-x-4">
+<button class="flex items-center space-x-2 text-on-surface hover:text-primary transition-colors group" id="women-filter-toggle" type="button">
+<span class="font-label-sm text-label-sm">FILTER</span>
+<span class="material-symbols-outlined font-light text-[18px] group-hover:rotate-180 transition-transform">tune</span>
+</button>
+<span class="text-outline-variant">|</span>
+<button class="flex items-center space-x-2 text-on-surface hover:text-primary transition-colors group" id="women-sort" type="button">
+<span class="font-label-sm text-label-sm">SORT BY</span>
+<span class="material-symbols-outlined font-light text-[18px] group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<div class="hidden px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-4 border-t border-outline-variant/30" id="women-filter-panel">
+<div class="flex flex-wrap items-center gap-3">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Price</span>
+<button class="font-label-sm text-label-sm px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-colors" data-women-price="all" type="button">All</button>
+<button class="font-label-sm text-label-sm px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-colors" data-women-price="under" type="button">Under ₹2,000</button>
+<button class="font-label-sm text-label-sm px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-colors" data-women-price="mid" type="button">₹2,000 – ₹4,000</button>
+<button class="font-label-sm text-label-sm px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-colors" data-women-price="over" type="button">₹4,000+</button>
+<label class="flex items-center gap-2 ml-4 cursor-pointer">
+<input class="accent-primary" id="women-instock" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">In stock only</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Product Grid -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-20">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-gutter gap-y-16" id="women-grid"></div>
+</section>
+<!-- Editorial Break -->
+<section class="py-20 bg-surface-container-low mb-20">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/2 aspect-[4/5] rounded-xl overflow-hidden shadow-sm">
+<img alt="Editorial Soft Edit" class="w-full h-full object-cover" data-alt="A moody, high-fashion editorial close-up of folded blush and beige silk fabrics draped organically. The lighting is cinematic and low-key, creating deep, warm shadows that contrast with the lustrous highlights on the silk folds, evoking a sense of intimate luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqn9UJk810WeATPAF6SxWpxd7zB7F2vTmywFosY7doQ2kcAtdjslDOoklaVaGoq9UZW0Pu5kVo24Rr8u0QArfox3almlKXMmPcevxfSoQVq-kDboctqUCuzfkdVs_L2oOk8N26oNERqX7FllNN_pxLjk3lPHMhiBtZ-ZUcAywgms9ixM27gKlz8bcywnma79Kyui7LXwLka6L9jJLgGZ4_MbiJv6v8pYGc08bzshDjAdanXc2u41o1"/>
+</div>
+<div class="w-full md:w-1/2 md:pl-12 text-center md:text-left">
+<span class="font-label-sm text-label-sm text-primary tracking-widest mb-4 block">CURATED COLLECTION</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">THE SOFT EDIT</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md mx-auto md:mx-0">Discover our newest arrivals designed for the moments between moments. Embrace the tactile luxury of modal and silk.</p>
+<a class="inline-block bg-primary text-on-primary font-label-sm text-label-sm px-8 py-4 rounded-sm hover:bg-tertiary transition-colors duration-300" href="new-arrivals.html">
+                        SHOP THE EDIT
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Area (Includes Newsletter) -->
+<footer class="bg-inverse-surface text-surface-container-lowest pt-20 pb-10">
+<!-- Newsletter -->
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-b border-on-tertiary-fixed-variant/20 pb-16 mb-16 text-center">
+<h3 class="font-headline-md text-headline-md text-primary-fixed mb-4">STAY IN THE KNOW.</h3>
+<p class="font-body-md text-body-md text-surface-variant/80 mb-8 max-w-md mx-auto">Subscribe to our newsletter for exclusive access to new collections and editorial content.</p>
+<form class="max-w-md mx-auto relative group">
+<input class="w-full bg-transparent border-b border-surface-variant/30 py-3 pl-0 pr-10 text-surface-container-lowest placeholder:text-surface-variant/50 focus:outline-none focus:border-primary-fixed focus:ring-0 transition-colors font-body-md text-body-md" placeholder="Email Address" type="email"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-primary-fixed hover:text-surface-container-lowest transition-colors" type="submit">
+<span class="material-symbols-outlined font-light">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Main Footer Links -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1 mb-10 md:mb-0">
+<div class="font-headline-lg text-headline-lg text-surface-container-lowest mb-6">KARAVYA</div>
+<p class="font-label-sm text-label-sm text-surface-variant/80">© 2024 KARAVYA MAISON. ALL RIGHTS RESERVED.</p>
+</div>
+<!-- Footer Links Component Structure -->
+<div class="col-span-1 flex flex-col space-y-4">
+<a class="font-label-sm text-label-sm text-surface-variant/80 hover:text-primary-fixed transition-colors duration-300" href="coming-soon.html">Sustainability</a>
+<a class="font-label-sm text-label-sm text-surface-variant/80 hover:text-primary-fixed transition-colors duration-300" href="concierge.html">Concierge</a>
+</div>
+<div class="col-span-1 flex flex-col space-y-4">
+<a class="font-label-sm text-label-sm text-surface-variant/80 hover:text-primary-fixed transition-colors duration-300" href="returns.html">Shipping &amp; Returns</a>
+<a class="font-label-sm text-label-sm text-surface-variant/80 hover:text-primary-fixed transition-colors duration-300" href="coming-soon.html">Privacy Policy</a>
+</div>
+<div class="col-span-1 flex flex-col space-y-4">
+<a class="font-label-sm text-label-sm text-surface-variant/80 hover:text-primary-fixed transition-colors duration-300" href="coming-soon.html">Stores</a>
+</div>
+</div>
+</footer>
+<script src="site-config.js"></script>
+<script src="karavya.js"></script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+<script>
+(function(){var K=window.KARAVYA;if(!K)return;document.querySelectorAll('[data-card-slug]').forEach(function(c){K.attachCard(c,c.getAttribute('data-card-slug'));});})();
+</script>
+<script>
+(function () {
+    "use strict";
+    var K = window.KARAVYA;
+    if (!K) return;
+    var grid = document.getElementById("women-grid");
+    var count = document.getElementById("women-count");
+    var sortBtn = document.getElementById("women-sort");
+    var filterToggle = document.getElementById("women-filter-toggle");
+    var filterPanel = document.getElementById("women-filter-panel");
+    var inStockBox = document.getElementById("women-instock");
+
+    var state = { cat: "all", price: "all", sort: "featured", inStock: false };
+    var SORT_LABELS = { featured: "FEATURED", "price-asc": "PRICE: LOW TO HIGH", "price-desc": "PRICE: HIGH TO LOW", name: "NAME" };
+    var SORT_ORDER = ["featured", "price-asc", "price-desc", "name"];
+
+    var matchesCat = function (p) {
+        if (state.cat === "all") return p.collection !== "gifting";
+        if (state.cat === "coords") return /(set|co-ord)/i.test(p.name);
+        return p.category === state.cat;
+    };
+    var matchesPrice = function (p) {
+        if (state.price === "under") return p.price < 2000;
+        if (state.price === "mid") return p.price >= 2000 && p.price <= 4000;
+        if (state.price === "over") return p.price > 4000;
+        return true;
+    };
+
+    var render = function () {
+        var list = K.PRODUCTS.filter(function (p) {
+            return matchesCat(p) && matchesPrice(p) && (!state.inStock || p.availability !== "out_of_stock");
+        });
+        if (state.sort === "price-asc") list = list.slice().sort(function (a, b) { return a.price - b.price; });
+        else if (state.sort === "price-desc") list = list.slice().sort(function (a, b) { return b.price - a.price; });
+        else if (state.sort === "name") list = list.slice().sort(function (a, b) { return a.name.localeCompare(b.name); });
+        if (grid) grid.innerHTML = list.map(function (p) { return K.cardHTML(p.slug); }).join("");
+        if (count) count.textContent = list.length + (list.length === 1 ? " PRODUCT" : " PRODUCTS");
+    };
+
+    var paintChips = function () {
+        document.querySelectorAll("[data-women-cat]").forEach(function (a) {
+            var active = a.getAttribute("data-women-cat") === state.cat;
+            a.classList.toggle("bg-primary", active);
+            a.classList.toggle("text-on-primary", active);
+            a.classList.toggle("text-on-surface-variant", !active);
+            a.classList.toggle("px-4", active);
+            a.classList.toggle("py-2", active);
+        });
+    };
+
+    document.querySelectorAll("[data-women-cat]").forEach(function (a) {
+        a.addEventListener("click", function (e) {
+            e.preventDefault();
+            state.cat = a.getAttribute("data-women-cat");
+            paintChips();
+            render();
+        });
+    });
+    document.querySelectorAll("[data-women-price]").forEach(function (b) {
+        b.addEventListener("click", function () {
+            state.price = b.getAttribute("data-women-price");
+            document.querySelectorAll("[data-women-price]").forEach(function (x) {
+                var on = x === b;
+                x.classList.toggle("border-primary", on);
+                x.classList.toggle("text-primary", on);
+                x.classList.toggle("bg-primary/10", on);
+            });
+            render();
+        });
+    });
+    if (inStockBox) inStockBox.addEventListener("change", function () { state.inStock = inStockBox.checked; render(); });
+    if (filterToggle && filterPanel) filterToggle.addEventListener("click", function () { filterPanel.classList.toggle("hidden"); });
+    if (sortBtn) sortBtn.addEventListener("click", function () {
+        var idx = SORT_ORDER.indexOf(state.sort);
+        state.sort = SORT_ORDER[(idx + 1) % SORT_ORDER.length];
+        sortBtn.querySelector(".font-label-sm").textContent = "SORT BY: " + SORT_LABELS[state.sort];
+        render();
+    });
+
+    paintChips();
+    render();
+})();
+</script>
+</body></html>

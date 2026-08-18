@@ -1,0 +1,899 @@
+<!-- KARAVYA | Secure Payment -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KARAVYA - Payment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..700&amp;family=Playfair+Display:ital,wght@0,400..800;1,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {"rose-white": "#FFF5F7", "deep-rose": "#8F4A5B", "rose-gold": "#B76E79", 
+                        "surface-container-high": "#efe6e8",
+                        "dark-espresso": "#2B1B1F",
+                        "primary": "#8a4853",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#ffb2bc",
+                        "on-secondary-container": "#7b4b4b",
+                        "on-tertiary-fixed-variant": "#584236",
+                        "outline-variant": "#d7c1c3",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#8c4b55",
+                        "on-primary-container": "#fffbff",
+                        "on-primary-fixed": "#3a0915",
+                        "tertiary": "#6f574a",
+                        "surface-dim": "#e1d8da",
+                        "blush-rose": "#F8DCE3",
+                        "primary-container": "#a6606b",
+                        "deep-rose": "#8F4A5B",
+                        "surface": "#fff8f8",
+                        "surface-variant": "#eae0e2",
+                        "on-surface-variant": "#524345",
+                        "background": "#fff8f8",
+                        "inverse-surface": "#342f31",
+                        "tertiary-fixed": "#fddccb",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f8eef0",
+                        "surface-container-low": "#fbf1f3",
+                        "on-secondary-fixed-variant": "#673a3b",
+                        "secondary": "#825152",
+                        "surface-container-highest": "#eae0e2",
+                        "on-primary-fixed-variant": "#70343e",
+                        "pearl-rose": "#FCECEF",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad9",
+                        "soft-rose": "#EFB7C5",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-fixed-dim": "#ffb2bc",
+                        "surface-container": "#f5ebed",
+                        "on-surface": "#1f1a1c",
+                        "on-tertiary-fixed": "#29180e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1f1a1c",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffd9dd",
+                        "secondary-container": "#ffbfbf",
+                        "secondary-fixed-dim": "#f6b7b7",
+                        "surface-bright": "#fff8f8",
+                        "outline": "#857374",
+                        "tertiary-container": "#896f62",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#331012",
+                        "rose-white": "#FFF5F7",
+                        "rose-gold": "#C98F8F",
+                        "tertiary-fixed-dim": "#e0c0b0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap-md": "80px",
+                        "margin-desktop": "64px",
+                        "base": "8px",
+                        "section-gap-lg": "120px",
+                        "margin-mobile": "20px",
+                        "container-max": "1440px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["DM Sans"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "label-lg": ["DM Sans"],
+                        "body-lg": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["11px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.7", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["80px", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-md": ["28px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .form-input {
+            border: none;
+            border-bottom: 1px solid #d7c1c3;
+            background: transparent;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-bottom: 1px solid #8F4A5B;
+            box-shadow: 0 4px 10px rgba(143, 74, 91, 0.1);
+        }
+        .form-input.error {
+            border-bottom: 1px solid #ba1a1a;
+        }
+        .radio-card input:checked + div {
+            border-color: #8F4A5B;
+            background-color: #FCECEF;
+        }
+        .radio-card input:checked + div .indicator {
+            background-color: #8F4A5B;
+            border-color: #8F4A5B;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d7c1c3;
+            border-radius: 4px;
+        }
+        @keyframes kpay-spin {
+            to { transform: rotate(360deg); }
+        }
+        .kpay-spinner {
+            animation: kpay-spin 1s linear infinite;
+        }
+        @keyframes kpay-fade {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .kpay-panel {
+            animation: kpay-fade 0.35s ease both;
+        }
+        .hidden-state {
+            display: none !important;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-dark-espresso antialiased">
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-container-highest/90 glass-nav border-b border-outline-variant flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="checkout.html" id="back-to-checkout">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+            Back to Checkout
+        </a>
+<div class="absolute left-1/2 -translate-x-1/2">
+<a href="index.html">
+<img alt="KARAVYA Logo" class="h-10 w-auto object-contain mix-blend-multiply" src="https://lh3.googleusercontent.com/aida/AP1WRLvbbpqJ_bcm3KLIDCAkb1ouHpEq64wtQ5xEw7kJ9ZVmoB_x8Kr5jRfuegiy09UGYilJ1Dp5m1BNSSW0jqylqVhyKZ9RKX2jZoqlwkZV8zzDQmVJbr2R_0vDn2eNVMVQeHi9oEjaqL95PuN3BXPx5nkSVWtqoWLBSdr0Oo6fhmGD2AIZJVuT-jVL4Vsnk_InQPmkE5ucbX8KzPbSSnEYbM9Njm_q7R-faV2TEfV4DPEp5wLmJXSEb98-Dms"/>
+</a>
+</div>
+<div class="font-label-lg text-label-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+            SECURE CHECKOUT
+        </div>
+</header>
+<main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-section-gap-md min-h-screen">
+<!-- Progress Indicator -->
+<nav aria-label="Progress" class="mb-16 flex justify-center w-full max-w-2xl mx-auto hidden md:flex">
+<ol class="flex items-center w-full" role="list">
+<li class="relative pr-8 sm:pr-20">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-[1px] w-full bg-outline-variant"></div>
+</div>
+<a class="relative flex h-8 w-8 items-center justify-center bg-surface hover:bg-surface-container transition-colors rounded-full border border-outline-variant" href="cart.html">
+<span class="material-symbols-outlined text-[16px] text-dark-espresso">check</span>
+</a>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-dark-espresso whitespace-nowrap">BAG</span>
+</li>
+<li class="relative pr-8 sm:pr-20 w-full">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-[1px] w-full bg-outline-variant"></div>
+</div>
+<a class="relative flex h-8 w-8 items-center justify-center bg-surface hover:bg-surface-container transition-colors rounded-full border border-outline-variant" href="checkout.html">
+<span class="material-symbols-outlined text-[16px] text-dark-espresso">check</span>
+</a>
+<span class="absolute -bottom-6 left-0 font-label-sm text-label-sm text-dark-espresso whitespace-nowrap">DELIVERY</span>
+</li>
+<li class="relative pr-8 sm:pr-20 w-full">
+<div aria-hidden="true" class="absolute inset-0 flex items-center">
+<div class="h-[1px] w-full bg-outline-variant"></div>
+</div>
+<span class="relative flex h-8 w-8 items-center justify-center bg-surface rounded-full border-2 border-deep-rose ring-4 ring-pearl-rose">
+<span class="h-2.5 w-2.5 rounded-full bg-deep-rose"></span>
+</span>
+<span class="absolute -bottom-6 left-0 font-label-sm text-label-sm text-primary whitespace-nowrap">PAYMENT</span>
+</li>
+<li class="relative">
+<span class="relative flex h-8 w-8 items-center justify-center bg-surface rounded-full border border-outline-variant">
+<span class="h-2.5 w-2.5 rounded-full bg-transparent"></span>
+</span>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 font-label-sm text-label-sm text-outline whitespace-nowrap">CONFIRMATION</span>
+</li>
+</ol>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-16">
+<!-- Left Column: Payment -->
+<div class="lg:col-span-7 xl:col-span-6 xl:col-start-2 space-y-12">
+<!-- Development Mode Notice (removed automatically once a gateway is configured) -->
+<div id="dev-banner" class="border border-rose-gold/40 bg-rose-white rounded-lg p-5 flex items-start gap-3">
+<span class="material-symbols-outlined text-[20px] text-rose-gold mt-0.5">science</span>
+<div>
+<p class="font-label-lg text-label-lg text-dark-espresso mb-1">DEVELOPMENT MODE</p>
+<p class="font-body-md text-body-md text-on-surface-variant">No payment gateway is configured yet, so this checkout runs on a simulated sandbox. No real charge is made and no card details are stored.</p>
+<label class="flex items-center gap-2 mt-3 cursor-pointer group">
+<input class="w-4 h-4 accent-deep-rose cursor-pointer" id="simulate-failure" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-dark-espresso transition-colors">Simulate a declined payment (dev testing only)</span>
+</label>
+</div>
+</div>
+<!-- Payment States -->
+<!-- READY -->
+<section class="space-y-6" id="state-ready">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-dark-espresso">Payment Method</h2>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em]">Step 3 of 4</span>
+</div>
+<div class="space-y-4">
+<label class="radio-card cursor-pointer block relative">
+<input checked="" class="peer sr-only" name="pay_method" type="radio" value="upi"/>
+<div class="p-6 border border-outline-variant bg-surface rounded-lg transition-all duration-300 flex items-center justify-between hover:bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="indicator w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-surface"></div>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-dark-espresso">UPI</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1">GPay, PhonePe, Paytm &amp; any UPI app</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant">qr_code_scanner</span>
+</div>
+</label>
+<label class="radio-card cursor-pointer block relative">
+<input class="peer sr-only" name="pay_method" type="radio" value="card"/>
+<div class="p-6 border border-outline-variant bg-surface rounded-lg transition-all duration-300 flex items-center justify-between hover:bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="indicator w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-surface"></div>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-dark-espresso">Credit / Debit Card</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1">Visa, Mastercard, RuPay, Amex</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant">credit_card</span>
+</div>
+</label>
+<label class="radio-card cursor-pointer block relative">
+<input class="peer sr-only" name="pay_method" type="radio" value="netbanking"/>
+<div class="p-6 border border-outline-variant bg-surface rounded-lg transition-all duration-300 flex items-center justify-between hover:bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="indicator w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-surface"></div>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-dark-espresso">Net Banking</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1">All major Indian banks</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant">account_balance</span>
+</div>
+</label>
+<label class="radio-card cursor-pointer block relative">
+<input class="peer sr-only" name="pay_method" type="radio" value="wallet"/>
+<div class="p-6 border border-outline-variant bg-surface rounded-lg transition-all duration-300 flex items-center justify-between hover:bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="indicator w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-surface"></div>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-dark-espresso">Wallets</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1">Paytm, Amazon Pay &amp; more</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[22px] text-on-surface-variant">account_balance_wallet</span>
+</div>
+</label>
+</div>
+<!-- Method detail panels -->
+<div class="space-y-8 mt-8" id="method-upi">
+<div class="relative">
+<input class="form-input w-full font-body-lg text-body-lg text-dark-espresso placeholder-outline" id="upi-vpa" placeholder="yourname@okhdfcbank" type="text"/>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="upi-chip font-label-sm text-label-sm text-primary border border-outline-variant rounded-full px-4 py-2 hover:border-primary hover:bg-pearl-rose transition-colors" type="button" data-vpa="demo@okhdfcbank">demo@okhdfcbank</button>
+<button class="upi-chip font-label-sm text-label-sm text-primary border border-outline-variant rounded-full px-4 py-2 hover:border-primary hover:bg-pearl-rose transition-colors" type="button" data-vpa="demo@ybl">demo@ybl</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-3">You will receive a collect request on your UPI app to approve this payment.</p>
+</div>
+<div class="space-y-8 mt-8 hidden-state" id="method-card">
+<div class="relative">
+<input class="form-input w-full font-body-lg text-body-lg text-dark-espresso placeholder-outline" id="card-number" inputmode="numeric" maxlength="23" placeholder="Card Number" type="text"/>
+</div>
+<div class="relative">
+<input class="form-input w-full font-body-lg text-body-lg text-dark-espresso placeholder-outline" id="card-name" placeholder="Name on Card" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="relative">
+<input class="form-input w-full font-body-lg text-body-lg text-dark-espresso placeholder-outline" id="card-expiry" inputmode="numeric" maxlength="5" placeholder="MM/YY" type="text"/>
+</div>
+<div class="relative">
+<input class="form-input w-full font-body-lg text-body-lg text-dark-espresso placeholder-outline" id="card-cvv" inputmode="numeric" maxlength="4" placeholder="CVV" type="password"/>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Card details are encrypted in transit and used only for this transaction. They are never stored by KARAVYA.</p>
+</div>
+<div class="space-y-8 mt-8 hidden-state" id="method-netbanking">
+<select class="form-input w-full font-body-lg text-body-lg text-dark-espresso appearance-none bg-transparent rounded-none cursor-pointer" id="bank-select">
+<option disabled="" selected="" value="">Select your bank</option>
+<option value="HDFC">HDFC Bank</option>
+<option value="ICICI">ICICI Bank</option>
+<option value="SBI">State Bank of India</option>
+<option value="AXIS">Axis Bank</option>
+<option value="KOTAK">Kotak Mahindra Bank</option>
+</select>
+</div>
+<div class="space-y-8 mt-8 hidden-state" id="method-wallet">
+<div class="flex flex-wrap gap-3">
+<label class="cursor-pointer">
+<input class="sr-only wallet-radio" name="wallet" type="radio" value="GPay"/>
+<div class="px-5 py-3 rounded-full border border-outline-variant font-label-lg text-label-lg text-dark-espresso hover:border-primary transition-colors">GPay</div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only wallet-radio" name="wallet" type="radio" value="PhonePe"/>
+<div class="px-5 py-3 rounded-full border border-outline-variant font-label-lg text-label-lg text-dark-espresso hover:border-primary transition-colors">PhonePe</div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only wallet-radio" name="wallet" type="radio" value="Paytm"/>
+<div class="px-5 py-3 rounded-full border border-outline-variant font-label-lg text-label-lg text-dark-espresso hover:border-primary transition-colors">Paytm</div>
+</label>
+<label class="cursor-pointer">
+<input class="sr-only wallet-radio" name="wallet" type="radio" value="Amazon Pay"/>
+<div class="px-5 py-3 rounded-full border border-outline-variant font-label-lg text-label-lg text-dark-espresso hover:border-primary transition-colors">Amazon Pay</div>
+</label>
+</div>
+</div>
+<div class="pt-8">
+<button class="w-full bg-deep-rose hover:bg-primary text-surface font-label-lg text-label-lg py-4 px-8 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(143,74,91,0.15)] hover:shadow-[0_8px_30px_rgba(143,74,91,0.25)] flex items-center justify-center gap-2" id="pay-button" type="button">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span id="pay-button-label">PAY ₹3,149 SECURELY</span>
+</button>
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-[0.1em] text-center mt-4">256-bit encrypted checkout · PCI-DSS compliant</p>
+</div>
+<div class="pt-6 text-center">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-2" href="checkout.html">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    BACK TO CHECKOUT
+                </a>
+</div>
+</section>
+<!-- PROCESSING OVERLAY -->
+<section class="hidden-state fixed inset-0 z-[60] bg-dark-espresso/60 backdrop-blur-sm flex items-center justify-center p-6" id="state-processing" role="dialog" aria-modal="true" aria-label="Processing payment">
+<div class="bg-surface rounded-3xl p-12 max-w-md w-full text-center kpay-panel">
+<div class="w-14 h-14 mx-auto mb-6 rounded-full border-4 border-outline-variant border-t-deep-rose kpay-spinner"></div>
+<h3 class="font-headline-md text-headline-md text-dark-espresso mb-3">PROCESSING YOUR PAYMENT</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Please do not close this window. You will be redirected automatically.</p>
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" id="cancel-payment" type="button">CANCEL PAYMENT</button>
+</div>
+</section>
+<!-- SUCCESS -->
+<section class="hidden-state fixed inset-0 z-[60] bg-dark-espresso/60 backdrop-blur-sm flex items-center justify-center p-6" id="state-success" role="dialog" aria-modal="true" aria-label="Payment successful">
+<div class="bg-surface rounded-3xl p-12 max-w-md w-full text-center kpay-panel">
+<div class="w-16 h-16 mx-auto mb-6 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-deep-rose" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-dark-espresso mb-3">PAYMENT SUCCESSFUL</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2" id="success-method"></p>
+<p class="font-body-md text-body-md text-on-surface-variant">Taking you to your order confirmation…</p>
+<div class="w-14 h-14 mx-auto mt-8 rounded-full border-4 border-outline-variant border-t-deep-rose kpay-spinner"></div>
+</div>
+</section>
+<!-- FAILED -->
+<section class="hidden-state" id="state-failed">
+<div class="border border-error/30 bg-error-container/40 rounded-3xl p-10 text-center kpay-panel">
+<div class="w-16 h-16 mx-auto mb-6 rounded-full bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-on-error-container" style="font-variation-settings: 'FILL' 1;">cancel</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-dark-espresso mb-3">PAYMENT COULDN'T BE COMPLETED</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Your order has not been charged.</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8" id="failure-reason">Please try again or choose another payment method.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-deep-rose hover:bg-primary text-surface font-label-lg text-label-lg py-4 px-10 rounded-full transition-all duration-300 shadow-[0_4px_20px_rgba(143,74,91,0.15)] hover:shadow-[0_8px_30px_rgba(143,74,91,0.25)]" id="retry-button" type="button">TRY AGAIN</button>
+<button class="border border-deep-rose text-deep-rose font-label-lg text-label-lg py-4 px-10 rounded-full hover:bg-pearl-rose transition-colors" id="change-method-button" type="button">CHANGE PAYMENT METHOD</button>
+</div>
+<div class="mt-6">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="checkout.html">BACK TO CHECKOUT</a>
+</div>
+</div>
+</section>
+<!-- CANCELLED -->
+<section class="hidden-state" id="state-cancelled">
+<div class="border border-outline-variant bg-surface-container-low rounded-3xl p-10 text-center kpay-panel">
+<div class="w-16 h-16 mx-auto mb-6 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant">close</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-dark-espresso mb-3">PAYMENT CANCELLED</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">No charge was made to your account.</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Your bag and checkout details are safe.</p>
+<a class="inline-block bg-dark-espresso hover:bg-primary text-surface font-label-lg text-label-lg py-4 px-10 rounded-full transition-colors" href="checkout.html">BACK TO CHECKOUT</a>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Summary -->
+<div class="lg:col-span-5 xl:col-span-4 mt-12 lg:mt-0">
+<div class="sticky top-32 bg-pearl-rose rounded-xl p-8 shadow-[0_20px_40px_rgba(143,74,91,0.05)] border border-white/50">
+<h3 class="font-label-lg text-label-lg text-dark-espresso mb-8 flex justify-between items-center">
+<span>YOUR KARAVYA BAG</span>
+<span class="text-on-surface-variant text-sm font-normal" id="summary-count">2 Items</span>
+</h3>
+<div class="space-y-6 max-h-[40vh] overflow-y-auto custom-scrollbar pr-2 mb-8" id="summary-items">
+<div class="flex gap-4">
+<div class="w-20 h-24 bg-surface rounded-md border border-outline-variant overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" alt="Linen Resort Shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDurlm4jXi1-xjO5bjeLFDuTXQDLLFgIcAHK-xYmSszarBYc_yRp27fHg6FuI9hE0K5vhZWca-1ziqt4WdfAkA4wUdm2lFvQ5pYoIkipw9nC5NH_fEuqW0-gi0oJ508UFRkJBmufyERbORiKekKtM_Z3nnekc_zMVj0HmzduQoMpomtbCbP3WQ72YrksOtzzZSUGh1dwD7r8V_0GaT3YNNWlUKrZlkEnBv7F3LpESXT46OGCGOpJd3m"/>
+<span class="absolute top-0 right-0 bg-deep-rose text-surface text-[10px] w-4 h-4 flex items-center justify-center rounded-bl-md font-medium">1</span>
+</div>
+<div class="flex flex-col justify-between flex-grow py-1">
+<div>
+<div class="font-body-lg text-body-lg text-dark-espresso leading-tight mb-1">Linen Resort Shirt</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Oatmeal / Medium</div>
+</div>
+<div class="font-body-lg text-body-lg text-dark-espresso">₹1,499</div>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-20 h-24 bg-surface rounded-md border border-outline-variant overflow-hidden flex-shrink-0 relative">
+<img class="w-full h-full object-cover" alt="Minimalist Crossbody" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpcP5Hka-cpWt_Lh42YKr1F27N-VP4ZRodo0dkf5gJ6uAfRYkQ5Cf94cCPaVa1dnN69x8JJBwN32YZq8LaohCMr0MmiWJDl52sItVy01HcaEGnzOOlTe_4ITTMjKHFGMa11gvWYKIUfzm0OjqlTY2eW3TcOHYr7paxOW7qiiSCWMX-xYzYT1lIlF2JGEIlXg0Hd-gqdnuM11gv1jrOm54xSNeXl8mYeu4vaibaTrQ2uUGN5V_mrtbZ"/>
+<span class="absolute top-0 right-0 bg-deep-rose text-surface text-[10px] w-4 h-4 flex items-center justify-center rounded-bl-md font-medium">1</span>
+</div>
+<div class="flex flex-col justify-between flex-grow py-1">
+<div>
+<div class="font-body-lg text-body-lg text-dark-espresso leading-tight mb-1">Minimalist Crossbody</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Deep Espresso</div>
+</div>
+<div class="font-body-lg text-body-lg text-dark-espresso">₹1,500</div>
+</div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="space-y-3 font-body-md text-body-md text-on-surface-variant mb-6">
+<div class="flex justify-between">
+<span>Subtotal</span>
+<span class="text-dark-espresso" id="summary-subtotal">₹2,999</span>
+</div>
+<div class="flex justify-between">
+<span>Discount</span>
+<span class="text-dark-espresso" id="summary-discount">-₹0</span>
+</div>
+<div class="flex justify-between">
+<span>Delivery</span>
+<span class="text-dark-espresso" id="summary-delivery">₹0</span>
+</div>
+<div class="flex justify-between">
+<span>Estimated Tax</span>
+<span class="text-dark-espresso" id="summary-tax">₹150</span>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant flex justify-between items-end">
+<span class="font-headline-md text-headline-md text-dark-espresso">Total</span>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">INR</span>
+<span class="font-headline-md text-headline-md text-dark-espresso" id="summary-total">₹3,149</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-base flex flex-col md:flex-row justify-between items-center px-margin-desktop mt-section-gap-md border-t border-outline-variant bg-surface dark:bg-surface-dim">
+<div class="font-headline-md text-headline-md text-dark-espresso mb-4 md:mb-0">
+<a href="index.html">
+<img alt="KARAVYA Logo" class="h-8 w-auto object-contain mix-blend-multiply opacity-50 grayscale" src="https://lh3.googleusercontent.com/aida/AP1WRLvbbpqJ_bcm3KLIDCAkb1ouHpEq64wtQ5xEw7kJ9ZVmoB_x8Kr5jRfuegiy09UGYilJ1Dp5m1BNSSW0jqylqVhyKZ9RKX2jZoqlwkZV8zzDQmVJbr2R_0vDn2eNVMVQeHi9oEjaqL95PuN3BXPx5nkSVWtqoWLBSdr0Oo6fhmGD2AIZJVuT-jVL4Vsnk_InQPmkE5ucbX8KzPbSSnEYbM9Njm_q7R-faV2TEfV4DPEp5wLmJXSEb98-Dms"/>
+</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant text-center md:text-left mb-4 md:mb-0">
+            © 2024 KARAVYA. All rights reserved. Secure encrypted checkout.
+        </div>
+<nav class="flex gap-6 font-label-sm text-label-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="coming-soon.html">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="coming-soon.html">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="returns.html">Shipping Information</a>
+</nav>
+</footer>
+<script>
+(function () {
+    "use strict";
+
+    var fmt = function (n) { return "₹" + n.toLocaleString("en-IN"); };
+
+    var order;
+    try { order = JSON.parse(sessionStorage.getItem("karavya_pending_order")) || null; } catch (e) { order = null; }
+    if (!order || !order.items || !order.items.length) {
+        try { order = JSON.parse(localStorage.getItem("karavya_pending_order")) || null; } catch (e) { order = null; }
+    }
+    if (!order || !order.items || !order.items.length) {
+        window.location.replace("cart.html");
+        return;
+    }
+
+    var renderSummary = function () {
+        var box = document.getElementById("summary-items");
+        box.innerHTML = "";
+        order.items.forEach(function (it) {
+            var row = document.createElement("div");
+            row.className = "flex gap-4";
+            row.innerHTML =
+                '<div class="w-20 h-24 bg-surface rounded-md border border-outline-variant overflow-hidden flex-shrink-0 flex items-center justify-center">' +
+                '<span class="material-symbols-outlined text-outline">image</span>' +
+                '<span class="absolute top-0 right-0 bg-deep-rose text-surface text-[10px] w-4 h-4 flex items-center justify-center rounded-bl-md font-medium">' + it.qty + '</span></div>' +
+                '<div class="flex flex-col justify-between flex-grow py-1">' +
+                '<div><div class="font-body-lg text-body-lg text-dark-espresso leading-tight mb-1">' + it.name + '</div>' +
+                '<div class="font-body-md text-body-md text-on-surface-variant">' + (it.variant || "") + '</div></div>' +
+                '<div class="font-body-lg text-body-lg text-dark-espresso">' + fmt(it.price * it.qty) + '</div></div>';
+            box.appendChild(row);
+        });
+        var count = order.items.reduce(function (a, b) { return a + b.qty; }, 0);
+        document.getElementById("summary-count").textContent = count + (count === 1 ? " Item" : " Items");
+        document.getElementById("summary-subtotal").textContent = fmt(order.subtotal);
+        document.getElementById("summary-discount").textContent = "-" + fmt(order.discount);
+        document.getElementById("summary-delivery").textContent = fmt(order.delivery);
+        document.getElementById("summary-tax").textContent = fmt(order.tax);
+        document.getElementById("summary-total").textContent = fmt(order.total);
+        document.getElementById("pay-button-label").textContent = "PAY " + fmt(order.total) + " SECURELY";
+    };
+
+    /* ------------------------------------------------------------------
+     * Payment integration boundary.
+     *
+     * When a real payment provider is configured:
+     *   set PAYMENT_CONFIG.provider (e.g. "razorpay" | "stripe") and
+     *   implement process() to call the gateway with the payload below.
+     * The gateway token/keys must come from a secure backend; never
+     * embed secrets in this file.
+     *
+     * Until then, process() runs a clearly-labelled local sandbox that
+     * never touches a real charge and never stores card data.
+     * ------------------------------------------------------------------ */
+    var PAYMENT_CONFIG = {
+        provider: null,
+        simulateFailure: false
+    };
+
+    var KaravyaPay = {
+        process: function (payload, onSuccess, onError) {
+            if (PAYMENT_CONFIG.provider) {
+                /* GATEWAY INTEGRATION POINT — replace this branch with the
+                   real provider call. No secrets belong in this file. */
+                return;
+            }
+            setTimeout(function () {
+                if (PAYMENT_CONFIG.simulateFailure) {
+                    onError({ code: "PAYMENT_DECLINED", message: "The payment was declined by the sandbox for testing." });
+                } else {
+                    onSuccess({ ref: "DEMO-" + Date.now().toString(36).toUpperCase() });
+                }
+            }, 2400);
+        }
+    };
+
+    var state = { method: "upi", lastFailure: "" };
+
+    var show = function (id) {
+        ["state-ready", "state-processing", "state-success", "state-failed", "state-cancelled"].forEach(function (s) {
+            document.getElementById(s).classList.toggle("hidden-state", s !== id);
+        });
+    };
+
+    var switchMethod = function (method) {
+        state.method = method;
+        ["method-upi", "method-card", "method-netbanking", "method-wallet"].forEach(function (p) {
+            document.getElementById(p).classList.toggle("hidden-state", p !== "method-" + method);
+        });
+    };
+
+    document.querySelectorAll('input[name="pay_method"]').forEach(function (r) {
+        r.addEventListener("change", function () { switchMethod(r.value); });
+    });
+
+    document.querySelectorAll(".upi-chip").forEach(function (chip) {
+        chip.addEventListener("click", function () {
+            document.getElementById("upi-vpa").value = chip.getAttribute("data-vpa");
+        });
+    });
+
+    document.getElementById("simulate-failure").addEventListener("change", function (e) {
+        PAYMENT_CONFIG.simulateFailure = e.target.checked;
+    });
+
+    var cardNumber = document.getElementById("card-number");
+    cardNumber.addEventListener("input", function () {
+        var v = cardNumber.value.replace(/[^\d]/g, "").slice(0, 16);
+        cardNumber.value = v.replace(/(\d{4})(?=\d)/g, "$1 ");
+    });
+
+    var cardExpiry = document.getElementById("card-expiry");
+    cardExpiry.addEventListener("input", function () {
+        var v = cardExpiry.value.replace(/[^\d]/g, "").slice(0, 4);
+        cardExpiry.value = v.length > 2 ? v.slice(0, 2) + "/" + v.slice(2) : v;
+    });
+
+    var markError = function (el, bad) {
+        el.classList.toggle("error", !!bad);
+        if (bad) { el.focus(); }
+    };
+
+    var validate = function () {
+        var ok = true;
+        if (state.method === "upi") {
+            var vpa = document.getElementById("upi-vpa").value.trim();
+            var valid = /^[\w.\-]{2,}@[a-zA-Z]{2,}$/.test(vpa);
+            markError(document.getElementById("upi-vpa"), !valid);
+            if (!valid) { ok = false; }
+        }
+        if (state.method === "card") {
+            var num = document.getElementById("card-number").value.replace(/\s/g, "");
+            var nm = document.getElementById("card-name").value.trim();
+            var ex = document.getElementById("card-expiry").value;
+            var cvv = document.getElementById("card-cvv").value;
+            var numOk = /^\d{13,16}$/.test(num);
+            var nmOk = nm.length > 1;
+            var exOk = /^(0[1-9]|1[0-2])\/\d{2}$/.test(ex);
+            var cvvOk = /^\d{3,4}$/.test(cvv);
+            markError(document.getElementById("card-number"), !numOk);
+            markError(document.getElementById("card-name"), !nmOk);
+            markError(document.getElementById("card-expiry"), !exOk);
+            markError(document.getElementById("card-cvv"), !cvvOk);
+            if (!(numOk && nmOk && exOk && cvvOk)) { ok = false; }
+        }
+        if (state.method === "netbanking") {
+            if (!document.getElementById("bank-select").value) { ok = false; }
+        }
+        if (state.method === "wallet") {
+            var w = document.querySelector('input[name="wallet"]:checked');
+            if (!w) { ok = false; }
+        }
+        return ok;
+    };
+
+    var payloadFor = function () {
+        var p = {
+            orderId: "KR-" + (order.id || "847291"),
+            amount: order.total,
+            currency: "INR",
+            method: state.method,
+            demo: !PAYMENT_CONFIG.provider
+        };
+        if (state.method === "upi") { p.vpa = document.getElementById("upi-vpa").value.trim(); }
+        if (state.method === "card") {
+            var digits = document.getElementById("card-number").value.replace(/\s/g, "");
+            p.cardLast4 = digits.slice(-4);
+            p.cardBrand = digits.charAt(0) === "4" ? "Visa" : digits.charAt(0) === "5" ? "Mastercard" : "Card";
+        }
+        if (state.method === "netbanking") { p.bank = document.getElementById("bank-select").value; }
+        if (state.method === "wallet") { p.wallet = document.querySelector('input[name="wallet"]:checked').value; }
+        return p;
+    };
+
+    var onSuccess = function (result) {
+        var payload = payloadFor();
+        var record = {
+            id: payload.orderId,
+            amount: payload.amount,
+            currency: "INR",
+            method: payload.method,
+            methodLabel: payload.method === "upi" ? "UPI · " + payload.vpa
+                : payload.method === "card" ? payload.cardBrand + " ending in •••• " + payload.cardLast4
+                : payload.method === "netbanking" ? "Net Banking · " + payload.bank
+                : "Wallet · " + payload.wallet,
+            status: "PAID",
+            demo: payload.demo,
+            reference: result.ref,
+            placedAt: new Date().toISOString(),
+            items: order.items || [],
+            subtotal: order.subtotal,
+            discount: order.discount,
+            delivery: order.delivery,
+            deliveryLabel: order.deliveryLabel,
+            tax: order.tax,
+            total: order.total,
+            source: order.source
+        };
+        try { localStorage.setItem("karavya_last_order", JSON.stringify(record)); } catch (e) {}
+        try { sessionStorage.removeItem("karavya_pending_order"); } catch (e) {}
+        try { localStorage.removeItem("karavya_pending_order"); } catch (e) {}
+        if (order.source !== "buy-now") {
+            try { localStorage.setItem("karavya_cart", "[]"); } catch (e) {}
+        }
+        try { localStorage.removeItem("karavya_buy_now"); } catch (e) {}
+        document.getElementById("success-method").textContent = record.methodLabel;
+        show("state-success");
+        setTimeout(function () { window.location.href = "order-confirmation.html"; }, 1600);
+    };
+
+    var onError = function (err) {
+        state.lastFailure = err && err.message ? err.message : "The payment could not be completed.";
+        document.getElementById("failure-reason").textContent = state.lastFailure;
+        show("state-failed");
+    };
+
+    document.getElementById("pay-button").addEventListener("click", function () {
+        if (!validate()) { return; }
+        if (PAYMENT_CONFIG.provider === null && !PAYMENT_CONFIG.simulateFailure) {
+            /* Sandbox notice: keep the user informed that no real charge occurs. */
+            document.getElementById("dev-banner").classList.add("ring-2", "ring-rose-gold");
+            setTimeout(function () { document.getElementById("dev-banner").classList.remove("ring-2", "ring-rose-gold"); }, 2500);
+        }
+        show("state-processing");
+        KaravyaPay.process(payloadFor(), onSuccess, onError);
+    });
+
+    document.getElementById("cancel-payment").addEventListener("click", function () {
+        show("state-cancelled");
+    });
+
+    document.getElementById("retry-button").addEventListener("click", function () {
+        show("state-ready");
+    });
+
+    document.getElementById("change-method-button").addEventListener("click", function () {
+        show("state-ready");
+        switchMethod("upi");
+    });
+
+    renderSummary();
+    switchMethod("upi");
+})();
+</script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+</body></html>

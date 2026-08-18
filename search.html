@@ -1,0 +1,507 @@
+<!-- KARAVYA | Your Saved Collection & Personal Wishlist -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KARAVYA - Search &amp; Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {"rose-white": "#FFF5F7", "deep-rose": "#8F4A5B", "rose-gold": "#B76E79", 
+                        "secondary-fixed-dim": "#f6b7b7",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-container": "#a6606b",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#331012",
+                        "dark-espresso": "#2B1B1F",
+                        "on-tertiary-fixed-variant": "#584236",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#3a0915",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f8eef0",
+                        "on-tertiary-fixed": "#29180e",
+                        "surface-variant": "#eae0e2",
+                        "on-primary": "#ffffff",
+                        "primary": "#8a4853",
+                        "primary-fixed": "#ffd9dd",
+                        "secondary": "#825152",
+                        "surface-container-highest": "#eae0e2",
+                        "blush-rose": "#F8DCE3",
+                        "surface-container-high": "#efe6e8",
+                        "on-surface-variant": "#524345",
+                        "surface-container-low": "#fbf1f3",
+                        "secondary-container": "#ffbfbf",
+                        "outline-variant": "#d7c1c3",
+                        "deep-rose": "#8F4A5B",
+                        "surface-bright": "#fff8f8",
+                        "surface": "#fff8f8",
+                        "surface-dim": "#e1d8da",
+                        "outline": "#857374",
+                        "on-tertiary": "#ffffff",
+                        "pearl-rose": "#FCECEF",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#342f31",
+                        "primary-fixed-dim": "#ffb2bc",
+                        "tertiary-container": "#896f62",
+                        "on-secondary-fixed-variant": "#673a3b",
+                        "tertiary": "#6f574a",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "background": "#fff8f8",
+                        "on-secondary-container": "#7b4b4b",
+                        "surface-tint": "#8c4b55",
+                        "on-primary-fixed-variant": "#70343e",
+                        "tertiary-fixed": "#fddccb",
+                        "surface-container": "#f5ebed",
+                        "on-surface": "#1f1a1c",
+                        "soft-rose": "#EFB7C5",
+                        "inverse-primary": "#ffb2bc",
+                        "tertiary-fixed-dim": "#e0c0b0",
+                        "on-background": "#1f1a1c",
+                        "on-primary-container": "#fffbff",
+                        "secondary-fixed": "#ffdad9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "section-gap-lg": "120px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "section-gap-md": "80px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["DM Sans"],
+                        "headline-md": ["Playfair Display"],
+                        "label-lg": ["DM Sans"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["DM Sans"],
+                        "display-lg": ["Playfair Display"],
+                        "label-sm": ["DM Sans"],
+                        "headline-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.7", "fontWeight": "400" }],
+                        "headline-md": ["28px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["80px", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "label-sm": ["11px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(252, 236, 239, 0.9);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .search-input:focus {
+            outline: none;
+            border-bottom-color: #8F4A5B;
+            box-shadow: 0 4px 12px rgba(143, 74, 91, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-soft-rose selection:text-dark-espresso min-h-screen flex flex-col font-body-lg">
+<!-- ===================== STANDARD KARAVYA NAV ===================== -->
+<style>
+    body > header:not(.k-nav), body > nav:not(.k-nav) { display: none !important; }
+</style>
+<header class="fixed top-3 left-3 right-3 md:top-3 md:left-5 md:right-5 z-50 rounded-[1.4rem] transition-all duration-500 k-nav" id="site-header">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full mx-auto h-20">
+    <button aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu" class="lg:hidden text-dark-espresso p-2 -ml-2" id="menu-open" type="button">
+        <span class="material-symbols-outlined text-[1.5rem]">menu</span>
+    </button>
+        <nav aria-label="Primary" class="hidden lg:flex items-center gap-7">
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="index.html">Home</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="collections.html">Shop<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="collections.html">Collections</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="new-arrivals.html">New Arrivals</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="robe.html">Robes</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="women.html">Women</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="gift-studio.html">Gifting</a>
+        <div class="relative group">
+            <a class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="our-story.html">Maison<span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></a>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[15rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="our-story.html">Our Story</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="editorial.html">The Edit</a>
+                </div>
+            </div>
+        </div>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="quiz.html">Style Quiz</a>
+        <a class="font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" href="concierge.html">Concierge</a>
+        <div class="relative group">
+            <button aria-label="Change language" class="flex items-center gap-0.5 font-serif-brand text-[1.05rem] tracking-[0.08em] uppercase text-dark-espresso/80 hover:text-deep-rose transition-colors" type="button"><span aria-hidden="true" class="material-symbols-outlined text-[1.15rem]">language</span><span aria-hidden="true" class="material-symbols-outlined text-[1.1rem]">expand_more</span></button>
+            <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block">
+                <div class="bg-rose-white rounded-2xl shadow-[0_12px_32px_rgba(43,27,31,0.14)] border border-rose-gold/20 py-2.5 min-w-[11rem]">
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">English</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Hindi</a>
+                    <a class="block px-5 py-2.5 text-[0.8rem] font-medium tracking-[0.12em] uppercase text-dark-espresso/75 hover:text-deep-rose hover:bg-rose-gold/10 transition-colors" href="#">Francais</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <a aria-label="KARAVYA home" class="font-serif text-[1.35rem] md:text-[1.55rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+    <div class="flex items-center gap-4 md:gap-6">
+        <a aria-label="Search" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="search.html"><span class="material-symbols-outlined text-[1.35rem]">search</span></a>
+        <a aria-label="Wishlist" class="text-dark-espresso hover:text-deep-rose transition-colors relative hidden sm:block" href="wishlist.html"><span class="material-symbols-outlined text-[1.35rem]">favorite</span><span class="absolute -top-1.5 -right-2 min-w-[1.05rem] h-[1.05rem] px-0.5 rounded-full bg-deep-rose text-rose-white text-[0.6rem] font-semibold flex items-center justify-center hidden" id="wishlist-count">0</span></a>
+        <a aria-label="Account" class="text-dark-espresso hover:text-deep-rose transition-colors hidden sm:block" href="account.html"><span class="material-symbols-outlined text-[1.35rem]">person</span></a>
+        <a aria-label="Shopping bag" class="text-dark-espresso hover:text-deep-rose transition-colors relative" href="cart.html"><span class="material-symbols-outlined text-[1.35rem]">shopping_bag</span><span class="absolute -top-1.5 -right-2 min-w-[1.05rem] h-[1.05rem] px-0.5 rounded-full bg-rose-gold text-white text-[0.6rem] font-semibold flex items-center justify-center hidden" id="bag-count">0</span></a>
+    </div>
+</div>
+</header>
+<div aria-hidden="true" class="fixed inset-0 bg-dark-espresso/40 backdrop-blur-sm z-[60] opacity-0 pointer-events-none transition-opacity duration-400 lg:hidden" id="menu-overlay"></div>
+<nav aria-label="Mobile" aria-modal="true" class="k-nav fixed top-0 right-0 h-full w-[85%] max-w-sm bg-rose-white z-[70] shadow-2xl translate-x-full transition-transform duration-500 lg:hidden flex flex-col" id="mobile-menu" role="dialog">
+    <div class="flex items-center justify-between px-margin-mobile pt-6">
+        <a class="font-serif text-[1.2rem] tracking-[0.3em] font-semibold text-dark-espresso" href="index.html">KARAVYA</a>
+        <button aria-label="Close menu" class="text-dark-espresso p-2 -mr-2" id="menu-close" type="button">
+            <span class="material-symbols-outlined text-[1.4rem]">close</span>
+        </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-margin-mobile py-8 space-y-1">
+        <div class="flex items-center gap-5 pt-2 pb-4 border-b border-rose-gold/15">
+            <a aria-label="Search" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="search.html"><span class="material-symbols-outlined text-[1.3rem]">search</span></a>
+            <a aria-label="Wishlist" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="wishlist.html"><span class="material-symbols-outlined text-[1.3rem]">favorite</span></a>
+            <a aria-label="Account" class="text-dark-espresso/80 hover:text-deep-rose transition-colors" href="account.html"><span class="material-symbols-outlined text-[1.3rem]">person</span></a>
+        </div>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Shop</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="collections.html">Collections</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="new-arrivals.html">New Arrivals</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="robe.html">Robes</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="women.html">Women</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="gift-studio.html">Gifting</a>
+        <p class="pt-5 pb-1 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Maison</p>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="our-story.html">Our Story</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="editorial.html">The Edit</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="quiz.html">Style Quiz</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Sustainability</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Care</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="concierge.html">Concierge</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="returns.html">Returns &amp; Exchanges</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="account.html">My Karavya</a>
+        <a class="block py-3 border-b border-rose-gold/15 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Privacy Policy</a>
+        <a class="block py-3 text-[0.95rem] font-medium text-dark-espresso/85 hover:text-deep-rose" href="coming-soon.html">Terms</a>
+        <p class="pt-5 pb-2 text-[0.65rem] tracking-[0.25em] uppercase text-dark-espresso/45 font-semibold">Language</p>
+        <div class="flex flex-wrap gap-2">
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">English</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Hindi</a>
+            <a class="px-4 py-2 rounded-full border border-rose-gold/25 text-[0.75rem] font-medium tracking-[0.15em] uppercase text-dark-espresso/70 hover:text-deep-rose hover:border-deep-rose transition-colors" href="#">Francais</a>
+        </div>
+</div>
+<div class="px-margin-mobile pb-8 pt-4 border-t border-rose-gold/15">
+        <a class="w-full block text-center bg-deep-rose text-rose-white font-semibold tracking-[0.14em] text-[0.8rem] rounded-full py-3.5" href="cart.html">VIEW BAG</a>
+        <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
+    </div>
+</nav>
+<!-- TopNavBar (Shared Component) -->
+<nav class="glass-panel fixed top-0 w-full z-50 border-b border-outline-variant/30 flex justify-between items-center px-margin-desktop py-6 max-w-container-max mx-auto">
+<div class="flex items-center gap-gutter">
+<a class="font-headline-lg text-headline-lg tracking-widest text-dark-espresso dark:text-pearl-rose" href="index.html">KARAVYA</a>
+</div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="index.html">Home</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="collections.html">Collections</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="search.html">Moods</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="women.html">Fabric</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors duration-300" href="editorial.html">Journal</a>
+</div>
+<div class="flex items-center gap-base">
+<a aria-label="Search" class="text-dark-espresso hover:opacity-70 transition-opacity p-2" href="search.html">
+<span class="material-symbols-outlined font-light text-[24px]">search</span>
+</a>
+<a aria-label="Account" class="text-dark-espresso hover:opacity-70 transition-opacity p-2" href="account.html">
+<span class="material-symbols-outlined font-light text-[24px]">person</span>
+</a>
+<a aria-label="Cart" class="text-dark-espresso hover:opacity-70 transition-opacity p-2" href="cart.html">
+<span class="material-symbols-outlined font-light text-[24px]">shopping_bag</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-grow pt-[120px] pb-section-gap-lg">
+<!-- Full Screen Search Overlay Area -->
+<section class="bg-pearl-rose w-full py-section-gap-md px-margin-desktop mb-section-gap-lg relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-soft-rose/20 to-transparent pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-t from-surface-container-low/50 to-transparent pointer-events-none"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h1 class="font-display-lg text-display-lg text-dark-espresso mb-12">DISCOVER YOUR KARAVYA</h1>
+<div class="relative w-full mb-8">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-deep-rose text-[32px] font-light">search</span>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant text-headline-md font-headline-md text-dark-espresso py-4 pl-16 pr-24 placeholder-on-surface-variant/50 focus:ring-0 search-input transition-all duration-300" id="search-input" placeholder="What are you looking for?" type="text" value="Rose Modal"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 flex gap-4">
+<button aria-label="Voice Search" class="text-deep-rose hover:text-primary transition-colors" title="Voice Search">
+<span class="material-symbols-outlined font-light text-[28px]">mic</span>
+</button>
+<button aria-label="Visual Search" class="text-deep-rose hover:text-primary transition-colors" title="Search by Image">
+<span class="material-symbols-outlined font-light text-[28px]">photo_camera</span>
+</button>
+</div>
+</div>
+<div class="flex flex-wrap justify-center gap-4 mt-8">
+<span class="font-label-lg text-label-lg text-on-surface-variant py-2">TRENDING:</span>
+<a class="px-6 py-2 rounded-full border border-outline-variant text-dark-espresso font-label-lg text-label-lg hover:border-deep-rose hover:text-deep-rose transition-colors bg-surface/50" href="product.html">Modal Sets</a>
+<a class="px-6 py-2 rounded-full border border-outline-variant text-dark-espresso font-label-lg text-label-lg hover:border-deep-rose hover:text-deep-rose transition-colors bg-surface/50" href="women.html">Lounge Sets</a>
+<a class="px-6 py-2 rounded-full border border-outline-variant text-dark-espresso font-label-lg text-label-lg hover:border-deep-rose hover:text-deep-rose transition-colors bg-surface/50" href="women.html">Nightwear</a>
+<a class="px-6 py-2 rounded-full border border-outline-variant text-dark-espresso font-label-lg text-label-lg hover:border-deep-rose hover:text-deep-rose transition-colors bg-surface/50" href="robe.html">Rose Collection</a>
+</div>
+</div>
+</section>
+<!-- Simulated Search Results -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-section-gap-lg">
+<div class="flex justify-between items-end mb-8 border-b border-outline-variant/30 pb-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-dark-espresso mb-2">SEARCH RESULTS FOR "ROSE MODAL"</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">24 PIECES FOUND</p>
+</div>
+<div class="flex gap-8">
+<button class="flex items-center gap-2 font-label-lg text-label-lg text-dark-espresso hover:text-primary transition-colors">
+                        CATEGORY <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="flex items-center gap-2 font-label-lg text-label-lg text-dark-espresso hover:text-primary transition-colors">
+                        SIZE <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="flex items-center gap-2 font-label-lg text-label-lg text-dark-espresso hover:text-primary transition-colors">
+                        COLOR <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="flex items-center gap-2 font-label-lg text-label-lg text-dark-espresso hover:text-primary transition-colors">
+                        FABRIC <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<div class="group flex flex-col bg-surface border border-pearl-rose relative overflow-hidden cursor-pointer" data-card-slug="signature-modal-wrap">
+<div class="aspect-[3/4] w-full overflow-hidden relative">
+<img class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out" data-card-img data-alt="A high-end editorial fashion photograph of a luxurious rose pink modal silk lounge set worn by an elegant model in a minimalist, sunlit bedroom setting. The fabric catches the light, highlighting its soft drape and premium quality. Soft focus, cinematic lighting, Rose White and Pearl Rose tones dominate the sophisticated aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVkX3qXqx5up32VzMv02L1tAfyMsWRHHh-uYO0aT2JArqFEfHqCnHzDgvY8stsxCQDV--LyRi2O0-TJbV-q6YH4P-BsqEblKOW94eKmYX6YG8DH9BSf9hXJdL2yVnbt6fOrSTEPiMHs-mxo_8xAZYL5LYj4tNO1t7ykpdn-sITIhGY04Cs589mMVuGqiYQKPTAj2rSlnmIrrnwiZqgeaGKbLJ9UWKI5riceQiN0W27fT7wdryT8JiB"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-surface/90 backdrop-blur-md text-dark-espresso font-label-lg text-label-lg px-8 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-dark-espresso hover:text-surface" data-add-to-bag="signature-modal-wrap">QUICK ADD</button>
+<button class="absolute top-4 right-4 text-dark-espresso/50 hover:text-deep-rose transition-colors" data-wishlist="signature-modal-wrap">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-6 text-center">
+<h3 class="font-body-lg text-body-lg text-dark-espresso mb-2"><a href="product.html" data-card-name data-card-link>Signature Modal Wrap</a></h3>
+<p class="font-label-lg text-label-lg text-on-surface-variant" data-card-price>$185</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex flex-col bg-surface border border-pearl-rose relative overflow-hidden cursor-pointer" data-card-slug="ethereal-cami-set">
+<div class="aspect-[3/4] w-full overflow-hidden relative">
+<img class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out" data-card-img data-alt="A luxurious close-up lifestyle shot of a woman wearing a delicate rose modal camisole set. The lighting is soft and golden, streaming through sheer curtains in an upscale minimalist apartment. The focus is on the exquisite drape of the modal fabric. High-end fashion editorial style, emphasizing a luxurious and relaxed mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa43bnvBp7otbaV9ul2HMPNJXHKS-q_LJF9NaB3dHCvrZrH0mGqeE-QMEJnX9Ci9aj7pBcJ2lh2G2qCNPZcVH4ghzUKf0ulgCXP7e33SlYkiHjOkN3gaJWA9znCvNxvzEvT_ODOnzuk48k-ufWYkjyJROkgs374PHH6b-21BNTqPIjiekhldQUah0hlfCEbS4yrrVOBNijhVp1qq7vPi3qXDT67r7uImiGv-PpCVBpaEW9Xw8L2-DG"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-surface/90 backdrop-blur-md text-dark-espresso font-label-lg text-label-lg px-8 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-dark-espresso hover:text-surface" data-add-to-bag="ethereal-cami-set">QUICK ADD</button>
+<button class="absolute top-4 right-4 text-dark-espresso/50 hover:text-deep-rose transition-colors" data-wishlist="ethereal-cami-set">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-6 text-center">
+<h3 class="font-body-lg text-body-lg text-dark-espresso mb-2"><a href="product.html" data-card-name data-card-link>Ethereal Cami Set</a></h3>
+<p class="font-label-lg text-label-lg text-on-surface-variant" data-card-price>$145</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group flex flex-col bg-surface border border-pearl-rose relative overflow-hidden cursor-pointer" data-card-slug="sunday-robe">
+<div class="aspect-[3/4] w-full overflow-hidden relative">
+<img class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out" data-card-img data-alt="An elegant flat lay photography of a rose-colored modal robe arranged meticulously on a pristine white marble surface. Beside it rests a delicate cup of tea and a single white rose. The lighting is bright and airy, creating soft shadows. The overall aesthetic is clean, minimalist, and extremely premium, perfectly aligned with a luxury lounge brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl5hiOGrUIc_USnL8xcdaVPu5xB1-Ry5wSB7x_16N3P-5WKbq1o-rTVpj4Q7J1xTZXcT4BNKCgrIyq4jouOHd7SGxKZFGqoHux1oDq1Kuka-fYQl3IGWSxQy3ZqdDzstlx4EJAgUAeE5tvzZElVVAbYcyQjLe8bVGNsaVOYRdUw_TUGXxLek8hbIcaIVulZcSebDHvIn2aIeviyTe-7Jickm2hx86syiT-UB5_RPwPFhYN_CRSUOxm"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-surface/90 backdrop-blur-md text-dark-espresso font-label-lg text-label-lg px-8 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-dark-espresso hover:text-surface" data-add-to-bag="sunday-robe">QUICK ADD</button>
+<button class="absolute top-4 right-4 text-dark-espresso/50 hover:text-deep-rose transition-colors" data-wishlist="sunday-robe">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-6 text-center">
+<h3 class="font-body-lg text-body-lg text-dark-espresso mb-2"><a href="product.html" data-card-name data-card-link>The Sunday Robe</a></h3>
+<p class="font-label-lg text-label-lg text-on-surface-variant" data-card-price>$220</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex flex-col bg-surface border border-pearl-rose relative overflow-hidden cursor-pointer" data-card-slug="modal-slip-gown">
+<div class="aspect-[3/4] w-full overflow-hidden relative">
+<img class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out" data-card-img data-alt="A moody, high-fashion editorial shot of a model draped in a long, flowing rose modal sleep dress. The background is a soft, out-of-focus beige studio setting. The lighting emphasizes the silken sheen and graceful fall of the fabric against the model's skin. The mood is intimate, luxurious, and quietly confident." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxknezAaUe4YEfid9J1bqKdXaM3wbSXE5gmMP_xrt-AwU3QTi4HlXqc3LgDJSeAGIhyKI6lzzKWOKQPRxh-totXpY8ayZ0oy-U8_qZrGuL9Sp1ryXI_A0PwOcLZcqwXCEdXNkb9o3IxxQWLmPDgptZTUFTio6CQewNB9lbcje_rZXbEHdmoCMsN5lKCbYoDL3lEU7_v77CGcNgalwHOoq31oIa6VkSwJuMmhtFRfePgKAuMbySwZbj"/>
+<button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-surface/90 backdrop-blur-md text-dark-espresso font-label-lg text-label-lg px-8 py-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-dark-espresso hover:text-surface" data-add-to-bag="modal-slip-gown">QUICK ADD</button>
+<button class="absolute top-4 right-4 text-dark-espresso/50 hover:text-deep-rose transition-colors" data-wishlist="modal-slip-gown">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="p-6 text-center">
+<h3 class="font-body-lg text-body-lg text-dark-espresso mb-2"><a href="product.html" data-card-name data-card-link>Modal Slip Gown</a></h3>
+<p class="font-label-lg text-label-lg text-on-surface-variant" data-card-price>$160</p>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-12">
+<button class="font-label-lg text-label-lg text-dark-espresso border-b border-deep-rose pb-1 hover:text-deep-rose transition-colors">VIEW ALL 24 RESULTS</button>
+</div>
+</section>
+<!-- Discovery Sections -->
+<section class="max-w-container-max mx-auto px-margin-desktop space-y-section-gap-lg">
+<!-- Shop by Feeling -->
+<div class="border-t border-outline-variant/30 pt-16">
+<h2 class="font-headline-lg text-headline-lg text-dark-espresso mb-12 text-center">SEARCH BY FEELING</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<a class="group relative aspect-square overflow-hidden bg-pearl-rose flex items-center justify-center" href="product.html">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" data-alt="An abstract, macro photographic shot of extremely soft, fluffy textured fabric resembling a cloud in pale rose hues. The lighting is diffused and ethereal, evoking a feeling of supreme comfort and gentleness. The aesthetic is clean, minimalist, and deeply calming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1kIKHT76uAcElUNNNUl2DhnzjIYZqMy1EoKMCHu5O24ymVeOOrKqrGEymp60XrUC_tjt3yHUJT2fCeB6UmXCsrTaDCkaMHbH0mc-OLQqgB8GTruI-cLEF0PLMstD76ukfZFoeq0Ab8Kh_CUep9tuIKZmWB-WiCnrANI7azjfNpdjd49JN1jW0FqDhU3H30V4NLgCXv4ZpRWbnAdY_Gw2ElQHoDp9PL02nkdx-F6nWCs-gyFLpoxsI"/>
+<span class="font-headline-md text-headline-md text-dark-espresso relative z-10 group-hover:scale-105 transition-transform duration-500">Soft</span>
+</a>
+<a class="group relative aspect-square overflow-hidden bg-surface-container-high flex items-center justify-center" href="product.html">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" data-alt="A warm, inviting macro image of thick knit textures and layered cashmere blankets in warm neutral and subtle blush tones. The lighting feels like golden hour sunlight streaming into a cozy room. The aesthetic is rich, tactile, and luxurious, conveying a sense of deep comfort." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI-fZ77RuBrHCSrZ7U5W6dgHpRJclTVVio7inXdQKG48NnqZmYJak4YlG5bHYHzqGNo8iVqAcd65Eh2BlNaTdo8WSHt2QL00PrRcjW3JOFD_5N7857wq8Tibls3XtXs_JWVo0NK-q8qpIUEqjrPM7xS7Z2THN1ef_Mcgdzobw7gFcHhMourJgOob8PHd1uErXFH0NPwkJytJF3-kyJgS2DsGIs0d5rfclLS-YFDSxBWvSPlzkjmE70"/>
+<span class="font-headline-md text-headline-md text-dark-espresso relative z-10 group-hover:scale-105 transition-transform duration-500">Cozy</span>
+</a>
+<a class="group relative aspect-square overflow-hidden bg-blush-rose/50 flex items-center justify-center" href="product.html">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" data-alt="An artistic, blurred macro photograph of sheer silk chiffon delicately draped over dark wood. Subtle candle-like warm lighting highlights the translucency and delicate weave of the fabric. The mood is intimate, elegant, and evocative of a romantic evening." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFFnTRxilV7xax-qyP1-kj20RFhmACqQbbx8v1U1hfONw0SjxmHqIRrI9bCQ-axcQ-Z9_lGG2WRZpSqUeKKc8o1GrSPuiFRBLkXYFXpih0amKRu6d0sJhRQ5htvN6u1wwguH--yidlYtDTo9ncp8uRaI6xOQKSWgsIrWsJNiUiCs3d7WJDrUlCYVbB19aS8uxXZ_aOPIOB2R63kTcG1YpQu4O4uHZbBO4JE0L5SCrqW0PGwTnQzgta"/>
+<span class="font-headline-md text-headline-md text-dark-espresso relative z-10 group-hover:scale-105 transition-transform duration-500">Romantic</span>
+</a>
+<a class="group relative aspect-square overflow-hidden bg-surface-variant flex items-center justify-center" href="product.html">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500" data-alt="A crisp, clean macro image of loosely woven natural linen in a light ivory tone. Bright, cool daylight washes over the fabric, emphasizing its natural, unstudied texture. The aesthetic is modern, breathable, and effortlessly chic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsL4iQYEeXsWR7X_rRf8jyOhmQC87aJK7k8vOxv17lgJ93Hz8Lcepx912lWl-awou-JIKlceV99Bc0Qn9tEV_m6BqVHnOsNz29iWzFWY4ghBEa1acQBNWOpszioavKVjlDiHmCupNm4qdWpLnH2cX7NVl3I-Vn6UGCasjzAXFwajh46RZKlx_ThHPfhavI3Qx6k3FnILCN7FAhvzW1099mQMJ4B7jbt8uFFe_tXrmTtLvaqCXf_Wss"/>
+<span class="font-headline-md text-headline-md text-dark-espresso relative z-10 group-hover:scale-105 transition-transform duration-500">Effortless</span>
+</a>
+</div>
+</div>
+<!-- Shop by Occasion & Fabric Bento -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Occasion -->
+<div class="col-span-1 lg:col-span-5 flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-dark-espresso mb-8">SHOP BY OCCASION</h2>
+<ul class="space-y-6">
+<li class="border-b border-outline-variant/30 pb-4">
+<a class="group flex justify-between items-center w-full" href="product.html">
+<span class="font-headline-md text-headline-md text-on-surface-variant group-hover:text-dark-espresso transition-colors">Slow Morning</span>
+<span class="material-symbols-outlined text-deep-rose opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">arrow_forward</span>
+</a>
+</li>
+<li class="border-b border-outline-variant/30 pb-4">
+<a class="group flex justify-between items-center w-full" href="robe.html">
+<span class="font-headline-md text-headline-md text-on-surface-variant group-hover:text-dark-espresso transition-colors">Date Night</span>
+<span class="material-symbols-outlined text-deep-rose opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">arrow_forward</span>
+</a>
+</li>
+<li class="border-b border-outline-variant/30 pb-4">
+<a class="group flex justify-between items-center w-full" href="women.html">
+<span class="font-headline-md text-headline-md text-on-surface-variant group-hover:text-dark-espresso transition-colors">Weekend</span>
+<span class="material-symbols-outlined text-deep-rose opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">arrow_forward</span>
+</a>
+</li>
+<li class="border-b border-outline-variant/30 pb-4">
+<a class="group flex justify-between items-center w-full" href="robe.html">
+<span class="font-headline-md text-headline-md text-on-surface-variant group-hover:text-dark-espresso transition-colors">Travel</span>
+<span class="material-symbols-outlined text-deep-rose opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-[-10px] group-hover:translate-x-0 duration-300">arrow_forward</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Fabric -->
+<div class="col-span-1 lg:col-span-7 bg-pearl-rose p-12 lg:ml-12">
+<h2 class="font-headline-lg text-headline-lg text-dark-espresso mb-8 text-center">SHOP BY FABRIC</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<a class="group text-center" href="product.html">
+<div class="aspect-square rounded-full overflow-hidden mb-4 border border-outline-variant">
+<img class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" data-alt="Extreme macro close-up of premium modal fabric in a muted rose color. The texture is incredibly smooth with a subtle, soft sheen that speaks to its high quality and breathability. The lighting is studio-perfect, designed to showcase the fine knit structure of the luxury material." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV-B2mTYjqP3gqFCrKK-LF3svlWJ0G0r2c9HixVPidxaFOrT-4uA1eH-_1ttHMVsvFHj5FBAYsQZPVlVDtpIjJ8Dpc_hb_zsyInAUomKleoAvLgbS4lSn9TFWOhAkUlxT9dAzdIS_AABfCCHzheEKgE7nxuYkpOkavn3vlkL16a5jDBag0ez2Elx3GABjhj0KAc8Q1Kp2kWEmBIrP6bKqgM4JfReGbSQ0O1wUxXFPBbgPeePckpBKm"/>
+</div>
+<span class="font-label-lg text-label-lg text-dark-espresso group-hover:text-deep-rose transition-colors">MODAL</span>
+</a>
+<a class="group text-center" href="product.html">
+<div class="aspect-square rounded-full overflow-hidden mb-4 border border-outline-variant">
+<img class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" data-alt="Extreme macro close-up of luxurious liquid satin fabric in a deep espresso color. The surface is highly reflective, undulating in soft waves that catch sharp, elegant highlights. The image conveys a sense of rich elegance, fluid movement, and high-end evening wear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzWEDr6sEI2Du4xy_SQlxU2Vc7zBxCEBtvZP6RDV9mKVcjj0bbj86qESpPCefVuQ0QR1KJOQlHCDyoceVWZUsPl7cz1_L5oqX-3lmnOsOcrsBLRyIBprZUVqiIWtfdUPQjvtt5bdwcED6w54QUPTaCmGilSd3haj4XZ4YtFPKPqoA8zGsKD5R1x7_PhVRRfNkmHcMhmrzCZRQlxm92eowDFvrc_J7nluty2GWrKq317G7ak3RjZhM-"/>
+</div>
+<span class="font-label-lg text-label-lg text-dark-espresso group-hover:text-deep-rose transition-colors">SATIN</span>
+</a>
+<a class="group text-center" href="women.html">
+<div class="aspect-square rounded-full overflow-hidden mb-4 border border-outline-variant">
+<img class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700" data-alt="Extreme macro close-up of fine organic cotton weave in a pure white tone. The focus is incredibly sharp, revealing the natural, slightly imperfect grid of the threads. The lighting is bright and clean, emphasizing a crisp, fresh, and natural aesthetic typical of luxury everyday essentials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI09iZDKfUy_OP_Pez7y-Ho3dEigYanNEaPnQYXL2fEztsSeFNDmOQIBrix0dGHxFqCdEUnmlfDb3CgM-IuVCRfuMhnUuSawEL_sg6Go8JnomMPEGmntWy3rbwX-JT18XRoZtLnWVyVqtTAqU0YGUypfpz0h0vxiwi-0gMEI0IbXE16gKrKG3d9l6P0HBND8F3_p90lOJNaEOKw7hXNqYVGYZiZoO0q6q6CTxLd9uaSnVcr4BClhkG"/>
+</div>
+<span class="font-label-lg text-label-lg text-dark-espresso group-hover:text-deep-rose transition-colors">COTTON</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-low dark:bg-dark-espresso flex flex-col items-center gap-base px-margin-desktop w-full pt-section-gap-lg pb-12 border-t border-outline-variant">
+<h2 class="font-headline-md text-headline-md text-primary mb-6">KARAVYA</h2>
+<div class="flex flex-wrap justify-center gap-8 mb-8">
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors" href="coming-soon.html">Sustainability</a>
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors" href="concierge.html">Concierge</a>
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors" href="returns.html">Shipping &amp; Returns</a>
+<a class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors" href="coming-soon.html">Privacy Policy</a>
+</div>
+<p class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-on-surface-variant text-center">© 2024 KARAVYA. ALL RIGHTS RESERVED.</p>
+</footer>
+<script src="site-config.js"></script>
+<script src="karavya.js"></script>
+<script>
+(function () {
+    "use strict";
+    var header = document.getElementById('site-header');
+    function onScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        } else {
+            header.classList.remove('bg-rose-white/90', 'backdrop-blur-xl', 'shadow-[0_4px_24px_rgba(43,27,31,0.08)]', 'border-b', 'border-rose-gold/20');
+        }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    var menu = document.getElementById('mobile-menu');
+    var overlay = document.getElementById('menu-overlay');
+    var openBtn = document.getElementById('menu-open');
+    var closeBtn = document.getElementById('menu-close');
+    var menuLinks = menu ? menu.querySelectorAll('a') : [];
+    function setMenu(open) {
+        if (!menu || !overlay) return;
+        if (open) {
+            menu.classList.remove('translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'false');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            if (closeBtn) closeBtn.focus();
+        } else {
+            menu.classList.add('translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+            overlay.setAttribute('aria-hidden', 'true');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+    if (openBtn) openBtn.addEventListener('click', function () { setMenu(true); });
+    if (closeBtn) closeBtn.addEventListener('click', function () { setMenu(false); });
+    if (overlay) overlay.addEventListener('click', function () { setMenu(false); });
+    menuLinks.forEach(function (link) { link.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
+<script>(function(){'use strict';if(window.matchMedia('(max-width: 767px)').matches){window.location.replace('search-mobile.html');}})();</script>
+<script>
+(function(){var K=window.KARAVYA;if(!K)return;document.querySelectorAll('[data-card-slug]').forEach(function(c){K.attachCard(c,c.getAttribute('data-card-slug'));});})();
+</script>
+<script>
+(function(){var K=window.KARAVYA;if(!K)return;var input=document.getElementById('search-input');if(!input)return;var cards=Array.prototype.slice.call(document.querySelectorAll('[data-card-slug]'));var timer=null;function filter(){var q=input.value.trim().toLowerCase();cards.forEach(function(c){var slug=c.getAttribute('data-card-slug');var p=K.find(slug);var name=(p?p.name:slug).toLowerCase();var hit=!q||name.indexOf(q)!==-1;c.classList.toggle('hidden',!hit);});}input.addEventListener('input',function(){clearTimeout(timer);timer=setTimeout(filter,200);});})();
+</script>
+</body></html>
