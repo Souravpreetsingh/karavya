@@ -121,52 +121,6 @@
         <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
     </div>
 </nav>
-<header class="bg-surface/90 backdrop-blur-xl dark:bg-dark-espresso/90 top-0 sticky border-b border-outline-variant/30 z-50">
-<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
-<button class="md:hidden text-on-surface p-2 hover:opacity-70 transition-opacity duration-300" onclick="document.getElementById('mobile-menu').classList.remove('hidden')" aria-label="Open menu">
-<span class="material-symbols-outlined text-[24px]">menu</span>
-</button>
-<a class="font-display-lg text-headline-md md:text-headline-lg tracking-widest text-on-surface dark:text-pearl-rose mx-auto md:mx-0 hover:opacity-70 transition-opacity duration-300" href="index.html">
-KARAVYA
-</a>
-<nav class="hidden md:flex items-center space-x-8">
-<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-lg text-label-lg uppercase" href="index.html">Home</a>
-<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-lg text-label-lg uppercase" href="collections.html">Collections</a>
-<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-lg text-label-lg uppercase" href="our-story.html">Maison</a>
-<a class="text-on-surface-variant hover:text-on-surface transition-colors font-label-lg text-label-lg uppercase" href="gift-studio.html">Bespoke</a>
-<a class="text-primary font-bold border-b border-primary pb-1 font-label-lg text-label-lg uppercase scale-95 duration-200" href="editorial.html">Journal</a>
-</nav>
-<div class="flex items-center space-x-4">
-<a class="text-on-surface hover:opacity-70 transition-opacity duration-300 hidden md:block" href="search.html" aria-label="Search">
-<span class="material-symbols-outlined text-[24px]">search</span>
-</a>
-<a class="text-on-surface hover:opacity-70 transition-opacity duration-300" href="cart.html" aria-label="Shopping bag">
-<span class="material-symbols-outlined text-[24px]" data-icon="shopping_bag">shopping_bag</span>
-</a>
-</div>
-</div>
-</header>
-<div id="old-mobile-menu" class="fixed inset-0 z-[60] hidden">
-<div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('old-mobile-menu').classList.add('hidden')"></div>
-<div class="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-surface p-8 shadow-2xl">
-<div class="flex items-center justify-between mb-10">
-<span class="font-display-lg text-headline-md tracking-widest text-dark-espresso">KARAVYA</span>
-<button onclick="document.getElementById('old-mobile-menu').classList.add('hidden')" class="text-dark-espresso p-2" aria-label="Close menu">
-<span class="material-symbols-outlined">close</span>
-</button>
-</div>
-<div class="flex flex-col gap-6">
-<a href="index.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Home</a>
-<a href="collections.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Collections</a>
-<a href="our-story.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Maison</a>
-<a href="gift-studio.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Bespoke</a>
-<a href="editorial.html" class="font-label-lg text-label-lg tracking-widest uppercase text-primary py-2 border-b border-outline-variant">Journal</a>
-<a href="lookbook.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Lookbook</a>
-<a href="wishlist.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Wishlist</a>
-<a href="account.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">My Account</a>
-</div>
-</div>
-</div>
 <main>
 <section class="relative w-full h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0">
@@ -234,7 +188,7 @@ KARAVYA
 <div class="max-w-xl mx-auto px-margin-mobile text-center">
 <h3 class="font-headline-md text-headline-md text-dark-espresso mb-4">Join The Inner Circle</h3>
 <p class="font-body-md text-body-md text-on-surface-variant mb-8">Receive curated stories, exclusive previews, and invitations to Maison events.</p>
-<form class="flex flex-col sm:flex-row items-center gap-4 border-b border-rose-gold pb-2 relative" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Subscribed';">
+<form class="flex flex-col sm:flex-row items-center gap-4 border-b border-rose-gold pb-2 relative">
 <input class="w-full bg-transparent border-none focus:ring-0 text-dark-espresso placeholder-dark-espresso/50 font-body-md text-body-md p-0" placeholder="Email Address" type="email"/>
 <button class="font-label-lg text-label-lg text-dark-espresso uppercase hover:text-rose-gold transition-colors whitespace-nowrap" type="submit">Subscribe</button>
 </form>
@@ -278,7 +232,7 @@ KARAVYA
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    var menu = document.getElementById('old-mobile-menu');
+    var menu = document.getElementById('mobile-menu');
     var overlay = document.getElementById('menu-overlay');
     var openBtn = document.getElementById('menu-open');
     var closeBtn = document.getElementById('menu-close');
@@ -308,4 +262,18 @@ KARAVYA
 })();
 </script>
 <script>(function(){'use strict';if(window.matchMedia('(max-width: 767px)').matches){window.location.replace('editorial-mobile.html');}})();</script>
+
+<script>
+(function () {
+    "use strict";
+var form = document.querySelector("form");
+if (form) form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var input = form.querySelector("input");
+    var btn = form.querySelector("button[type=\"submit\"]");
+    if (input) input.value = "";
+    if (btn) btn.textContent = "Subscribed";
+});
+})();
+</script>
 </body></html>

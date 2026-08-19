@@ -608,10 +608,11 @@
         else { note.style.display = 'none'; }
     }
     var colorLabel = $('pdp-color-label');
-    if (colorLabel) {
+    var colorsWrap = $('pdp-colors');
+    if (colorLabel && colorsWrap) {
         var colNames = p.colors ? p.colors.map(function (c) { return c.name; }) : [];
         colorLabel.textContent = 'Color: ' + (colNames[0] || '');
-        colorLabel.nextElementSibling.innerHTML = '';
+        colorsWrap.innerHTML = '';
         if (p.colors) p.colors.forEach(function (c, ci) {
             var b = document.createElement('button');
             b.type = 'button'; b.title = c.name; b.setAttribute('aria-label', 'Select ' + c.name);
@@ -619,12 +620,12 @@
             if (c.hex) b.style.backgroundColor = c.hex;
             b.classList.add(ci === 0 ? 'border-2 border-dark-espresso' : 'border border-outline-variant hover:border-dark-espresso');
             b.addEventListener('click', function () {
-                var bs = colorLabel.nextElementSibling.querySelectorAll('button');
+                var bs = colorsWrap.querySelectorAll('button');
                 bs.forEach(function (x, xi) { x.classList.toggle('border-2', xi === ci); x.classList.toggle('border-dark-espresso', xi === ci); x.classList.toggle('border', xi !== ci); x.classList.toggle('border-outline-variant', xi !== ci); });
                 colorLabel.textContent = 'Color: ' + c.name;
                 selColor = c.name;
             });
-            colorLabel.nextElementSibling.appendChild(b);
+            colorsWrap.appendChild(b);
         });
     }
     var sizesWrap = $('pdp-sizes'), selSize = '';

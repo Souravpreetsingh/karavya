@@ -124,7 +124,7 @@
     </div>
 </nav>
 <nav class="fixed top-0 w-full z-50 glass-nav h-20 flex justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-b border-outline-variant/30">
-<button aria-label="Menu" class="text-on-surface hover:opacity-70 transition-opacity duration-300 md:hidden" onclick="document.getElementById('mobile-menu').classList.remove('hidden')">
+<button aria-label="Menu" class="text-on-surface hover:opacity-70 transition-opacity duration-300 md:hidden">
 <span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">menu</span>
 </button>
 <div class="hidden md:flex gap-8">
@@ -143,27 +143,6 @@
 </a>
 </div>
 </nav>
-<div id="old-mobile-menu" class="fixed inset-0 z-[60] hidden">
-<div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('old-mobile-menu').classList.add('hidden')"></div>
-<div class="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-surface p-8 shadow-2xl">
-<div class="flex items-center justify-between mb-10">
-<span class="font-display-lg text-headline-md tracking-widest text-dark-espresso">KARAVYA</span>
-<button onclick="document.getElementById('old-mobile-menu').classList.add('hidden')" class="text-dark-espresso p-2" aria-label="Close menu">
-<span class="material-symbols-outlined">close</span>
-</button>
-</div>
-<div class="flex flex-col gap-6">
-<a href="index.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Home</a>
-<a href="collections.html" class="font-label-lg text-label-lg tracking-widest uppercase text-primary py-2 border-b border-outline-variant">Collections</a>
-<a href="our-story.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Maison</a>
-<a href="gift-studio.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Bespoke</a>
-<a href="editorial.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Journal</a>
-<a href="lookbook.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Lookbook</a>
-<a href="wishlist.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Wishlist</a>
-<a href="account.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">My Account</a>
-</div>
-</div>
-</div>
 <main class="pt-24 pb-section-gap-md max-w-container-max mx-auto">
 <section class="px-margin-mobile md:px-margin-desktop mb-section-gap-md text-center">
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-dark-espresso mb-4">The Lookbook</h1>
@@ -180,7 +159,7 @@
 </a>
 </div>
 <div class="px-margin-mobile md:px-margin-desktop">
-<button class="w-full flex justify-between items-center py-4 border-b border-outline-variant/50 text-left group" onclick="toggleDetails('look1')">
+<button class="w-full flex justify-between items-center py-4 border-b border-outline-variant/50 text-left group">
 <span class="font-label-lg text-label-lg text-dark-espresso group-hover:text-primary transition-colors">Explore the Pieces</span>
 <span class="material-symbols-outlined text-dark-espresso icon-rotate" style="font-variation-settings: 'wght' 300;">expand_more</span>
 </button>
@@ -209,7 +188,7 @@
 </a>
 </div>
 <div class="px-margin-mobile md:px-margin-desktop">
-<button class="w-full flex justify-between items-center py-4 border-b border-outline-variant/50 text-left group" onclick="toggleDetails('look2')">
+<button class="w-full flex justify-between items-center py-4 border-b border-outline-variant/50 text-left group">
 <span class="font-label-lg text-label-lg text-dark-espresso group-hover:text-primary transition-colors">Explore the Pieces</span>
 <span class="material-symbols-outlined text-dark-espresso icon-rotate" style="font-variation-settings: 'wght' 300;">expand_more</span>
 </button>
@@ -279,7 +258,7 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    var menu = document.getElementById('old-mobile-menu');
+    var menu = document.getElementById('mobile-menu');
     var overlay = document.getElementById('menu-overlay');
     var openBtn = document.getElementById('menu-open');
     var closeBtn = document.getElementById('menu-close');
@@ -318,4 +297,15 @@
 })();
 </script>
 <script>(function(){'use strict';if(window.matchMedia('(min-width: 768px)').matches){window.location.replace('lookbook.html');}})();</script>
+
+<script>
+(function () {
+    "use strict";
+["look1", "look2"].forEach(function (id) {
+    var panel = document.getElementById(id);
+    var btn = panel ? panel.previousElementSibling : null;
+    if (btn && btn.tagName === "BUTTON") btn.addEventListener("click", function () { toggleDetails(id); });
+});
+})();
+</script>
 </body></html>

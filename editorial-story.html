@@ -120,7 +120,7 @@
 </nav>
 <nav class="bg-surface/90 backdrop-blur-xl dark:bg-dark-espresso/90 top-0 sticky border-b border-outline-variant/30 z-50">
 <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
-<button class="md:hidden text-on-surface p-2 hover:opacity-70 transition-opacity duration-300" onclick="document.getElementById('mobile-menu').classList.remove('hidden')" aria-label="Open menu">
+<button class="md:hidden text-on-surface p-2 hover:opacity-70 transition-opacity duration-300" aria-label="Open menu">
 <span class="material-symbols-outlined">menu</span>
 </button>
 <div class="hidden md:flex items-center gap-8">
@@ -140,27 +140,6 @@ KARAVYA
 </div>
 </div>
 </nav>
-<div id="old-mobile-menu" class="fixed inset-0 z-[60] hidden">
-<div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('old-mobile-menu').classList.add('hidden')"></div>
-<div class="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-surface p-8 shadow-2xl">
-<div class="flex items-center justify-between mb-10">
-<span class="font-display-lg text-headline-md tracking-widest text-dark-espresso">KARAVYA</span>
-<button onclick="document.getElementById('old-mobile-menu').classList.add('hidden')" class="text-dark-espresso p-2" aria-label="Close menu">
-<span class="material-symbols-outlined">close</span>
-</button>
-</div>
-<div class="flex flex-col gap-6">
-<a href="index.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Home</a>
-<a href="collections.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Collections</a>
-<a href="our-story.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Maison</a>
-<a href="gift-studio.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Bespoke</a>
-<a href="editorial.html" class="font-label-lg text-label-lg tracking-widest uppercase text-primary py-2 border-b border-outline-variant">Journal</a>
-<a href="lookbook.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Lookbook</a>
-<a href="wishlist.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Wishlist</a>
-<a href="account.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">My Account</a>
-</div>
-</div>
-</div>
 <main class="w-full">
 <section class="w-full relative h-[70vh] md:h-[85vh] overflow-hidden">
 <img class="absolute inset-0 w-full h-full object-cover object-center filter brightness-90" data-alt="A cinematic, high-fashion editorial shot of a stunning woman draped in an oversized, luxurious satin robe in a soft pearl rose hue. She stands in a minimalist, sun-drenched room with warm terracotta walls and sheer white curtains. The lighting is ethereal and luminous, casting delicate shadows that emphasize the sensual, liquid-like drape of the fabric. The mood is serene, intimate, and deeply luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO9IzlVwTaCad4a8X5hsn2CDlTkfNynzGmo7j3jSDcUVpFE6BAH-a4REPpDK5FjNYCdTpcsATN8TiXLXEgflfj-q3oBPTjsV43ZvmeZWRnPRtYKijF4G6CFgU27EKi5j9kZymrq4qi4BgtvAN_sWT5z6_4-e7NE6W1tTbSaDTjmnpg18hjVFwAaONGlS5CHc5AknKz90N2KoQI-uH7fYPpTTM66AGmtev97d3kjzDceajAZKJqrimZ"/>
@@ -394,7 +373,7 @@ Continue Reading
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    var menu = document.getElementById('old-mobile-menu');
+    var menu = document.getElementById('mobile-menu');
     var overlay = document.getElementById('menu-overlay');
     var openBtn = document.getElementById('menu-open');
     var closeBtn = document.getElementById('menu-close');

@@ -490,7 +490,7 @@
       </div>
       <div class="space-y-4 reveal delay-2">
         <div class="faq-item bg-surface rounded-2xl border border-outline-variant overflow-hidden">
-          <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left">
             <span class="font-serif text-xl text-dark-espresso">How accurate is the digital fitting room?</span>
             <span class="faq-icon material-symbols-outlined text-primary">add</span>
           </button>
@@ -499,7 +499,7 @@
           </div>
         </div>
         <div class="faq-item bg-surface rounded-2xl border border-outline-variant overflow-hidden">
-          <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left">
             <span class="font-serif text-xl text-dark-espresso">Do I need to take measurements myself?</span>
             <span class="faq-icon material-symbols-outlined text-primary">add</span>
           </button>
@@ -508,7 +508,7 @@
           </div>
         </div>
         <div class="faq-item bg-surface rounded-2xl border border-outline-variant overflow-hidden">
-          <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left">
             <span class="font-serif text-xl text-dark-espresso">What if a piece doesn't fit perfectly?</span>
             <span class="faq-icon material-symbols-outlined text-primary">add</span>
           </button>
@@ -517,7 +517,7 @@
           </div>
         </div>
         <div class="faq-item bg-surface rounded-2xl border border-outline-variant overflow-hidden">
-          <button class="faq-question w-full flex items-center justify-between p-6 text-left" onclick="toggleFaq(this)">
+          <button class="faq-question w-full flex items-center justify-between p-6 text-left">
             <span class="font-serif text-xl text-dark-espresso">Is the membership really worth it?</span>
             <span class="faq-icon material-symbols-outlined text-primary">add</span>
           </button>
@@ -823,5 +823,14 @@
 })();
 </script>
 <script>(function(){'use strict';if(window.matchMedia('(max-width: 767px)').matches){window.location.replace('fit-studio-mobile.html');}})();</script>
+
+<script>
+(function () {
+    "use strict";
+document.querySelectorAll(".faq-question").forEach(function (b) {
+    b.addEventListener("click", function () { toggleFaq(b); });
+});
+})();
+</script>
 </body>
 </html>

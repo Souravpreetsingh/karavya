@@ -261,7 +261,7 @@
 <div class="md:col-span-8">
 <!-- Accordion Item 1 -->
 <div class="border-b border-warm-champagne">
-<button class="w-full flex justify-between items-center py-6 text-left group" onclick="toggleAccordion('faq1', 'icon1')">
+<button class="w-full flex justify-between items-center py-6 text-left group" data-faq="faq1" data-icon="icon1">
 <span class="font-headline-md text-[22px] text-dark-espresso group-hover:text-primary transition-colors">How long will it take to receive my order?</span>
 <span class="material-symbols-outlined text-rose-gold rotate-icon" id="icon1" style="font-weight: 300;">expand_more</span>
 </button>
@@ -271,7 +271,7 @@
 </div>
 <!-- Accordion Item 2 -->
 <div class="border-b border-warm-champagne">
-<button class="w-full flex justify-between items-center py-6 text-left group" onclick="toggleAccordion('faq2', 'icon2')">
+<button class="w-full flex justify-between items-center py-6 text-left group" data-faq="faq2" data-icon="icon2">
 <span class="font-headline-md text-[22px] text-dark-espresso group-hover:text-primary transition-colors">Can I change or cancel my order?</span>
 <span class="material-symbols-outlined text-rose-gold rotate-icon" id="icon2" style="font-weight: 300;">expand_more</span>
 </button>
@@ -281,7 +281,7 @@
 </div>
 <!-- Accordion Item 3 -->
 <div class="border-b border-warm-champagne">
-<button class="w-full flex justify-between items-center py-6 text-left group" onclick="toggleAccordion('faq3', 'icon3')">
+<button class="w-full flex justify-between items-center py-6 text-left group" data-faq="faq3" data-icon="icon3">
 <span class="font-headline-md text-[22px] text-dark-espresso group-hover:text-primary transition-colors">What is your return policy for exclusive items?</span>
 <span class="material-symbols-outlined text-rose-gold rotate-icon" id="icon3" style="font-weight: 300;">expand_more</span>
 </button>
@@ -474,4 +474,16 @@
 })();
 </script>
 <script>(function(){'use strict';if(window.matchMedia('(max-width: 767px)').matches){window.location.replace('concierge-mobile.html');}})();</script>
+
+<script>
+(function () {
+    "use strict";
+var pairs = [["faq1", "icon1"], ["faq2", "icon2"], ["faq3", "icon3"]];
+pairs.forEach(function (pair) {
+    var icon = document.getElementById(pair[1]);
+    var btn = icon ? icon.closest("button") : null;
+    if (btn) btn.addEventListener("click", function () { toggleAccordion(pair[0], pair[1]); });
+});
+})();
+</script>
 </body></html>

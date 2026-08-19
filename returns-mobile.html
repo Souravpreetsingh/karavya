@@ -259,7 +259,7 @@
 <div class="space-y-0">
 <!-- FAQ Item -->
 <div class="border-b border-outline-variant/30">
-<button class="w-full py-5 flex justify-between items-center text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.icon').textContent = this.nextElementSibling.classList.contains('hidden') ? 'add' : 'remove';">
+<button class="w-full py-5 flex justify-between items-center text-left">
 <span class="font-label-lg text-label-lg text-dark-espresso uppercase">What is the return policy?</span>
 <span class="material-symbols-outlined text-on-surface-variant icon" style="font-variation-settings: 'wght' 300;">add</span>
 </button>
@@ -269,7 +269,7 @@
 </div>
 <!-- FAQ Item -->
 <div class="border-b border-outline-variant/30">
-<button class="w-full py-5 flex justify-between items-center text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.icon').textContent = this.nextElementSibling.classList.contains('hidden') ? 'add' : 'remove';">
+<button class="w-full py-5 flex justify-between items-center text-left">
 <span class="font-label-lg text-label-lg text-dark-espresso uppercase">How long do refunds take?</span>
 <span class="material-symbols-outlined text-on-surface-variant icon" style="font-variation-settings: 'wght' 300;">add</span>
 </button>
@@ -279,7 +279,7 @@
 </div>
 <!-- FAQ Item -->
 <div class="border-b border-outline-variant/30">
-<button class="w-full py-5 flex justify-between items-center text-left" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('.icon').textContent = this.nextElementSibling.classList.contains('hidden') ? 'add' : 'remove';">
+<button class="w-full py-5 flex justify-between items-center text-left">
 <span class="font-label-lg text-label-lg text-dark-espresso uppercase">Can I exchange online?</span>
 <span class="material-symbols-outlined text-on-surface-variant icon" style="font-variation-settings: 'wght' 300;">add</span>
 </button>
@@ -435,4 +435,19 @@
 })();
 </script>
 <script>(function(){'use strict';if(window.matchMedia('(min-width: 768px)').matches){window.location.replace('returns.html');}})();</script>
+
+<script>
+(function () {
+    "use strict";
+document.querySelectorAll("button > .icon").forEach(function (icon) {
+    var btn = icon.closest("button");
+    btn.addEventListener("click", function () {
+        var panel = btn.nextElementSibling;
+        if (!panel) return;
+        panel.classList.toggle("hidden");
+        icon.textContent = panel.classList.contains("hidden") ? "add" : "remove";
+    });
+});
+})();
+</script>
 </body></html>

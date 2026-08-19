@@ -132,7 +132,7 @@
   <!-- Header -->
   <header class="sticky top-0 z-50 bg-surface/95 backdrop-blur-md shadow-sm">
     <div class="flex items-center justify-between px-5 h-16">
-      <button type="button" onclick="history.back()" aria-label="Go back" class="text-dark-espresso p-1">
+      <button type="button" aria-label="Go back" class="text-dark-espresso p-1">
         <span class="material-symbols-outlined text-2xl">close</span>
       </button>
       <a href="index.html" class="font-serif text-lg tracking-[0.3em] text-dark-espresso">KARAVYA</a>
@@ -531,5 +531,13 @@
 })();
 </script>
 <script>(function(){'use strict';if(window.matchMedia('(min-width: 768px)').matches){window.location.replace('fit-studio.html');}})();</script>
+
+<script>
+(function () {
+    "use strict";
+var back = document.querySelector("button[aria-label=\"Go back\"]");
+if (back) back.addEventListener("click", function () { history.back(); });
+})();
+</script>
 </body>
 </html>
