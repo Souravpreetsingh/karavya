@@ -8,6 +8,7 @@
         "includeFiles": [
           "*.html",
           "*.js",
+          "*.css",
           "*.jpg",
           "*.jpeg",
           "*.svg",
