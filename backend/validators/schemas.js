@@ -2,7 +2,14 @@
 
 const { z } = require('zod');
 
-const email = z.string().email('A valid email is required').max(254).transform((v) => v.toLowerCase());
+const email = z.string().trim().email('A valid email is required').max(254).transform((v) => v.toLowerCase());
+const phone = z
+  .string()
+  .trim()
+  .max(30, 'Phone number is too long')
+  .regex(/^\+?[0-9\s().-]*$/, 'Enter a valid WhatsApp number')
+  .optional()
+  .default('');
 
 const password = z
   .string()
@@ -20,18 +27,41 @@ const guestCartItem = z.object({
 
 const guestWishlist = z.array(z.string().uuid('Invalid product id')).max(50);
 
-const registerSchema = z.object({
-  firstName: z.string().min(1, 'First name is required').max(60),
-  lastName: z.string().max(60).optional().default(''),
-  email,
-  password,
-  phone: z.string().max(20).optional().default(''),
-  guestCart: z.array(guestCartItem).max(20).optional().default([]),
-  guestWishlist: guestWishlist.optional().default([]),
-});
+const registerSchema = z
+  .object({
+    authMethod: z.enum(['email', 'whatsapp']).optional().default('email'),
+    firstName: z.string().min(1, 'First name is required').max(60),
+    lastName: z.string().max(60).optional().default(''),
+    email: email.optional(),
+    password,
+    phone,
+    guestCart: z.array(guestCartItem).max(20).optional().default([]),
+    guestWishlist: guestWishlist.optional().default([]),
+  })
+  .superRefine((data, ctx) => {
+    if (data.authMethod === 'whatsapp') {
+      const digits = String(data.phone || '').replace(/\D/g, '');
+      if (digits.length < 8) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['phone'],
+          message: 'A valid WhatsApp number is required',
+        });
+      }
+      return;
+    }
+
+    if (!data.email) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['email'],
+        message: 'A valid email is required',
+      });
+    }
+  });
 
 const loginSchema = z.object({
-  email,
+  email: z.string().trim().min(1, 'Email or WhatsApp number is required').max(254),
   password: z.string().min(1, 'Password is required').max(128),
   guestCart: z.array(guestCartItem).max(20).optional().default([]),
   guestWishlist: guestWishlist.optional().default([]),

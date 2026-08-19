@@ -35,6 +35,45 @@ test('POST /api/auth/register rejects duplicate email', async () => {
   assert.strictEqual(res.json.error.code, 'EMAIL_TAKEN');
 });
 
+test('POST /api/auth/register creates a WhatsApp account and can sign in with phone', async () => {
+  const jar = cookieJar();
+  const res = await request('POST', '/api/auth/register', {
+    body: {
+      authMethod: 'whatsapp',
+      firstName: 'Wafa',
+      lastName: 'Khan',
+      phone: '+91 98765 43210',
+      password: 'Passw0rd123',
+    },
+    jar,
+  });
+  assert.strictEqual(res.status, 201);
+  assert.strictEqual(res.json.success, true);
+  assert.strictEqual(res.json.data.user.authMethod, 'whatsapp');
+  assert.strictEqual(res.json.data.user.email, '');
+  assert.strictEqual(res.json.data.user.phone, '+919876543210');
+  assert.ok(jar.get().startsWith('kaya.sid='), 'session cookie set');
+
+  const login = await request('POST', '/api/auth/login', {
+    body: { email: '+91 98765 43210', password: 'Passw0rd123' },
+  });
+  assert.strictEqual(login.status, 200);
+  assert.strictEqual(login.json.data.user.phone, '+919876543210');
+});
+
+test('POST /api/auth/register rejects duplicate WhatsApp numbers', async () => {
+  const res = await request('POST', '/api/auth/register', {
+    body: {
+      authMethod: 'whatsapp',
+      firstName: 'Duplicate',
+      phone: '+91 98765 43210',
+      password: 'Passw0rd123',
+    },
+  });
+  assert.strictEqual(res.status, 409);
+  assert.strictEqual(res.json.error.code, 'PHONE_TAKEN');
+});
+
 test('POST /api/auth/register rejects weak password', async () => {
   const res = await request('POST', '/api/auth/register', {
     body: { firstName: 'Weak', email: 'weak@test.dev', password: 'abc' },

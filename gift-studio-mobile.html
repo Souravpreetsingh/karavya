@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
+<link href="tailwind.css" rel="stylesheet"/>
+<meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>KARAVYA - Gift Studio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
@@ -18,48 +18,7 @@
             font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
     </style>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'display': ['"Playfair Display"', 'serif'],
-                        'body': ['"DM Sans"', 'sans-serif']
-                    },
-                    fontSize: {
-                        'display-lg-mobile': ['40px', { 'lineHeight': '1.2', 'fontWeight': '700' }],
-                        'display-lg': ['64px', { 'lineHeight': '1.1', 'letterSpacing': '-0.02em', 'fontWeight': '700' }],
-                        'headline-lg': ['36px', { 'lineHeight': '1.2', 'fontWeight': '600' }],
-                        'headline-md': ['28px', { 'lineHeight': '1.3', 'fontWeight': '600' }],
-                        'body-lg': ['18px', { 'lineHeight': '1.6' }],
-                        'body-md': ['16px', { 'lineHeight': '1.6' }]
-                    },
-                    colors: {
-                        'background': '#FBF7F2',
-                        'surface': '#FFFFFF',
-                        'surface-variant': '#F3ECE2',
-                        'on-surface': '#221B16',
-                        'on-surface-variant': '#5C534A',
-                        'outline-variant': '#D8CFC2',
-                        'primary': '#A5443E',
-                        'on-primary': '#FFFFFF',
-                        'primary-fixed': '#F9DAD2',
-                        'primary-fixed-dim': '#E9AC9E',
-                        'secondary': '#8A4F2D',
-                        'secondary-fixed': '#FBE3D4',
-                        'secondary-fixed-dim': '#E9B899',
-                        'gift-rose': '#C98A7D',
-                        'gift-gold': '#B8860B',
-                        'pearl-cream': '#F6EFE6',
-                        'dark-espresso': '#2B1E18',
-                        'soft-blush': '#F8E8E4',
-                        'deep-plum': '#4A2C3A',
-                        'text-muted': '#6F6357',
-                    }
-                }
-            }
-        }
-    </script>
+    
 </head>
 <body class="bg-background text-on-surface antialiased min-h-screen flex flex-col">
 <!-- ===================== STANDARD KARAVYA NAV ===================== -->

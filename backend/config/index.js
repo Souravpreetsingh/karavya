@@ -25,12 +25,13 @@ loadEnvFile('.env');
 
 const int = (v, d) => (v === undefined || v === '' || Number.isNaN(Number(v)) ? d : Number(v));
 const num = (v, d) => (v === undefined || v === '' || Number.isNaN(Number(v)) ? d : Number(v));
+const defaultDatabasePath = process.env.VERCEL ? '/tmp/karavya.db' : path.resolve(__dirname, '..', 'data', 'karavya.db');
 
 const config = {
   port: int(process.env.PORT, 3000),
   env: process.env.NODE_ENV || 'development',
   isProd: (process.env.NODE_ENV || 'development') === 'production',
-  databasePath: path.resolve(process.env.DATABASE_PATH || './data/karavya.db'),
+  databasePath: process.env.DATABASE_PATH ? path.resolve(process.env.DATABASE_PATH) : defaultDatabasePath,
   authSecret: process.env.AUTH_SECRET || 'change-me-to-a-long-random-string',
   sessionTtlMs: int(process.env.SESSION_TTL_MS, 7 * 24 * 60 * 60 * 1000),
   corsOrigins: (process.env.CORS_ORIGINS || 'http://localhost:3000')

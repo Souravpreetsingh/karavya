@@ -2,10 +2,13 @@
 <!DOCTYPE html>
 
 <html lang="en"><head>
+<link href="https://lh3.googleusercontent.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="tailwind.css" rel="stylesheet"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Karavya | Cloudline Modal Set</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/>
@@ -53,104 +56,7 @@
             scroll-behavior: smooth;
         }
     </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {"rose-white": "#FFF5F7", "deep-rose": "#8F4A5B", "rose-gold": "#B76E79", 
-                        "on-primary-fixed": "#31111c",
-                        "tertiary-fixed": "#ffd9df",
-                        "on-secondary": "#ffffff",
-                        "background": "#fff8f8",
-                        "on-tertiary-fixed-variant": "#713243",
-                        "surface": "#fff8f8",
-                        "on-primary-container": "#704652",
-                        "secondary-fixed": "#ffdad9",
-                        "on-error-container": "#93000a",
-                        "secondary-fixed-dim": "#f6b7b7",
-                        "on-tertiary-container": "#7f3d4e",
-                        "inverse-surface": "#3d2c30",
-                        "surface-tint": "#7e525e",
-                        "tertiary": "#8e495a",
-                        "outline": "#827376",
-                        "on-primary-fixed-variant": "#633b47",
-                        "on-background": "#27171b",
-                        "secondary": "#825152",
-                        "surface-container": "#ffe8ec",
-                        "tertiary-container": "#ffb0c1",
-                        "outline-variant": "#d4c2c5",
-                        "primary-fixed-dim": "#f0b8c6",
-                        "on-secondary-fixed-variant": "#673a3b",
-                        "primary-fixed": "#ffd9e1",
-                        "error-container": "#ffdad6",
-                        "primary": "#7e525e",
-                        "inverse-on-surface": "#ffecef",
-                        "surface-container-high": "#fee1e6",
-                        "on-secondary-container": "#7b4b4b",
-                        "on-tertiary": "#ffffff",
-                        "surface-variant": "#f8dbe1",
-                        "tertiary-fixed-dim": "#ffb1c1",
-                        "on-error": "#ffffff",
-                        "on-surface-variant": "#504446",
-                        "on-tertiary-fixed": "#3b0618",
-                        "inverse-primary": "#f0b8c6",
-                        "surface-container-low": "#fff0f2",
-                        "surface-container-highest": "#f8dbe1",
-                        "on-primary": "#ffffff",
-                        "on-secondary-fixed": "#331012",
-                        "surface-container-lowest": "#ffffff",
-                        "error": "#ba1a1a",
-                        "on-surface": "#27171b",
-                        "surface-dim": "#efd3d8",
-                        "primary-container": "#efb7c5",
-                        "secondary-container": "#ffbfbf",
-                        "surface-bright": "#fff8f8",
-                        // Custom Palette from Prompt mapped to Tailwind config structure if possible, but strict instruction says ONLY use config colors.
-                        // I will map the prompt's intent to the closest config colors to strictly adhere to instructions.
-                        "deep-rose": "#7e525e", // Primary
-                        "rose-gold": "#efb7c5", // Primary Container
-                        "dark-espresso": "#27171b", // On Background
-                        "pearl-rose": "#fff0f2", // Surface Container Low
-                        "blush-rose": "#fee1e6", // Surface Container High
-                        "soft-rose": "#ffdad9", // Secondary Fixed
-                        "rose-white": "#ffffff", // Surface Container Lowest
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "container-max": "1280px",
-                        "unit": "8px",
-                        "margin-mobile": "20px",
-                        "margin-desktop": "64px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "headline-md": ["Playfair Display"],
-                        "label-sm": ["DM Sans"],
-                        "body-md": ["DM Sans"],
-                        "body-lg": ["DM Sans"],
-                        "headline-lg": ["Playfair Display"],
-                        "display-lg-mobile": ["Playfair Display"],
-                        "display-lg": ["Playfair Display"]
-                    },
-                    "fontSize": {
-                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
-                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
-                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
-                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }]
-                    }
-                }
-            }
-        }
-    </script>
+
 </head>
 <body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
 <!-- ===================== STANDARD KARAVYA NAV ===================== -->

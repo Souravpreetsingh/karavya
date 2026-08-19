@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 
 <html class="light" lang="en"><head>
+<link href="tailwind.css" rel="stylesheet"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
 <title>KARAVYA - Rose Cloud Robe</title>
@@ -13,110 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CSS -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <!-- Tailwind Configuration -->
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {"rose-white": "#FFF5F7", "deep-rose": "#8F4A5B", "rose-gold": "#B76E79", 
-                        "surface-container": "#f5ebed",
-                        "secondary-fixed": "#ffdad9",
-                        "tertiary": "#6f574a",
-                        "on-secondary-fixed": "#331012",
-                        "on-secondary": "#ffffff",
-                        "on-tertiary-fixed-variant": "#584236",
-                        "surface-dim": "#e1d8da",
-                        "soft-rose": "#EFB7C5",
-                        "secondary-fixed-dim": "#f6b7b7",
-                        "primary-container": "#a6606b",
-                        "outline-variant": "#d7c1c3",
-                        "tertiary-fixed": "#fddccb",
-                        "on-tertiary": "#ffffff",
-                        "surface-container-high": "#efe6e8",
-                        "on-primary-container": "#fffbff",
-                        "blush-rose": "#F8DCE3",
-                        "inverse-primary": "#ffb2bc",
-                        "on-error-container": "#93000a",
-                        "on-error": "#ffffff",
-                        "on-tertiary-fixed": "#29180e",
-                        "secondary-container": "#ffbfbf",
-                        "on-secondary-container": "#7b4b4b",
-                        "on-primary": "#ffffff",
-                        "surface-tint": "#8c4b55",
-                        "on-background": "#1f1a1c",
-                        "outline": "#857374",
-                        "primary": "#8a4853",
-                        "surface-container-low": "#fbf1f3",
-                        "tertiary-container": "#896f62",
-                        "surface-bright": "#fff8f8",
-                        "deep-rose": "#8F4A5B",
-                        "surface-container-lowest": "#ffffff",
-                        "error": "#ba1a1a",
-                        "on-surface-variant": "#524345",
-                        "dark-espresso": "#2B1B1F",
-                        "error-container": "#ffdad6",
-                        "pearl-rose": "#FCECEF",
-                        "on-primary-fixed": "#3a0915",
-                        "inverse-on-surface": "#f8eef0",
-                        "surface": "#fff8f8",
-                        "surface-container-highest": "#eae0e2",
-                        "on-primary-fixed-variant": "#70343e",
-                        "tertiary-fixed-dim": "#e0c0b0",
-                        "secondary": "#825152",
-                        "on-tertiary-container": "#fffbff",
-                        "background": "#fff8f8",
-                        "on-surface": "#1f1a1c",
-                        "primary-fixed": "#ffd9dd",
-                        "on-secondary-fixed-variant": "#673a3b",
-                        "inverse-surface": "#342f31",
-                        "primary-fixed-dim": "#ffb2bc",
-                        "surface-variant": "#eae0e2",
-                        "rose-gold": "#B76E79",
-                        "warm-champagne": "#E8D8D0"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "container-max": "1440px",
-                        "margin-mobile": "20px",
-                        "base": "8px",
-                        "section-gap-md": "80px",
-                        "section-gap-lg": "120px",
-                        "margin-desktop": "64px",
-                        "gutter": "24px"
-                    },
-                    "fontFamily": {
-                        "display-lg-mobile": ["Playfair Display"],
-                        "headline-lg": ["Playfair Display"],
-                        "display-lg": ["Playfair Display"],
-                        "body-md": ["DM Sans"],
-                        "label-sm": ["DM Sans"],
-                        "headline-md": ["Playfair Display"],
-                        "headline-lg-mobile": ["Playfair Display"],
-                        "body-lg": ["DM Sans"],
-                        "label-lg": ["DM Sans"]
-                    },
-                    "fontSize": {
-                        "display-lg-mobile": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }],
-                        "headline-lg": ["40px", { "lineHeight": "1.2", "fontWeight": "600" }],
-                        "display-lg": ["80px", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700" }],
-                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
-                        "label-sm": ["11px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
-                        "headline-md": ["28px", { "lineHeight": "1.3", "fontWeight": "500" }],
-                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }],
-                        "body-lg": ["18px", { "lineHeight": "1.7", "fontWeight": "400" }],
-                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.15em", "fontWeight": "600" }]
-                    }
-                }
-            }
-        }
-    </script>
+
 <style>
         body {
             background-color: #fff8f8; /* background */

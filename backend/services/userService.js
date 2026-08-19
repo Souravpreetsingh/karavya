@@ -7,15 +7,35 @@ const { AppError } = require('../utils/errors');
 
 const id = () => crypto.randomUUID();
 const now = () => new Date().toISOString();
+const WHATSAPP_EMAIL_DOMAIN = 'whatsapp.karavya.local';
+
+function normalizePhone(phone) {
+  const raw = String(phone || '').trim();
+  if (!raw) return '';
+  const digits = raw.replace(/\D/g, '');
+  if (!digits) return '';
+  return raw.startsWith('+') ? `+${digits}` : digits;
+}
+
+function isWhatsAppEmail(email) {
+  return String(email || '').toLowerCase().endsWith(`@${WHATSAPP_EMAIL_DOMAIN}`);
+}
+
+function whatsappEmail(phone) {
+  const digits = normalizePhone(phone).replace(/\D/g, '');
+  return `wa-${digits}@${WHATSAPP_EMAIL_DOMAIN}`;
+}
 
 function getSafeUser(row) {
   if (!row) return null;
+  const authMethod = isWhatsAppEmail(row.email) ? 'whatsapp' : 'email';
   return {
     id: row.id,
-    email: row.email,
+    email: authMethod === 'whatsapp' ? '' : row.email,
     firstName: row.first_name,
     lastName: row.last_name,
     phone: row.phone,
+    authMethod,
     emailVerified: !!row.email_verified,
     role: row.role,
     preferredSize: row.preferred_size,
@@ -26,16 +46,25 @@ function getSafeUser(row) {
 }
 
 const UserService = {
-  async create({ email, password, firstName, lastName, phone, role = 'customer' }) {
-    const existing = db.prepare('SELECT id FROM users WHERE email = ?').get(email.toLowerCase());
+  async create({ email, password, firstName, lastName, phone, role = 'customer', authMethod = 'email' }) {
+    const normalizedPhone = normalizePhone(phone);
+    const accountEmail = authMethod === 'whatsapp' && !email ? whatsappEmail(normalizedPhone) : String(email || '').toLowerCase();
+    if (!accountEmail) throw new AppError(400, 'EMAIL_REQUIRED', 'A valid email is required');
+
+    if (authMethod === 'whatsapp') {
+      const existingPhone = db.prepare("SELECT id FROM users WHERE phone = ? AND phone != ''").get(normalizedPhone);
+      if (existingPhone) throw new AppError(409, 'PHONE_TAKEN', 'An account with this WhatsApp number already exists');
+    }
+
+    const existing = db.prepare('SELECT id FROM users WHERE email = ?').get(accountEmail);
     if (existing) throw new AppError(409, 'EMAIL_TAKEN', 'An account with this email already exists');
     const user = {
       id: id(),
-      email: email.toLowerCase(),
+      email: accountEmail,
       passwordHash: scryptHash(password),
       firstName: firstName || '',
       lastName: lastName || '',
-      phone: phone || '',
+      phone: normalizedPhone || '',
       role,
     };
     db.prepare(
@@ -52,8 +81,16 @@ const UserService = {
     return db.prepare('SELECT * FROM users WHERE email = ?').get(String(email).toLowerCase());
   },
 
-  async verifyCredentials(email, password) {
-    const row = db.prepare('SELECT * FROM users WHERE email = ?').get(String(email).toLowerCase());
+  async verifyCredentials(identifier, password) {
+    const raw = String(identifier || '').trim();
+    let row = null;
+    if (raw.includes('@')) {
+      row = db.prepare('SELECT * FROM users WHERE email = ?').get(raw.toLowerCase());
+    }
+    if (!row) {
+      const normalizedPhone = normalizePhone(raw);
+      if (normalizedPhone) row = db.prepare("SELECT * FROM users WHERE phone = ? AND phone != ''").get(normalizedPhone);
+    }
     if (!row || !scryptVerify(password, row.password_hash)) {
       throw new AppError(401, 'INVALID_CREDENTIALS', 'Email or password is incorrect');
     }
@@ -98,5 +135,7 @@ const UserService = {
     db.prepare('UPDATE password_reset_tokens SET used = 1 WHERE id = ?').run(row.id);
   },
 };
+
+UserService.normalizePhone = normalizePhone;
 
 module.exports = UserService;

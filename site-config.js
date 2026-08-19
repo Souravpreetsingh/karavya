@@ -1,15 +1,12 @@
 /* KARAVYA — centralized site configuration.
  *
- * DEVELOPMENT DOMAIN PLACEHOLDER
+ * PRODUCTION DOMAIN
  * ---------------------------------
- * SITE_URL below is a placeholder. When the real production domain
- * is known, change it HERE ONLY — every page that reads this config
- * (via site-config.js) updates automatically.
- *
- * No real domain is invented; nothing ships to production with this
- * placeholder until the actual domain is provided.
+ * SITE_URL is the current production deployment URL. When a custom domain
+ * is connected, change it here only; pages that read this config
+ * (via site-config.js) update automatically.
  */
 window.KARAVYA_CONFIG = {
-    SITE_URL: "https://karavya.example/",
+    SITE_URL: "https://karavya-five.vercel.app/",
     SITE_NAME: "KARAVYA"
 };

@@ -31,7 +31,7 @@ router.post('/register', authLimiter(), validate(registerSchema), async (req, re
     const user = await UserService.create(d);
     startSession(req, user);
     mergeGuestData(user.id, d.guestCart, d.guestWishlist);
-    MailService.sendWelcome(user.email, user.firstName);
+    if (user.email) MailService.sendWelcome(user.email, user.firstName);
     return ok(res, { user, cart: CartService.get(user.id), wishlist: WishlistService.get(user.id) }, 201);
   } catch (err) {
     next(err);
