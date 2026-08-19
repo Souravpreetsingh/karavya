@@ -738,4 +738,24 @@
         document.addEventListener('DOMContentLoaded', function () { K.renderCounts(); K.paintWishlist(); });
     }
 
+    /* Mobile: point links at their -mobile pages directly so the desktop
+       page never loads (and never flashes) before redirecting. Runs after
+       load when the viewport width is real. */
+    var DUAL_PAGES = ['account', 'checkout', 'collections', 'concierge', 'editorial', 'fit-studio', 'gift-studio', 'lookbook', 'order-confirmation', 'private-wardrobe', 'quiz-results', 'returns', 'robe', 'search', 'wishlist'];
+    function patchMobileLinks() {
+        if (!window.matchMedia('(max-width: 767px)').matches) return;
+        var target = {};
+        DUAL_PAGES.forEach(function (p) { target[p + '.html'] = p + '-mobile.html'; });
+        document.querySelectorAll('a[href]').forEach(function (a) {
+            var h = a.getAttribute('href');
+            var base = h.split('?')[0].split('#')[0];
+            if (target[base]) a.setAttribute('href', target[base] + h.slice(base.length));
+        });
+    }
+    if (document.readyState !== 'loading') {
+        setTimeout(patchMobileLinks, 0);
+    } else {
+        document.addEventListener('DOMContentLoaded', patchMobileLinks);
+    }
+
 })(window, document);
