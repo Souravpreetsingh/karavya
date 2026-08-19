@@ -163,52 +163,6 @@
         <p class="mt-4 text-center text-[0.7rem] tracking-[0.2em] uppercase text-dark-espresso/40">The Private Wardrobe</p>
     </div>
 </nav>
-  <!-- Navigation -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <nav class="mx-auto max-w-[90rem] px-6 lg:px-12">
-      <div class="flex items-center justify-between h-20 lg:h-24">
-        <a href="index.html" class="flex items-center gap-2 group">
-          <span class="text-2xl">✨</span>
-          <span class="font-serif text-xl lg:text-2xl tracking-[0.35em] text-dark-espresso group-hover:text-primary transition-colors">KARAVYA</span>
-        </a>
-        <div class="hidden lg:flex items-center gap-10">
-          <a href="index.html" class="nav-link font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary">Home</a>
-          <a href="collections.html" class="nav-link font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary">Collections</a>
-          <a href="editorial.html" class="nav-link font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary">Editorial</a>
-          <a href="concierge.html" class="nav-link font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary">Concierge</a>
-        </div>
-        <div class="flex items-center gap-3">
-          <a href="concierge.html" class="hidden md:inline-flex btn-primary font-label-lg text-label-lg tracking-widest uppercase px-6 py-3 rounded-full">Book Appointment</a>
-          <button id="mobile-menu-btn" class="lg:hidden text-dark-espresso p-2" aria-label="Open menu">
-            <span class="material-symbols-outlined text-2xl">menu</span>
-          </button>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Mobile Menu -->
-  <div id="old-mobile-menu" class="fixed inset-0 z-[60] hidden">
-    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('old-mobile-menu').classList.add('hidden')"></div>
-    <div class="absolute right-0 top-0 h-full w-[85%] max-w-sm bg-surface p-8 shadow-2xl">
-      <div class="flex items-center justify-between mb-10">
-        <span class="font-serif text-xl tracking-[0.3em] text-dark-espresso">KARAVYA</span>
-        <button onclick="document.getElementById('old-mobile-menu').classList.add('hidden')" class="text-dark-espresso p-2" aria-label="Close menu">
-          <span class="material-symbols-outlined">close</span>
-        </button>
-      </div>
-      <div class="flex flex-col gap-6">
-        <a href="index.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Home</a>
-        <a href="collections.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Collections</a>
-        <a href="editorial.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Editorial</a>
-        <a href="concierge.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Concierge</a>
-        <a href="wishlist.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">Wishlist</a>
-        <a href="account.html" class="font-label-lg text-label-lg tracking-widest uppercase text-dark-espresso hover:text-primary py-2 border-b border-outline-variant">My Account</a>
-      </div>
-      <a href="concierge.html" class="btn-primary font-label-lg text-label-lg tracking-widest uppercase px-6 py-4 rounded-full text-center mt-8 w-full block">Book Appointment</a>
-    </div>
-  </div>
-
   <!-- Hero -->
   <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 lg:pt-28">
     <div class="absolute inset-0">
@@ -789,22 +743,10 @@
   })();
   </script>
   <script>
-    const navbar = document.getElementById('navbar');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('old-mobile-menu');
     const backToTop = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', function () {
-      const scrolled = window.scrollY > 50;
-      navbar.classList.toggle('bg-surface/90', scrolled);
-      navbar.classList.toggle('backdrop-blur-md', scrolled);
-      navbar.classList.toggle('shadow-lg', scrolled);
       backToTop.classList.toggle('visible', window.scrollY > 500);
-    });
-
-    mobileMenuBtn.addEventListener('click', function () {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.querySelector('div:nth-child(2)').style.animation = 'fadeInUp 0.4s ease both';
     });
 
     backToTop.addEventListener('click', function () {
@@ -851,7 +793,7 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    var menu = document.getElementById('old-mobile-menu');
+    var menu = document.getElementById('mobile-menu');
     var overlay = document.getElementById('menu-overlay');
     var openBtn = document.getElementById('menu-open');
     var closeBtn = document.getElementById('menu-close');
