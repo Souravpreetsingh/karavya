@@ -618,7 +618,8 @@
             b.type = 'button'; b.title = c.name; b.setAttribute('aria-label', 'Select ' + c.name);
             b.className = 'w-8 h-8 rounded-full flex items-center justify-center focus:outline-none transition-colors';
             if (c.hex) b.style.backgroundColor = c.hex;
-            b.classList.add(ci === 0 ? 'border-2 border-dark-espresso' : 'border border-outline-variant hover:border-dark-espresso');
+            if (ci === 0) { b.classList.add('border-2', 'border-dark-espresso'); }
+            else { b.classList.add('border', 'border-outline-variant', 'hover:border-dark-espresso'); }
             b.addEventListener('click', function () {
                 var bs = colorsWrap.querySelectorAll('button');
                 bs.forEach(function (x, xi) { x.classList.toggle('border-2', xi === ci); x.classList.toggle('border-dark-espresso', xi === ci); x.classList.toggle('border', xi !== ci); x.classList.toggle('border-outline-variant', xi !== ci); });
@@ -635,7 +636,8 @@
             var b = document.createElement('button');
             b.type = 'button'; b.textContent = s;
             b.className = 'py-2 border text-center font-label-sm text-label-sm text-dark-espresso hover:border-dark-espresso transition-colors';
-            b.classList.add(si === 0 ? 'border-dark-espresso bg-surface-container-high' : 'border-outline-variant');
+            if (si === 0) { b.classList.add('border-dark-espresso', 'bg-surface-container-high'); }
+            else { b.classList.add('border-outline-variant'); }
             b.addEventListener('click', function () {
                 selSize = s;
                 sizesWrap.querySelectorAll('button').forEach(function (x, xi) { x.classList.toggle('border-dark-espresso', xi === si); x.classList.toggle('bg-surface-container-high', xi === si); x.classList.toggle('border-outline-variant', xi !== si); });
